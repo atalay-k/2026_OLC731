@@ -1,0 +1,164 @@
+---
+title: "Ders Tanıtımı ve İzlence"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    code-fold: false
+    df-print: paged
+    sidebar: false
+---
+
+# 📘 OLC731 – R Yazılımı ile Ölçme Uygulamaları {.unnumbered}
+
+**Ders Kodu:** OLC731
+
+**Program:** Ölçme ve Değerlendirme Doktora Programı
+
+**Dönem:** Güz 2025
+
+**Öğretim Üyesi:** 🏛 [Assoc. Prof. Dr. Kübra Atalay Kabasakal](https://avesis.hacettepe.edu.tr/katalay)
+
+🧭 [ORCID](https://orcid.org/0000-0002-3580-5568), 🎓 [YÖK Akademik](https://akademik.yok.gov.tr/AkademikArama/view/viewAuthor.jsp), 🧑‍💻 [GitHub](https://atalay-k.github.io/),
+
+**İletişim:** kkatalay\@gmail.com / katalay\@hacettepe.edu.tr
+
+**Ders Web sitesi:** <https://atalay-k.github.io/2025_OLC731>
+
+# 🎯 Dersin Amacı
+
+Bu dersin amacı, R programlama dili aracılığıyla öğrencilerin temel ve ileri düzey veri analizi becerilerini kazanmaları; betimsel istatistik, hipotez testleri, regresyon analizleri gibi işlemleri kendi yazdıkları fonksiyonlarla gerçekleştirmeleri ve elde edilen bulguları akademik standartlara uygun biçimde raporlamayı öğrenmeleridir.
+
+# 🧠 Öğrenme Hedefleri
+
+Bu dersi tamamlayan öğrenciler:
+
+-   R ortamını kurar ve temel paketleri yükler.
+
+-   Veri okuma, düzenleme ve analiz etme becerileri geliştirir.
+
+-   Fonksiyon yazarak betimleyici istatistikler ve hipotez testleri gerçekleştirir.
+
+-   Regresyon analizlerini uygular, varsayımları test eder.
+
+-   Analiz sonuçlarını APA formatına uygun şekilde raporlar.
+
+# 📅 Haftalık Ders Planı
+
+## Hafta 1 – Giriş
+
+-   Dersin tanıtımı, R ve RStudio kurulumu, veri kavramı
+-   Veri türleri, paketlerle veri yükleme
+
+## Hafta 2 – Veri İnceleme - I
+
+-   Değişken türleri
+-   Veri setlerini tanıma (`glimpse()`, `summary()`, görselleştirme temelleri)
+
+## Hafta 3 – Veri İnceleme - II
+
+-   Veri temizleme, eksik/veri hataları\
+-   Kategorik ve sayısal değişkenlerle temel özet istatistikler
+
+## Hafta 4 – Keşfedici Veri Analizi- I
+
+-   Tek değişkenli görselleştirme (barplot, histogram, boxplot)\
+-   Dağılımların yorumlanması
+
+## Hafta 5 – Keşfedici Veri Analizi- II
+
+-   İki değişkenli görselleştirme (scatterplot, grouped barplot)\
+-   Kategorik + sayısal ilişkiler, korelasyon
+
+## Hafta 6 – Regresyon I
+
+-   Basit doğrusal regresyon\
+-   Regresyon katsayılarının yorumlanmas
+
+## Hafta 7 – Regresyon II
+
+-   Çoklu regresyon\
+-   Varsayımlar, etkileşim terimleri
+
+## Hafta 8 – Ara Sınav
+
+## Hafta 9 – Regresyon III
+
+-   Regresyon modelleme uygulamaları
+
+## Hafta 10 – İstatistiksel çıkarım I
+
+-   Örnekleme dağılımı
+-   Merkezî limit teoremi, güven aralıkları
+
+## Hafta 11 – İstatistiksel çıkarım II
+
+-   Hipotez testleri: t-test, ki-kare testleri
+
+## Hafta 12 – İstatistiksel çıkarım III
+
+-   ANOVA, post-hoc testler
+-   Etki büyüklüğü, yorumlama
+
+## Hafta 13 – Çıkarımsal Modelleme I
+
+-   Lojistik regresyon
+-   Model karşılaştırmaları
+
+## Hafta 14 – Çıkarımsal Modelleme II
+
+-   Model seçimi, çapraz doğrulama
+-   Genel tekrar ve proje sunumları
+
+## Hafta 15 – Genel tekrar ve tartışma
+
+## Hafta 16 – Final sınavı / Proje teslimi
+
+# 📝 Değerlendirme Ölçütleri
+
+| Bileşen             | Ağırlık |
+|---------------------|---------|
+| Ara Sınav           | 30%     |
+| Ödev ve Uygulamalar | 30%     |
+| Genel Sınav         | 40%     |
+
+📌 Sınavlar yüzyüze gerçekleştirilecektir.
+
+📌 Her hafta ders kapsamında öğrenme günlüğü oluşturmanız beklenmektedir.
+
+# 🛠️ Teknik Gereksinimler
+
+-   R ve RStudio kurulumu
+
+-   Aşağıdaki R paketlerinin kurulumu:
+
+    -   `tidyverse`, `ggplot2`, `readr`, `dplyr`, `psych`, `infer`, `learnr`, `quarto`, vb.
+
+-   Yapay zeka aracı: ChatGPT (web veya API erişimi önerilir)
+
+# 🌐 Önceki Yılların Ders Web Siteleri
+
+-   [📘 OLC731 – 2023](https://atalay-k.github.io/OLC731/)\
+-   [📘 OLC731 – 2024](https://atalay-k.github.io/2024_OLC731/)
+
+# 📚 Ders Kaynakları
+
+🔗 [R ile Veri Analizi ve Psikometri Uygulamaları](https://pegem.net/urun/R-ile-Veri-Analizi-ve-Psikometri-Uygulamalari/60801) – Atar, Atalay Kabasakal, Ünsal Özberk, Özberk, Uysal\
+🔗 [R ile Psikometri (2025)](https://ekitap02.pegem.net/) – Güler, Atar & Atalay Kabasakal\
+🔗 [Veri Düzenleme ve Görselleştirme (2023)](https://kitap.epodder.org/veri-duzenleme-ve-gorsellestirme/) – Atalay Kabasakal & Gönen
+
+🔗 [R Shiny ile Psikometri ve İstatistik Uygulamaları (2021)](https://ekitap01.pegem.net/) – Doğan & Aybek\
+🔗 [Handbook of Educational Measurement and Psychometrics Using R](https://www.routledge.com/Handbook-of-Educational-Measurement-and-Psychometrics-Using-R/Desjardins-Bulut/p/book/9780367734671) – Desjardins & Bulut\
+🔗 [R Diliyle İstatistik Uygulamaları (2021)](https://pegem.net/urun/R-Diliyle-Istatistik-Uygulamalari/61912) – Demir\
+🔗 [R Programlama Diline Giriş (2024)](https://kitap.epodder.org/r-programlama-dili/) – Güngör
+
+> 📌 Bu ders materyallerine ek olarak, R öğrenmek için bir dizi mükemmel kaynak vardır.
+
+> 📌 Bu sayfa, dersin tanıtımı ve genel planını içerir. Haftalık içerik, ödevler ve uygulamalara menüden erişebilirsiniz.
+
+## 🔗 İlgili Bağlantılar ve Mevzuat
+
+📄 [Dersin AKTS Bilgi Paketi Sayfası (Hacettepe Üniversitesi)](https://akts.hacettepe.edu.tr/ders_detay.php?ders_ref=DRSTNM_0000000000000000000018497&ders_kod=OLC731&zs_link=2&prg_kod=21134&submenuheader=2)
+
+📜 Bu ders, [Hacettepe Üniversitesi Lisansüstü Eğitim ve Öğretim Yönetmeliği hükümlerine uygun](https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=23066&MevzuatTur=8&MevzuatTertip=5) olarak yürütülmektedir.

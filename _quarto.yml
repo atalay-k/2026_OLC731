@@ -1,0 +1,52 @@
+project:
+  type: website
+
+website:
+  title: "OLC731 – R Yazılımı ile Ölçme Uygulamaları"
+  navbar:
+    left:
+      - text: "📘 Tanıtım & İzlence"
+        href: index.qmd
+      - text: "📅 Haftalık İçerik"
+        href: haftalar/index.qmd
+      - text: "📚 Kaynaklar"
+        href: kaynaklar/index.qmd
+
+  sidebar:
+    - id: haftalar
+      title: "Haftalık Modüller"
+      style: docked
+      contents:
+        - haftalar/01_Giris.qmd
+        - haftalar/02_Veri_duz.qmd
+        - haftalar/03_Kat.qmd
+
+
+    - id: assignments
+      title: "Ödevler"
+      contents:
+        - assignments/odev01.qmd
+        - assignments/odev02.qmd
+
+    - id: uygulamalar
+      title: "Uygulamalar"
+      contents:
+        - uygulamalar/uygulama01.qmd
+        - uygulamalar/uygulama02.qmd
+
+    - id: ai
+      title: "AI Etkileşim"
+      contents:
+        - ai/gpt-yardim.qmd
+        - ai/yorum-cozum.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    code-fold: true
+
+editor: visual

@@ -1,0 +1,475 @@
+---
+title: "Temeller"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    code-fold: false
+    df-print: paged
+    sidebar: haftalar
+---
+
+# 🎯 Amaç {.unnumbered}
+
+-   Paketlerden veri yüklemek
+
+-   Veri setelerini (data frame) ve tidy data yaklaşımını tanıtmak
+
+-   Değişken türlerini tartışmak ve ilişkilendirmek
+
+-   Veri setlerini değişken türlerini dönüştürmek için mutate fonksiyonunu kullanmak
+
+-   Sayısal değişkenleri kategorik değişkenlere dönüştürmek
+
+-   Verileri filtrelemek ve ardından gereksiz düzeyleri (levels) kaldırmak
+
+-   Kategorik değişkenlerde bazı düzeyleri birleştirmek
+
+-   İki mevcut değişkene dayalı yeni bir değişken oluşturmak
+
+Bu amaçları, R yazılıma giriş için açıklayıcı olduğunu düşündüğüm bir kılavuz üzerinden ilerleyerek açıklamak istiyorum.
+
+İlk bölümün linki🔗 [Language of data](https://openintro.shinyapps.io/ims-01-data-01/#section-welcome)
+
+-   Paket yükleme
+
+> 📌 Uyarılara dikkat ediniz.
+
+```{r}
+library(tidyverse)
+library(openintro)
+```
+
+-   Bu klavuzda, `openintro` paketinde yer alan High School and Beyond veri seti [hsb2](https://openintrostat.github.io/openintro/reference/hsb2.html) ile kullanılmıştır.
+
+```{r}
+hsb2
+```
+
+# Veri yükleme
+
+Verilerinizi R’a aktarmanın, verilerin nerede saklandığına bağlı olarak birçok farklı yolu vardır. İlk derste bir R paketinde yer alan bir veri seti kullanıyoruz.
+
+Sıklıkla kullanılan diğer veri formatları ise düz metin dosyaları (plain text), virgülle ayrılmış değerler (CSV), Excel dosyaları (XLS veya XLSX) ve R’nin kendi veri saklama formatı olan RData’dır.
+
+Kendi verilerinizle bir analiz yürütürken R’ye veri yükleme yöntemlerini öğrenmek oldukça önemlidir. Bu konuda daha fazla bilgi edinmek için Grolemund ve Wickham tarafından yazılan [R for Data Science](https://r4ds.had.co.nz/data-import.html) kitabındaki Data Import bölümünü inceleyebilirsiniz. Bu dersin ilerleyen aşamalarında da bu konuya değineceğiz.
+
+## 💡 Uygulamalı Görev - 1 {.unnumbered}
+
+R’da yer alan `mtcars` veri setini yükleyin ve veri setinin ilk birkaç satırını görüntüleyin.
+
+> 📌 veri seti yüklendikten sonra `head()` fonksiyonunu kullanarak veri setinin ilk birkaç satırını görüntüleyebilirsiniz.
+
+```{r}
+#| eval: false
+#| include: false
+data(mtcars)
+head(mtcars)
+```
+
+## Veri inceleme
+
+Bu veri setinin boyutlarını, değişken adlarını ve ilk birkaç gözlemini görmek için veri setinin adını `glimpse()` fonksiyonunun içine yazabilirsiniz.
+
+```{r}
+glimpse(hsb2)
+
+```
+
+Sırada, `gapminder` paketindeki `gapminder` veri setini inceleyelim. Veri seti 1952–2007 yılları arasında ülkelerin yaşam beklentisi, nüfus ve kişi başına gayri safi milli hasıla verilerini içerir.
+
+`glimpse()` fonksiyonunu kullanarak gapminder veri setine göz atın.
+
+```{r}
+library(gapminder)
+glimpse(gapminder)
+```
+
+-   Farklı veri türlerini farkettiniz mi?
+
+# Değişken Türleri
+
+Bir veri setiyle çalışmaya başladığınızda ilk olarak yapmanız gereken , veri setinin boyutlarını not etmektir: kaç satır (gözlem) ve kaç sütun (değişken) olduğu.
+
+Değişkenleri sınıflandırma oldukça önemlidir çünkü değişken türü, hangi betimsel istatistikleri hesaplayabileceğimizi, hangi görselleştirmeleri yapabileceğimizi ve hangi istatistiksel yöntemlerin araştırma sorularımıza uygun olacağını belirler.
+
+Genel olarak iki tür değişken vardır: **sayısal** ve **kategorik**.
+
+## Sayısal Veriler
+
+Sayısal (ya da nicel) değişkenler, sayısal değerler alır. Bu değerlerle toplama, çıkarma, ortalama alma gibi aritmetik işlemler yapmak anlamlıdır.
+
+Sayısal değişkenler **sürekli (continuous)** veya **kesikli (discrete)** olabilir:
+
+-   **Sürekli sayısal değişkenler** genellikle ölçme yoluyla elde edilir (ör. boy uzunluğu). Belirli bir aralıkta sonsuz sayıda değer alabilirler.
+
+-   **Kesikli sayısal değişkenler** ise belirli ve sayılabilir değerlerden birini alır. Örneğin bir evdeki çocuk sayısı. Genel olarak sayma verileri (count data) kesikli değişkenlere örnektir.
+
+Bir değişkenin sürekli mi kesikli mi olduğuna karar verirken, gözlenen değerden çok değişkenin doğasına bakmak önemlidir. Örneğin, boy aslında sürekli bir değişkendir; ancak biz boyu santimetre ya da inç gibi en yakın birime yuvarlayarak raporladığımız için kesikli gibi görünebilir.
+
+## Kategorik Veriler
+
+Kategorik (ya da nitel) değişkenler sınırlı sayıda farklı kategori alır.
+
+-   Eğer kategoriler **sıralı** bir yapıya sahipse, bu tür değişkenlere **ordinal** denir.
+
+    Örneğin: Bir ankette müşteri hizmetlerinden memnuniyet “çok memnun değilim”, “memnun değilim”, “kararsızım”, “memnunum”, “çok memnunum” şeklinde derecelendirilebilir. Burada doğal bir sıralama olduğu için değişken ordinale girer.
+
+-   Eğer kategoriler arasında doğal bir sıralama yoksa, değişken **nominal** olarak adlandırılır.\
+    Örneğin: “Tabletiniz var mı? (Evet / Hayır)” sorusu. Burada cevapların sırası yoktur.
+
+Not: Kategorik değişkenler sayılarla kodlanabilir (ör. likert ölçeğinde 1–5 arası puanlama). Ancak bu sayılar yalnızca **kategori düzeylerini temsil eden sembollerdir**; aritmetik işlemler yapmak anlamlı değildir.
+
+## High School and Beyond Veri Setindeki Değişkenler
+
+`glimpse()` fonksiyonunu kullanarak veri setindeki değişkenlerin listesini görebilir ve bu değişkenlerde hangi tür değerlerin saklandığını inceleyebiliriz.
+
+-   **id**: Öğrenciye ait kimlik numarasıdır. Teknik olarak kategorik bir değişken olsa da analizlerde ilişkileri incelemek için kullanışlı değildir. Bunu, öğrencilerin isimlerinin anonimleştirilmiş bir karşılığı gibi düşünebilirsiniz.
+
+-   **gender (cinsiyet)**: “male” ve “female” düzeylerine sahip kategorik bir değişkendir. Burada dikkat edilmesi gereken nokta, High School and Beyond gibi resmi araştırmalarda kullanılan dilin değişmesinin genellikle yavaş olmasıdır. Bu nedenle “gender” olarak etiketlenmiş değişkenler aslında biyolojik cinsiyeti (erkek/kadın) ölçmektedir. Bu değişkende doğal bir sıralama yoktur; dolayısıyla sadece **kategorik** bir değişkendir.
+
+-   **race (ırk/etnik köken)**: “white”, “african american”, “hispanic” ve “asian” düzeylerine sahip kategorik bir değişkendir. Bu değişkende de doğal bir sıralama yoktur.
+
+-   **socio-economic status (sosyo-ekonomik durum)**: “low”, “middle” ve “high” düzeylerine sahiptir. Bu düzeyler arasında doğal bir sıralama olduğundan, bu değişken **ordinal kategorik** bir değişkendir.
+
+-   **school type** ve **program**: Bunlar da kategorik değişkenlerdir, ancak düzeyleri arasında doğal bir sıralama yoktur.
+
+-   **okuma, yazma, matematik, fen ve sosyal bilgiler puanları**: Bu değişkenler, öğrencilerin testlerden aldıkları puanlardır. Tam sayılardan oluşur ve (sınavlarda küsuratlı puanların verilmediğini varsayarsak) **kesikli (discrete) sayısal değişkenler**dir.
+
+### 💡 Uygulamalı Görev - 2 {.unnumbered}
+
+`gapminder` veri setindeki değişkenleri inceleyin ve her bir değişkenin türünü (sayısal/kategorik) belirleyin. Özellikle `year`, `lifeExp`, `pop` ve `gdpPercap` değişkenlerine odaklanın.
+
+```{r}
+#| eval: false
+#| include: false
+glimpse(gapminder)
+```
+
+## R’de Kategorik Veriler: Faktörler
+
+R’de farklı veri sınıfları vardır. Bunlardan biri **faktör (factor)** sınıfıdır. R, kategorik değişkenleri çoğunlukla faktör olarak saklar.
+
+Faktörlerin önemli bir kullanım alanı **istatistiksel modelleme**dir, çünkü kategorik değişkenler modellere sayısal değişkenlerden farklı şekilde girer. Şimdilik bilmeniz gereken, faktörlerin bazı durumlarda gereksiz görünse de birçok analiz için doğru şekilde çalışmayı sağlayan vazgeçilmez bir yapı olduğudur.
+
+Kategorik veri ile yapılan analizlerde yaygın bir adım, yalnızca verinin bir alt kümesiyle çalışmaktır.
+
+Örneğin:
+
+-   Sadece devlet okulundaki öğrencilerin verilerini analiz etmek\
+-   Sadece “female” olarak tanımlanan öğrenciler üzerinde çalışmak
+
+Bu alt kümeleri elde etmek için kategorik değişkenin belirli düzeylerini (levels) filtreleriz.
+
+### Örnek: High School and Beyond Verisinde Alt Grup Analizi
+
+Diyelim ki sadece devlet okullarındaki öğrenciler üzerinde bir analiz yapmak istiyoruz. İlk adım, bu türde kaç öğrenci olduğunu bulmaktır.
+
+Bunun için kullanabileceğimiz yollardan biri, **tidyverse** içinde yer alan **dplyr** paketindeki `count()` fonksiyonudur.
+
+-   `count()` fonksiyonu, bir sütundaki her benzersiz değerin kaç kez tekrarlandığını (frekansını) verir.
+
+-   Bu örnekte, `schtyp` (school type) sütunundaki her düzey için öğrenci sayısını elde edeceğiz.
+
+```{r}
+library(dplyr)
+library(openintro)
+
+# Her okul türündeki öğrenci sayısını bulma
+hsb2 %>% 
+  count(schtyp)
+```
+
+## Pipe Operatörü `%>%`
+
+Pipe operatörü (`%>%`) dikey çizgi ve büyüktür işaretinden oluşur. R’ye, solda gelen nesneyi sağdaki fonksiyonun ilk argümanına aktarmasını söyler.
+
+Matematiksel olarak:
+
+`x %>% f(y)` ifadesi `f(x, y)` haline gelir, çünkü `x`, `f()` fonksiyonunun ilk argümanına aktarılmıştır.
+
+```{r eval=FALSE, message=TRUE, warning=FALSE, paged.print=FALSE}
+#| code-fold: false
+#| 
+hsb2_public %>% count(schtyp)
+
+
+```
+
+Kodu şöyle okuyabiliriz:
+
+“**hsb2** veri setini al, `count()` fonksiyonuna **pipe** (aktar) et, ardından `count()` fonksiyonu ile `schtyp` değişkenindeki benzersiz değerlerin kaç kez geçtiğini say.”
+
+**Örnek:**
+
+R’de sayıları toplamanın bir yolu `sum()` fonksiyonudur.
+
+```{r}
+sum(3, 4)
+
+```
+
+Burada 3 ve 4, virgülle ayrılarak toplama işlemine sokulur.
+
+Aynı işlemi pipe ile şöyle yazabiliriz:
+
+```{r}
+3 %>% sum(4)
+
+```
+
+Bu kullanım ilk bakışta çok fark yaratmıyor gibi görünebilir. Ancak ders boyunca ilerledikçe pipe operatörünün, veri düzenleme adımlarını ardışık olarak zincirlemeye izin verdiğini göreceğiz.
+
+Bu sayede daha uzun işlemler bile çok daha okunabilir hale gelir.
+
+### Filtreleme
+
+-   `filter()` fonksiyonunu kullanarak sadece devlet okullarındaki öğrencileri seçelim.
+
+`hsb2` veri setinde al, `filter()` fonksiyonuna aktar. Ardından school type değişkeni public olan satırları seç. Sonucu `hsb2_public` adlı yeni bir veri setine ata.”
+
+```{r}
+hsb2_public <- hsb2 %>%
+  filter(schtyp == "public")
+
+```
+
+### Önemli Noktalar
+
+-   Çift eşittir (==): R’de mantıksal testtir. “Eşit mi?” sorusunu sorar.
+
+-   Tırnak işareti (""): Kategorik değişkenler karakter tipindedir. Bu yüzden schtyp == "public" ifadesinde "public" tırnak içinde yazılmalıdır. Tırnak koymayı unutursanız R hata mesajı döner!
+
+```{r}
+hsb2_public %>% count(schtyp)
+```
+
+### 💡 Uygulamalı Görev - 3 {.unnumbered}
+
+**“Devlet okulunda okuyan ve sosyo-ekonomik durumu düşük olan öğrencileri filtreleyin. Kaç gözlem kaldı?”**
+
+```{r}
+#| eval: false
+#| include: false
+hsb2_subset <- hsb2 %>%
+  filter( schtyp == "public" & ses == "low")
+
+# Kontrol: Kaç öğrenci var?
+hsb2_subset %>% count(schtyp, ses)
+```
+
+## Değişkenleri Kategorik Hale Getirme
+
+Var olan bir değişkenden yeni bir değişken üretmenin yaygın yollarından biri **kategorik hale getirne**dır (discretizing).
+
+Bu, sayısal bir değişkeni belirli kriterlere göre kategorik bir değişkene dönüştürmek anlamına gelir.
+
+Diyelim ki öğrencilerin gerçek **okuma puanı** ile ilgilenmiyoruz; onun yerine puanlarının ortalamanın **altında mı yoksa üzerinde mi** olduğuna bakmak istiyoruz.
+
+Önce ortalama okuma puanını `mean()` fonksiyonu ile hesaplayalım:
+
+```{r}
+library(dplyr)
+library(openintro)
+
+mean(hsb2$read)
+
+```
+
+Bu değeri daha sonra kullanabilmek için bir nesneye atayalım:
+
+```{r}
+avg_read <- mean(hsb2$read)
+avg_read
+
+```
+
+Kısayol: Atamayı parantez içine alırsak hem nesneye atar hem de çıktısını görürüz:
+
+```{r}
+(avg_read <- mean(hsb2$read)) # nesne adını tekrar yazmak zorunda kalmadık
+
+```
+
+Şimdi her öğrenci için okuma puanı ortalamanın altında mı yoksa ortalama ve üzerinde mi olduğunu belirleyen yeni bir değişken oluşturalım.
+
+Bunun için `mutate()` ve `if_else()` fonksiyonlarını kullanacağız:
+
+```{r}
+hsb2_updated <- hsb2 %>%
+  mutate(read_cat = if_else(read < avg_read, 
+                            "ortalama altı", 
+                            "ortalama ve üstü"))
+
+```
+
+Mantık:
+
+-   Şart (logical test): read \< avg_read
+
+-   TRUE ise: "ortalama altı"
+
+-   FALSE ise: "ortalama ve üstü"
+
+```{r}
+hsb2_updated %>% count(read_cat)
+
+```
+
+```{r}
+library(ggplot2)
+ggplot(hsb2_updated, aes(x = read_cat)) +
+  geom_bar()
+```
+
+> 📌 Herhangi bir veri analizinin en mantıklı ve faydalı ilk adımı **keşifsel analiz**dir.
+
+Keşifsel veri analizinin en önemli bileşenlerinden biri ise **görselleştirmedir**.
+
+R’de veri görselleştirmenin birçok yöntemi vardır. Bu derste **tidyverse** içinde yer alan **ggplot2** paketini kullanacağız.
+
+-   ggplot2, modern görünümlü, kullanımı kolay grafikler üretir.
+
+-   Basit iki değişkenli grafikler üretmeyi öğrendikten sonra, aynı sözdizimini biraz daha genişleterek çok değişkenli görselleştirmeler de kolayca yapılabilir.
+
+-   ggplot2’nin en cazip özelliklerinden biri, grafiklerin katmanlar halinde inşa edilmesidir:
+
+    -   İlk katmanda ham veriler
+
+    -   Üzerine anotasyonlar, özet istatistikler veya eğilim çizgileri eklenebilir.
+
+    Bu yaklaşım öğrenmeyi kolaylaştırır, çünkü adım adım basitten karmaşığa geçiş yapılabilir.
+
+### 💡 Uygulamalı Görev - 4
+
+hsb2_updated veri setine yeni bir değişken oluşturarak matematik puanlarını alt orta ve ust olarak kategorize edin. Her kategoride kaç öğrenci var, bunu bir bar grafiğinde gösteriniz?
+
+> 📌 25. çeyrek ve altı alt, 26.-75. çeyrek orta, 76. çeyrek ve üstü üst olarak kategorize edebilirsiniz.
+
+```{r}
+#| eval: false
+#| include: false
+hsb2_updated <- hsb2_updated %>%
+  mutate(math_cat = case_when(
+    math <= quantile(math, 0.25) ~ "alt",
+    math > quantile(math, 0.25) & math <= quantile(math, 0.75) ~ "orta",
+    math > quantile(math, 0.75) ~ "üst"
+  ))
+
+
+hsb2_updated %>% count(math_cat)
+```
+
+## Görselleştirme
+
+**High School and Beyond** veri setindeki öğrencilerin matematik ve fen puanları arasındaki ilişkiyi görselleştirelim:
+
+```{r}
+library(ggplot2)
+library(openintro)
+
+ggplot(hsb2, aes(x = math, y = science)) +
+  geom_point() +
+  labs(title = "Matematik ve Fen Puanları Arasındaki İlişki",
+       x = "Matematik Puanı",
+       y = "Fen Puanı")
+
+
+```
+
+-   Grafik üretmek için **ggplot()** fonksiyonunu kullanıyoruz.\
+-   İlk argüman, kullanmak istediğimiz veri çerçevesi: `data = hsb2`.\
+-   **aes()** (aesthetics) içinde, veri çerçevesindeki değişkenleri grafiğin eksenlerine eşliyoruz.
+    -   Bu örnekte, x eksenine fen puanı (`science`), y eksenine matematik puanı (`math`) eşlenmiştir.\
+-   Son olarak, her gözlemi grafikte hangi geometrik şekille göstermek istediğimizi belirtiyoruz.
+    -   Dağılım grafiği (scatter plot) yapmak istediğimiz için, her gözlemi bir “nokta” ile gösteriyoruz.\
+    -   Bu katmanı eklemek için **geom_point()** fonksiyonunu kullanıyoruz.
+
+**Özetle:**
+
+-   Ana fonksiyon: `ggplot()`
+
+-   İlk argüman: kullanılacak veri
+
+-   `aes()`: değişkenleri grafiğin özelliklerine (eksene, renge, vb.) eşler
+
+-   `geom_XXX()`: hangi tür grafik çizileceğini belirler
+
+### Katman Mantığı
+
+Dikkat edilmesi gereken bir diğer nokta: **geom_XXX()** fonksiyonu, `ggplot()`’tan sonra `+` işareti ile eklenir.
+
+-   ggplot2 grafiklerinin katmanlar halinde oluşturulduğunu söylemiştik.\
+-   `+` işareti bu katmanları birbirinden ayırır.\
+-   Genel olarak `+` satır sonu gibi düşünülebilir, bu yüzden `+` yazdıktan sonra **Enter** tuşuna basmak iyi bir alışkanlıktır.\
+-   Zorunlu olmasa da, her katmanı yeni bir satırda yazmak kodun daha okunabilir olmasını sağlar.
+
+Bu nedenle biz de bu derste bu yapıyı kullanacağız ve siz de grafiklerinizde bu yöntemi takip etmenizi tavsiye ederiz.
+
+### Grafiğin Yorumlanması
+
+Elde ettiğimiz grafikte, öğrencilerin fen ve matematik puanları arasında **pozitif bir ilişki** görüyoruz.\
+Yani fen puanı yüksek olan öğrenciler genellikle matematikten de yüksek puan alıyor.\
+Bu sonuç, çok da şaşırtıcı olmasa gerek 😊
+
+## Matematik, Fen ve Program Türü
+
+Şimdi öğrencilerin **matematik** ve **fen** puanlarını tekrar görselleştirelim,\
+ancak bu kez öğrencilerin dahil oldukları **program türünü** de dikkate alalım:\
+- **general**\
+- **academic**\
+- **vocational**
+
+Bunu yapmak için `color` estetiğini kullanarak her program türüne farklı bir renk atayabiliriz:
+
+```{r}
+#| echo: true
+ggplot(hsb2, aes(x = science , y = math, color = prog)) +
+  geom_point() +
+  labs(title = "Matematik ve Fen Puanları: Program Türüne Göre",
+       x = "Matematik Puanı",
+       y = "Fen Puanı",
+       color = "Program Türü")
+
+
+```
+
+Fen ve matematik puanları arasındaki **pozitif ilişki** hâlâ belirgindir.\
+Ancak grafiğe program türünü eklediğimizde şunu görüyoruz:\
+- **Akademik programlardaki** öğrenciler (yeşil noktalar) genellikle matematikte fen puanlarına göre daha yüksek puan alma eğilimindedir.\
+- **Mesleki (vocational) programdaki** öğrenciler (mavi) ve **genel programdaki** öğrenciler (kırmızı) ise görece daha düşük puanlara sahiptir.
+
+### 💡 Uygulamalı Görev - 4 {.unnumbered}
+
+Yukarıdaki grafiğe, her bir program türü için ayrı bir doğrusal regresyon doğrusunu ekleyin.
+
+İpucu: geom_smooth(method = "lm", se = FALSE) fonksiyonunu kullanabilirsiniz.
+
+Ortaya çıkan grafiği yorumlayın:
+
+Sizce program türüne göre öğrencilerin matematik ve fen puanları arasındaki ilişki nasıl farklılaşıyor?
+
+Hangi program türünde matematik puanları fen puanlarına göre daha yüksek çıkma eğiliminde görünüyor?
+
+```{r}
+ggplot(hsb2, aes(x = science , y = math, color = prog)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Matematik ve Fen Puanları: Program Türüne Göre",
+       x = "Matematik Puanı",
+       y = "Fen Puanı",
+       color = "Program Türü")
+```
+
+### 💡 Uygulamalı Görev - 5 {.unnumbered}
+
+[Dersin devam eden süreçlerinde size ödev olarak bırakacağım ilk lab çalışmasını derste beraber yapacağız](https://openintrostat.github.io/oilabs-tidy/01_intro_to_r/intro_to_r.html)
+
+# 📚 Ödev {.unnumbered}
+
+📌 [DataCamp](https://www.datacamp.com/) üzerinden size atanan ilk modülü tamamlayınız.
+
+📘 Ders kitabının ilk bölümünü okuyunuz.
+
+🔗 İlk bölümün buradan da yapabilirsiniz 🔗 [Language of data](https://openintro.shinyapps.io/ims-01-data-01/#section-welcome)
