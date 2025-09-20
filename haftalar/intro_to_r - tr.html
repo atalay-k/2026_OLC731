@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R and RStudio Tanıtımı – OLC731 – R Yazılımı ile Ölçme Uygulamaları</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bce83624dd429190d13db9bf62533269.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">OLC731 – R Yazılımı ile Ölçme Uygulamaları</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">📘 Tanıtım &amp; İzlence</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../haftalar/index.html"> 
+<span class="menu-text">📅 Haftalık İçerik</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../kaynaklar/index.qmd"> 
+<span class="menu-text">📚 Kaynaklar</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#rstudio-arayüz" id="toc-rstudio-arayüz" class="nav-link active" data-scroll-target="#rstudio-arayüz"><span class="header-section-number">1</span> RStudio Arayüz</a></li>
+  <li><a href="#uygulamalı-görev---1" id="toc-uygulamalı-görev---1" class="nav-link" data-scroll-target="#uygulamalı-görev---1"><span class="header-section-number">2</span> 💡 Uygulamalı Görev - 1</a></li>
+  <li><a href="#dr.-arbuthnotun-vaftiz-kayıtları" id="toc-dr.-arbuthnotun-vaftiz-kayıtları" class="nav-link" data-scroll-target="#dr.-arbuthnotun-vaftiz-kayıtları"><span class="header-section-number">3</span> Dr.&nbsp;Arbuthnot’un Vaftiz Kayıtları</a></li>
+  <li><a href="#bazı-keşifler" id="toc-bazı-keşifler" class="nav-link" data-scroll-target="#bazı-keşifler"><span class="header-section-number">4</span> Bazı Keşifler</a></li>
+  <li><a href="#daha-fazla-alıştırma" id="toc-daha-fazla-alıştırma" class="nav-link" data-scroll-target="#daha-fazla-alıştırma"><span class="header-section-number">5</span> Daha fazla alıştırma</a></li>
+  <li><a href="#resources-for-learning-r-and-working-in-rstudio" id="toc-resources-for-learning-r-and-working-in-rstudio" class="nav-link" data-scroll-target="#resources-for-learning-r-and-working-in-rstudio"><span class="header-section-number">6</span> Resources for learning R and working in RStudio</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">R and RStudio Tanıtımı</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="rstudio-arayüz" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="rstudio-arayüz"><span class="header-section-number">1</span> RStudio Arayüz</h2>
+<p>Bu dersin amacı, sizi R ve RStudio ile tanıştırmaktır. Bu programları ders boyunca hem istatistiksel kavramları öğrenmek hem de gerçek verileri analiz ederek bilinçli sonuçlara ulaşmak için kullanacaksınız. Öncelikle hangisinin ne olduğuna açıklık getirelim:</p>
+<p><code>R</code> programlama dilinin kendisinin adıdır, <strong>RStudio</strong> ise <code>R</code> <strong>ile çalışmak için kullanılan kullanışlı bir arayüzdür.</strong></p>
+<p>Ders ilerledikçe, size verilen yönergelerin ötesinde keşif yapmanız teşvik edilmektedir; <strong>denemeye ve kurcalamaya istekli olmak sizi çok daha iyi bir programcı yapacaktır!</strong> Ancak o aşamaya gelmeden önce R içinde temel bir akıcılık kazanmanız gerekir.</p>
+<p>Şimdi <strong>RStudio</strong>’yu açın. Aşağıda gösterilen resme benzeyen bir pencere görmelisiniz.</p>
+<p><img src="img/r-interface-2020.png" class="img-fluid" width="1552"></p>
+<p>Sol alttaki panel, işlerin gerçekleştiği yerdir. Bu panele konsol (console) denir. Her RStudio’yu açtığınızda, konsolun en üstünde çalıştırdığınız R sürümünü gösteren aynı metni görürsünüz. Bu bilginin hemen altında ise <strong>&gt;</strong> sembolü ile gösterilen komut istemi (<strong>prompt</strong>) bulunur. Adından da anlaşılacağı gibi bu istem aslında bir talep niteliğindedir: <strong>sizden bir komut bekler.</strong></p>
+<p>Başlangıçta R ile etkileşim tamamen komut yazmak ve çıktıyı yorumlamaktan ibarettir. Bu komutlar ve sözdizimleri on yıllar boyunca (gerçekten) gelişmiş ve günümüzde birçok kullanıcıya veriye erişmek, verileri düzenlemek, tanımlamak ve istatistiksel hesaplamaları yürütmek için oldukça doğal bir yol sunar.</p>
+<ul>
+<li><p>Sağ üstteki panelde, ortamınız (<strong>environment</strong>) ve daha önce girdiğiniz komutların geçmişi (<strong>history</strong>) bulunur.</p></li>
+<li><p>Sağ alttaki panelde ise proje klasörünüzdeki dosyaları (<strong>files</strong>) inceleyebileceğiniz, R fonksiyonlarına ait yardım (<strong>help</strong>) dosyalarına ulaşabileceğiniz, R paketlerini (packages) yükleyip yönetebileceğiniz ve görselleştirmeleri inceleyebileceğiniz sekmeler yer alır. Varsayılan olarak, oluşturduğunuz tüm görselleştirmeler onları üretmek için yazdığınız kodun hemen altında görünür. Eğer grafiklerinizin plots sekmesinde görünmesini tercih ederseniz, genel ayarlarınızı (global options) değiştirmeniz gerekir.</p></li>
+</ul>
+<section id="r-paketleri" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="r-paketleri"><span class="header-section-number">1.1</span> R Paketleri</h3>
+<p>R açık kaynaklı (open-source) bir programlama dilidir. Yani kullanıcılar hayatımızı kolaylaştıracak paketler geliştirebilir ve biz bu paketleri ücretsiz olarak kullanabiliriz.</p>
+<p><code>tidyverse</code>: Veri düzenleme (data wrangling) ve veri görselleştirme için birçok farklı R paketini barındıran bir “şemsiye” pakettir.</p>
+<p>openintro: OpenIntro kaynaklarıyla birlikte gelen veri setleri ve özel fonksiyonlar için kullanılan bir R paketidir.</p>
+<p>Sağ alttaki köşede bulunan <strong>Packages</strong> sekmesine tıklayın. Arama kutusuna bu paketlerin isimlerini (tidyverse, openintro) yazın ve kurulu olup olmadıklarını kontrol edin. Eğer bu paketler yazdığınızda görünmüyorsa, aşağıdaki iki satır kodu RStudio oturumunuzdaki konsola kopyalayıp yapıştırarak (veya yazarak) kurabilirsiniz. Her satırı yazdıktan sonra mutlaka Enter/Return tuşuna basın.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"openintro"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>Enter/Return tuşuna</strong> bastıktan sonra, seçtiğiniz konumdan paketi kurarken R’ın yürüttüğü işlemleri gösteren uzun bir metin akışı başlayacaktır. Eğer R’ı yüklerken paketleri indirmek için bir sunucu seçmeniz istenmediyse, RStudio sizden bir sunucu seçmenizi isteyebilir; bu sunucuların herhangi birini seçmeniz yeterlidir.</p>
+<p><strong>Paketleri kurma (install)</strong> işlemini yalnızca bir kez yapmanız gerekir, ancak RStudio’yu her yeniden açtığınızda paketleri yüklemeniz (load) gerekir. Paketleri yüklemek için library fonksiyonunu kullanırız. tidyverse ve openintro paketlerini çalışma ortamınıza yüklemek için aşağıdaki iki satırı konsolunuza kopyalayıp yapıştırın (veya kendiniz yazın</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><code>tidyverse</code> paketini veriyle çalışmanın farklı yönleri için gerekli olan paketler bütününden oluşur; veriyi yüklemekten (loading), düzenlemeye (wrangling), görselleştirmeye (visualizing) ve analiz etmeye (analyzing) kadar her aşamayı kapsar. Ayrıca bu paketler ortak felsefeleri paylaşır ve birlikte çalışacak şekilde tasarlanmıştır. tidyverse paketleri hakkında daha fazla bilgiyi <a href="http://tidyverse.org/">tidyverse.org</a> adresinde bulabilirsiniz.</p>
+</section>
+</section>
+<section id="uygulamalı-görev---1" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="uygulamalı-görev---1"><span class="header-section-number">2</span> 💡 Uygulamalı Görev - 1</h2>
+<p>Bu ders kapsamında kullanacağız CTT, ltm ve mirt paketlerini yükleyiniz.</p>
+<div id="boxedtext">
+<p>Java ve Rtools sadece Windows kullanıcıları için gereklidir.</p>
+<ul>
+<li><p><a href="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=245479_4d5417147a92418ea8b615e228bb6935">Java</a></p></li>
+<li><p><a href="https://cloud.r-project.org/bin/windows/Rtools/">Rtools</a> Rtools, kaynak koddan derleme yapmaya yarayan araçları içeren bir R yardımcısıdır</p></li>
+</ul>
+</div>
+<section id="yeniden-üretilebilir-raporlar-üretme" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="yeniden-üretilebilir-raporlar-üretme"><span class="header-section-number">2.1</span> Yeniden üretilebilir raporlar üretme</h3>
+<p>Yeniden üretilebilir (reproducible) laboratuvar raporları oluşturmak için R Markdown kullanacağız. Bunun neden ve nasıl yapılacağını açıklayan videoları aşağıda bulabilirsiniz:</p>
+<p><a href="https://youtu.be/lNWVQ2oxNho"><strong>Why use R Markdown for Lab Reports?</strong></a> <iframe width="560" height="315" src="https://www.youtube.com/embed/lNWVQ2oxNho" frameborder="0" allowfullscreen=""></iframe></p>
+<p><a href="https://youtu.be/o0h-eVABe9M"><strong>Using R Markdown for Lab Reports in RStudio</strong></a> <iframe width="560" height="315" src="https://www.youtube.com/embed/o0h-eVABe9M" frameborder="0" allowfullscreen=""></iframe></p>
+<p>Kısaca, RStudio’da New File → R Markdown… yolunu izleyin. Ardından “From Template” seçeneğini seçin ve listeden Lab Report for OpenIntro Statistics Lab 1 şablonunu seçin.</p>
+<p>Bundan sonra kodunuzu doğrudan konsola yazmaktan kaçınmalısınız; çünkü bu şekilde yazmak istediğiniz çıktıyı hatırlamayı ve yeniden üretmeyi çok zorlaştırır. R Markdown dosyalarının belki de en önemli özelliği, R kodunu yazılı raporun içine gömmemize izin vermesidir. Bir R Markdown dosyasında R kodu gri kutular içinde görünür, biz bunlara “kod parçacıkları (code chunks)” diyoruz. R Markdown, bu gri kutuların R kodu içerdiğini, üç tane ters tırnak işareti (```) ile başlayıp ardından süslü parantezler içinde küçük r harfi ({r}) yazmasından anlar. Bunu zaten yukarıda görmüştünüz!</p>
+<p>Kodlarımızı konsola yazmak yerine, her problem için ayrılmış R kod parçacıklarının içine (doğru yanıt veya sadece denediğiniz kodlar fark etmez) yazmanızı tavsiye ediyoruz. Bu kod parçacıklarındaki R kodunu, konsolda yaptığınız gibi çalıştırabilirsiniz. Bir kod satırını çalıştırmak için iki yol vardır:</p>
+<p>İmleci kod satırının üzerine getirin ve aynı anda Ctrl-Enter (veya Mac’te Cmd-Enter) tuşlarına basın.</p>
+<p>İmleci kod satırının üzerine getirin ve R Markdown dosyasının sağ üst köşesinde yer alan “Run” butonuna tıklayın.</p>
+<p>Eğer bir kod parçacığındaki tüm R kodunu çalıştırmak isterseniz, o kod parçacığının sağ üst köşesindeki “Play” butonuna (yeşil üçgen) tıklayabilirsiniz.</p>
+<p>Herhangi bir noktada en baştan başlamak ve belirli bir kod parçacığından önceki tüm kod parçacıklarını çalıştırmak isterseniz, o kod parçacığının sağ üst köşesindeki “Fastforward” butonuna (altında çizgi olan gri ters üçgen) tıklayın. Bu, o parçacıktan önceki tüm kodları çalıştırır, ancak seçtiğiniz kod parçacığındaki R kodunu çalıştırmaz.</p>
+</section>
+</section>
+<section id="dr.-arbuthnotun-vaftiz-kayıtları" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="dr.-arbuthnotun-vaftiz-kayıtları"><span class="header-section-number">3</span> Dr.&nbsp;Arbuthnot’un Vaftiz Kayıtları</h2>
+<p>Başlamak için, hadi veriye kısa bir göz atalım.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>arbuthnot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Yukarıdaki kodu çalıştırmak için şunları yapabilirsiniz:</p>
+<p>İmleci satırın üzerine getirip Ctrl-Enter (veya Mac’te Cmd-Enter) tuşlarına basmak,</p>
+<p>İmleci satırın üzerine getirip R Markdown dosyasının sağ üst köşesindeki “Run” butonuna tıklamak, ya da</p>
+<p>Kod parçacığının sağ üst köşesindeki yeşil oka tıklamak.</p>
+<p>Bu kod parçacığında yer alan tek satırlık komut, R’a bazı verileri yüklemesini söyler: erkek ve kız çocuklarının Arbuthnot vaftiz sayıları. Şimdi RStudio penceresinin sağ üst köşesindeki Environment sekmesinde arbuthnot adında, 82 gözlem ve 3 değişkenden oluşan bir veri seti listelendiğini görmelisiniz. R ile çalışırken çeşitli amaçlarla nesneler (objects) oluşturursunuz. Bazen bu nesneleri bir paketi yükleyerek çalışma alanınıza getirirsiniz (burada yaptığımız gibi), bazen de bir hesaplama süreci, yaptığınız bir analiz veya oluşturduğunuz bir görselleştirme sonucunda kendiniz oluşturursunuz.</p>
+<p>Arbuthnot veri seti, 18. yüzyıl hekim, yazar ve matematikçi Dr.&nbsp;John Arbuthnot’un çalışmasına dayanmaktadır. Arbuthnot, erkek ve kız bebeklerin doğum oranıyla ilgilenmiş ve 1629’dan 1710’a kadar Londra’da doğan çocukların vaftiz kayıtlarını toplamıştır. Veriye yeniden bakmak için aşağıdaki kodu çalıştırabilir veya veri setinin adını doğrudan konsola yazabilirsiniz. Dikkat edin: yazım ve büyük/küçük harf kullanımı önemlidir! R büyük/küçük harfe duyarlıdır; eğer yanlışlıkla Arbuthnot yazarsanız, R bu nesnenin bulunamadığını söyleyecektir.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>arbuthnot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Bu komut veriyi bizim için gösterir, ancak tüm veri setini konsolda yazdırmak çok da kullanışlı değildir. RStudio’nun avantajlarından biri, dahili bir veri görüntüleyici (Data Viewer) ile gelmesidir. Sağ üst paneldeki Environment sekmesi, ortamınızdaki nesneleri listeler. Burada arbuthnot ismine tıkladığınızda, R Markdown dosyanızın yanında yeni bir Data Viewer sekmesi açılır ve veri setini alternatif bir şekilde görüntülemenizi sağlar. Bu görünüm, veriyi Excel’de incelemeye benzer; veri setini kaydırarak satırları inceleyebilirsiniz. Ancak Excel’den farklı olarak, bu sekmede veriyi düzenleyemezsiniz. İnceleme işiniz bittiğinde, sekmeyi sol üst köşesindeki x işaretine tıklayarak kapatabilirsiniz.</p>
+<p>Veriyi incelerken, dört sütun ve 82 satır görmelisiniz. Her satır, Arbuthnot’un veri topladığı farklı bir yılı temsil eder. Her satırdaki ilk değer satır numarasıdır (istersek belirli yıllara erişmek için kullanabileceğimiz bir indeks). İkinci sütun yıl bilgisini, üçüncü ve dördüncü sütun ise o yıl vaftiz edilen erkek ve kız çocuklarının sayılarını gösterir. Konsol penceresinin sağındaki kaydırma çubuğunu kullanarak veri setinin tamamını inceleyebilirsiniz.</p>
+<p>Dikkat edin: İlk sütundaki satır numaraları Arbuthnot’un verilerinin bir parçası değildir. R bu satır numaralarını, çıktıda görsel karşılaştırma yapmanıza yardımcı olmak için ekler. Bunları, bir elektronik tabloda sol tarafta gördüğünüz indeks gibi düşünebilirsiniz. Aslında, veriyi bir tabloya (spreadsheet) benzetmek genelde faydalıdır. R, Arbuthnot’un verilerini elektronik tabloya benzeyen bir nesne içinde saklamıştır; R bu tür nesnelere data frame (veri çerçevesi) adını verir.</p>
+<p>Bu veri çerçevesinin boyutlarını, değişken adlarını ve ilk birkaç gözlemini görmek için veri setinin adını glimpse() fonksiyonunun içine yazabilirsiniz, aşağıda görüldüğü gibi:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(arbuthnot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Daha önce tüm R kodunuzu kod parçacığına (code chunk) yazmanın en iyi uygulama olduğunu söylemiş olsak da, bu komutu konsola yazmanız daha doğru olur. Genel kural olarak, çözümünüz için gerekli olan tüm kodları kod parçacığına yazmalısınız. Ancak bu komut yalnızca veriyi keşfetmek için kullanıldığından, çözüm kodunuz için gerekli değildir ve çözüm dosyanıza eklenmemelidir.</p>
+<p>Bu komutun çıktısı aşağıdaki gibi olmalıdır:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 82
+Columns: 3
+$ year  &lt;int&gt; 1629, 1630, 1631, 1632, 1633, 1634, 1635, 1636, 1637, 1638, 1639…
+$ boys  &lt;int&gt; 5218, 4858, 4422, 4994, 5158, 5035, 5106, 4917, 4703, 5359, 5366…
+$ girls &lt;int&gt; 4683, 4457, 4102, 4590, 4839, 4820, 4928, 4605, 4457, 4952, 4784…</code></pre>
+</div>
+</div>
+<p>Bu veri setinde 82 gözlem ve 3 değişken olduğunu görebiliyoruz. Değişken adları year, boys ve girls’tır. Bu noktada, R komutlarının çoğunun matematik derslerindeki fonksiyonlara çok benzediğini fark edebilirsiniz; yani R komutlarını çalıştırmak, bir fonksiyona belli sayıda girdi (argüman) vermek ve fonksiyonun bu girdileri kullanarak bir çıktı üretmesi anlamına gelir. Örneğin, glimpse() komutu tek bir argüman aldı: bir veri çerçevesinin adı. Sonuç olarak da veri setinin bir özetini çıktı olarak gösterdi.</p>
+</section>
+<section id="bazı-keşifler" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="bazı-keşifler"><span class="header-section-number">4</span> Bazı Keşifler</h2>
+<p>Şimdi veriyi biraz daha yakından incelemeye başlayalım. Bir veri çerçevesindeki tek bir sütuna, $ işaretiyle o sütunu seçerek erişebiliriz. Örneğin, aşağıdaki kod arbuthnot veri çerçevesinden boys sütununu çıkarır.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>arbuthnot<span class="sc">$</span>boys</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Bu komut yalnızca her yıl vaftiz edilen erkek çocuklarının sayılarını gösterir. R, $ işaretini şöyle yorumlar: “Benden önce gelen veri çerçevesine git ve benden sonra gelen değişkeni bul.”</p>
+<p>Peki sadece vaftiz edilen kız çocuklarının sayılarını çıkarmak için hangi komutu kullanırsınız? Bunu konsolda deneyin!</p>
+<p>Dikkat edin, R bu verileri yazdırma biçimini farklı göstermektedir. Tüm veri çerçevesine baktığımızda 82 satır vardı ve her satırda bir yılın verisi yer alıyordu. Ancak bu veriler veri çerçevesinden çıkarıldığı için artık diğer değişkenlerle birlikte bir tablo şeklinde değil. Bunun yerine, bu veriler art arda sıralanmış şekilde gösterilir. Bu şekilde yazdırılan nesnelere vektör (vector) denir. Matematik derslerinden bildiğiniz vektörlere benzer biçimde, R’de vektörler sayı listelerini temsil eder.</p>
+<p>R, vektörün her bir elemanının konumunu göstermek için çıktının sol tarafına köşeli parantezler içinde sayılar ekler. Örneğin, [1] ifadesinden sonra 5218 geliyorsa, bu 5218’in vektörün ilk elemanı olduğu anlamına gelir. Eğer bir satırın başında [43] görüyorsanız, o satırda yazılan ilk sayının vektörün 43. elemanına karşılık geldiğini bilirsiniz.</p>
+<section id="görselleştirme" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="görselleştirme"><span class="header-section-number">4.1</span> Görselleştirme</h3>
+<p>R, grafikler oluşturmak için güçlü fonksiyonlara sahiptir. Aşağıdaki kod ile yıllara göre vaftiz edilen kız çocuklarının sayısını gösteren basit bir grafik oluşturabiliriz:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> arbuthnot, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> girls)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro_to_r---tr_files/figure-html/plot-girls-vs-year-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu kodda, grafik oluşturmak için ggplot() fonksiyonunu kullanıyoruz. Bu kod parçacığını çalıştırdığınızda, grafiğiniz kodun hemen altında görünecektir. R Markdown belgesi, oluşturduğunuz grafiği kullandığınız kodun altında göstererek, size nihai raporda grafiğin nasıl görüneceğine dair bir fikir verir.</p>
+<p>Yukarıdaki komut da matematiksel bir fonksiyona benzer görünüyor. Ancak bu kez fonksiyon birden fazla girdi (argüman) gerektirir ve bu argümanlar virgül ile ayrılır.</p>
+<p>ggplot() fonksiyonunda:</p>
+<p>İlk argüman her zaman grafik için kullanmak istediğiniz veri setinin adıdır.</p>
+<p>Sonrasında, veri setindeki değişkenleri grafiğin farklı aesthetik (görsel) öğelerine, örneğin x ve y eksenlerine atarsınız.</p>
+<p>Bu komutlar size, x ve y eksenlerine atadığınız değişkenlerle boş bir grafik oluşturur. Sonraki adımda, ggplot() fonksiyonuna bu boş şablona hangi tür görselleştirme eklemek istediğinizi söylemeniz gerekir. ggplot()’a yeni bir katman eklemek için:</p>
+<p>Satırın sonuna + işareti ekleyerek yeni bir katman eklediğinizi belirtirsiniz.</p>
+<p>Daha sonra, grafiğin oluşturulması için kullanılacak geometrik nesneyi (geom) belirlersiniz.</p>
+<p>Biz burada bir dağılım grafiği (scatterplot) istediğimiz için geom_point() kullanıyoruz. Bu, ggplot()’a her bir gözlemin grafikte bir nokta ile temsil edilmesi gerektiğini söyler. Eğer yukarıdaki grafiği bir çizgi grafik (line graph) olarak görmek isteseydiniz, geom_point() yerine geom_line() kullanırdınız. Bu durumda ggplot(), her gözlemi bir sonraki gözlemle sırasıyla birleştiren bir çizgi çizerdi.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> arbuthnot, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> girls)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro_to_r---tr_files/figure-html/plot-girls-vs-year-line-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Grafiği kullanarak aşağıdaki soruya cevap verin:</p>
+<p>Yıllar boyunca vaftiz edilen kız çocuklarının sayısında belirgin bir eğilim var mı? Bunu nasıl tanımlarsınız? (Laboratuvar raporunuzun kapsamlı olması için, grafiği oluşturmak için gereken kodu ve yazılı yorumunuzu mutlaka ekleyin.)</p>
+<p>ggplot() fonksiyonunun sözdizimini (syntax) nasıl bileceğinizi merak edebilirsiniz. Neyse ki R, tüm fonksiyonlarını kapsamlı şekilde belgelemiştir. Bir fonksiyonun ne yaptığını ve nasıl kullanılacağını (örneğin, fonksiyonun argümanlarını) öğrenmek için konsola sadece soru işareti yazıp ardından ilgilendiğiniz fonksiyonun adını yazmanız yeterlidir. Konsolunuza şunu yazın:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>?ggplot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Yardım dosyasının öne çıktığını ve sağ alttaki panelde grafiğin yerine geçtiğini fark edeceksiniz. Sekmeler arasında geçiş yapmak için isimlerine tıklayabilirsiniz.</p>
+</section>
+<section id="r-büyük-bir-hesap-makinesi-olarak" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="r-büyük-bir-hesap-makinesi-olarak"><span class="header-section-number">4.2</span> R büyük bir hesap makinesi olarak</h3>
+<p>Şimdi, toplam vaftiz sayısını çizdirmek istediğimizi varsayalım. Bunun için, R’ı büyük bir hesap makinesi gibi kullanabileceğimizi göz önünde bulundurabiliriz. Bunu yapmak için, aşağıdaki örnekte olduğu gibi matematiksel ifadeleri konsola yazabiliriz.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5218</span> <span class="sc">+</span> <span class="dv">4683</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Bu hesaplama bize 1629 yılındaki toplam vaftiz sayısını verir. Daha sonra her yıl için bu hesaplamayı tekrarlayabiliriz. Ancak bu epey zaman alır. Neyse ki daha hızlı bir yol var! Erkek çocuklarının vaftiz sayılarını içeren vektörü kız çocuklarının vektörüne eklersek, R bu toplamların her birini aynı anda hesaplayabilir.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>arbuthnot<span class="sc">$</span>boys <span class="sc">+</span> arbuthnot<span class="sc">$</span>girls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Karşınıza 82 sayıdan oluşan bir liste çıkacaktır. Bu sayılar bir liste halinde görünür, çünkü bir data frame ile değil, bir vektör ile çalışıyoruz. Her sayı, o yıl vaftiz edilen erkek ve kız çocuklarının toplamını temsil eder. Hesaplamanın doğru olup olmadığını kontrol etmek için boys ve girls sütunlarının ilk birkaç satırına göz atabilirsiniz.</p>
+</section>
+<section id="veri-setine-yeni-bir-sütun-ekleme" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="veri-setine-yeni-bir-sütun-ekleme"><span class="header-section-number">4.3</span> Veri setine yeni bir sütun ekleme</h3>
+<p>Toplam vaftiz sayılarını içeren bu yeni vektörü grafikler üretmek için kullanmak istiyoruz, bu yüzden onu veri çerçevemizde kalıcı bir sütun olarak saklamamız gerekir. Bunu aşağıdaki kodu kullanarak yapabiliriz:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="ot">&lt;-</span> arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total =</span> boys <span class="sc">+</span> girls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Bu kod birçok yeni parça içeriyor, bu yüzden adım adım inceleyelim. İlk satırda iki şey yapıyoruz:</p>
+<p>Güncellenmiş veri çerçevemize yeni bir total sütunu ekliyoruz.</p>
+<p>Mevcut arbuthnot veri çerçevesini, bu yeni total sütununu içeren güncellenmiş haliyle üzerine yazıyoruz (overwrite).</p>
+<p>Bu iki işlemi birbirine bağlamamızı sağlayan şey pipe (borulama) (%&gt;%) operatörüdür. Pipe operatörü, bir önceki ifadenin çıktısını alır ve onu sonraki ifadenin ilk argümanı olarak “aktarır”.</p>
+<p>Bunu matematiksel fonksiyon benzetmesiyle açıklarsak: x %&gt;% f(y) ifadesi, f(x, y) ifadesine eşdeğerdir.</p>
+<p>Dolayısıyla arbuthnot ile mutate(total = boys + girls) ifadelerini pipe operatörüyle bağlamak, mutate(arbuthnot, total = boys + girls) yazmakla aynı şeydir. Burada arbuthnot, mutate() fonksiyonuna verilen ilk argüman olur.</p>
+<div>
+<p>“arbuthnot veri setini al ve onu mutate fonksiyonuna pipe et. arbuthnot veri setini, boys ve girls değişkenlerinin toplamı olan total adında yeni bir değişken oluşturarak güncelle. Ardından, ortaya çıkan veri setini arbuthnot adlı nesneye ata; yani eski arbuthnot veri setinin üzerine, yeni değişkeni içeren güncellenmiş halini yaz.”</p>
+<p>Bu, her satır için boys ve girls sayılarını toplayıp, bu değeri total adlı yeni bir sütuna kaydetmeye denktir.</p>
+</div>
+<div>
+<p>Yeni değişken nerede? Veri setinizde değişiklik yaptığınızda, veri görüntüleyicide güncellenmiş halini görmek için veri setinin adına tekrar tıklayın.7</p>
+</div>
+<p>Artık veri çerçevenize eklenmiş total adında yeni bir sütun olduğunu göreceksiniz. Özel &lt;- sembolü bir atama (assignment) işlemi yapar; yani pipe işlemlerinin çıktısını alır ve ortamınızdaki (environment) bir nesneye kaydeder. Bu durumda, ortamınızda zaten arbuthnot adlı bir nesne olduğundan, bu komut veri setini yeni eklenen sütunla güncelleyerek üzerine yazar.</p>
+<p>Yıllara göre toplam vaftiz sayılarını çizgi grafik (line plot) olarak göstermek için şu kodu kullanabilirsiniz:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> arbuthnot, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> total)) <span class="sc">+</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro_to_r---tr_files/figure-html/plot-total-vs-year-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Benzer şekilde, 1629 yılında vaftiz edilen erkek ve kız çocuklarının toplam sayısını öğrendikten sonra, erkek çocuklarının kız çocuklarına oranını aşağıdaki kod ile hesaplayabilirsiniz:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5218</span> <span class="sc">/</span> <span class="dv">4683</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Alternatif olarak, bu oranı her yıl için hesaplayabilirsiniz. Bunun için tüm boys ve girls sütunları üzerinde işlem yapmanız yeterlidir; ardından bu hesaplamaları boy_to_girl_ratio adında yeni bir değişkene kaydedebilirsiniz:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="ot">&lt;-</span> arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">boy_to_girl_ratio =</span> boys <span class="sc">/</span> girls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>1629 yılındaki yenidoğanların erkek çocuk olma oranını da aşağıdaki kod ile hesaplayabilirsiniz:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5218</span> <span class="sc">/</span> (<span class="dv">5218</span> <span class="sc">+</span> <span class="dv">4683</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Ya da bunu tüm yıllar için aynı anda hesaplayabilir ve sonuçları veri setine boy_ratio adında yeni bir değişken olarak ekleyebilirsiniz:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="ot">&lt;-</span> arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">boy_ratio =</span> boys <span class="sc">/</span> total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Dikkat edin, bu hesaplamalarda boys + girls ifadesiyle bölmek yerine daha önce oluşturduğumuz total değişkenini kullanıyoruz!</p>
+<p>Şimdi, zaman içinde doğan erkek çocukların oranının grafiğini oluşturun. Ne görüyorsunuz?</p>
+<div>
+<p><strong>Tip:</strong> Konsolda yukarı ve aşağı ok tuşlarını kullanarak, daha önce yazdığınız komutlar arasında gezinebilirsiniz; buna komut geçmişi (command history) denir. Ayrıca sağ üst paneldeki History sekmesine tıklayarak da komut geçmişinize erişebilirsiniz. Bu özellik, ileride size tekrar tekrar yazmaktan büyük ölçüde tasarruf sağlar.</p>
+</div>
+<p>Son olarak, çıkarma ve bölme gibi basit matematiksel işleçlerin yanı sıra, R’a karşılaştırmalar da yaptırabilirsiniz. Örneğin, büyüktür &gt;, küçüktür &lt; ve eşittir ==.</p>
+<p>Örneğin, aşağıdaki kod ile her yıl erkek doğumlarının kız doğumlarından fazla olup olmadığını gösteren more_boys adında yeni bir değişken oluşturabiliriz:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="ot">&lt;-</span> arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">more_boys =</span> boys <span class="sc">&gt;</span> girls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Bu komut, arbuthnot veri çerçevesine yeni bir değişken ekler. Eğer o yıl erkek çocuklarının sayısı kız çocuklarından fazlaysa değer TRUE, değilse FALSE olur (cevap sizi şaşırtabilir). Bu değişken, şimdiye kadar karşılaştığımız veri türlerinden farklı bir veri türüdür. arbuthnot veri çerçevesindeki diğer sütunların tümü sayısal değerler (yıl, erkek ve kız çocuklarının sayıları) içerirken, burada R’dan mantıksal (logical) veri oluşturmasını istedik. Mantıksal veriler yalnızca TRUE veya FALSE değerlerinden oluşur.</p>
+<p>Genel olarak veri analizi, birçok farklı veri türünü içerir ve R kullanmamızın nedenlerinden biri de, bu veri türlerinin çoğunu temsil edebilmesi ve üzerinde işlem yapabilmesidir.</p>
+</section>
+</section>
+<section id="daha-fazla-alıştırma" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="daha-fazla-alıştırma"><span class="header-section-number">5</span> Daha fazla alıştırma</h2>
+<p>Önceki sayfalarda Arbuthnot’un vaftiz verilerine ait bazı görselleştirmeleri ve ön analizleri yeniden oluşturdunuz. Ödeviniz, bu adımları günümüzdeki Amerika Birleşik Devletleri doğum kayıtları için tekrarlamaktır. Bu veriler present adlı bir veri çerçevesinde saklanmaktadır.</p>
+<p>Bir sütunun minimum ve maksimum değerlerini bulmak için summarize() fonksiyonu içinde min() ve max() fonksiyonlarını kullanabilirsiniz. Bu fonksiyon hakkında daha fazla bilgiyi bir sonraki laboratuvar çalışmasında öğreneceksiniz.</p>
+<p>İşte bir yıldaki erkek doğumlarının minimum ve maksimum sayılarını bulmaya yönelik bir örnek:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">min =</span> <span class="fu">min</span>(boys),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(boys)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="4" type="1">
+<li>Bu veri setinde hangi yıllar yer almaktadır? Veri çerçevesinin boyutları nelerdir? Değişken (sütun) adları nelerdir?</li>
+<li>Bu sayılar Arbuthnot’un verileriyle nasıl karşılaştırılır? Benzer büyüklükte midirler?</li>
+<li>Zaman içinde doğan erkek çocukların oranını gösteren bir grafik oluşturun. Ne görüyorsunuz? Arbuthnot’un erkek çocukların kız çocuklarından daha yüksek oranda doğduğu yönündeki gözlemi ABD için de geçerli mi? Yanıtınıza grafiği de ekleyin. İpucu: Exercise 3’teki kodunuzu yeniden kullanabilirsiniz, sadece veri çerçevesinin adını değiştirin.</li>
+<li>ABD’de toplam doğumların en fazla olduğu yıl hangisidir?</li>
+</ol>
+<p>İpucu: Önce toplamları hesaplayın ve bunu yeni bir değişken olarak kaydedin. Daha sonra veri setinizi total sütununa göre azalan düzende sıralayın. Bunu veri görüntüleyicide, değişken adlarının yanındaki okları tıklayarak etkileşimli olarak yapabilirsiniz. Ancak sıralı sonucu raporunuza dahil etmek için iki yeni fonksiyon kullanmanız gerekecek. Önce arrange() fonksiyonunu kullanarak değişkeni sıralayın. Daha sonra desc() fonksiyonu ile veriyi azalan düzende sıralayabilirsiniz. Aşağıda örnek kod verilmiştir.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>present <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Bu veriler, Hastalık Kontrol ve Önleme Merkezleri (Centers for Disease Control) raporlarından alınmıştır. Daha fazla bilgi edinmek için ?present komutunu yazarak yardım dosyasını açabilirsiniz.</p>
+</section>
+<section id="resources-for-learning-r-and-working-in-rstudio" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="resources-for-learning-r-and-working-in-rstudio"><span class="header-section-number">6</span> Resources for learning R and working in RStudio</h2>
+<p>R ve RStudio Öğrenmek İçin Kaynaklar</p>
+<p>Bu, R ve RStudio’ya kısa bir girişti. Ders ilerledikçe size daha fazla fonksiyon ve dilin daha kapsamlı bir kullanımını sunacağız.</p>
+<p>Bu derste tidyverse paketler grubunu kullanacağız. Grolemund ve Wickham tarafından yazılan R For Data Science kitabı, tidyverse ile R’de veri analizi için harika bir kaynaktır. R kodlarını Google’da ararken, arama sorgunuza bu paket adlarını da eklediğinizden emin olun. Örneğin, “scatterplot in R” yerine “scatterplot in R with the tidyverse” şeklinde aratın.</p>
+<p>Dönem boyunca işinize yarayabilecek bazı kaynaklar:</p>
+<ul>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/main/rmarkdown-2.0.pdf">RMarkdown cheatsheet</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/main/data-transformation.pdf">Data transformation cheatsheet</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization-2.1.pdf">Data visualization cheatsheet</a></li>
+</ul>
+<p>Not: Bu kısa rehberlerde (cheatsheet) yer alan bazı kodlar bu ders için biraz ileri düzey olabilir. Ancak çoğu, dönem boyunca işinize yarayacaktır.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

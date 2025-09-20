@@ -1,0 +1,411 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "",
+    "text": "Ders Kodu: OLC731\nProgram: Ölçme ve Değerlendirme Doktora Programı\nDönem: Güz 2025\nÖğretim Üyesi: 🏛 Assoc. Prof. Dr. Kübra Atalay Kabasakal\n🧭 ORCID, 🎓 YÖK Akademik, 🧑‍💻 GitHub,\nİletişim: kkatalay@gmail.com / katalay@hacettepe.edu.tr\nDers Web sitesi: https://atalay-k.github.io/2025_OLC731"
+  },
+  {
+    "objectID": "index.html#hafta-1-giriş",
+    "href": "index.html#hafta-1-giriş",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.1 Hafta 1 – Giriş",
+    "text": "3.1 Hafta 1 – Giriş\n\nDersin tanıtımı, R ve RStudio kurulumu, veri kavramı\nVeri türleri, paketlerle veri yükleme"
+  },
+  {
+    "objectID": "index.html#hafta-2-veri-inceleme---i",
+    "href": "index.html#hafta-2-veri-inceleme---i",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.2 Hafta 2 – Veri İnceleme - I",
+    "text": "3.2 Hafta 2 – Veri İnceleme - I\n\nDeğişken türleri\nVeri setlerini tanıma (glimpse(), summary(), görselleştirme temelleri)"
+  },
+  {
+    "objectID": "index.html#hafta-3-veri-inceleme---ii",
+    "href": "index.html#hafta-3-veri-inceleme---ii",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.3 Hafta 3 – Veri İnceleme - II",
+    "text": "3.3 Hafta 3 – Veri İnceleme - II\n\nVeri temizleme, eksik/veri hataları\n\nKategorik ve sayısal değişkenlerle temel özet istatistikler"
+  },
+  {
+    "objectID": "index.html#hafta-4-keşfedici-veri-analizi--i",
+    "href": "index.html#hafta-4-keşfedici-veri-analizi--i",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.4 Hafta 4 – Keşfedici Veri Analizi- I",
+    "text": "3.4 Hafta 4 – Keşfedici Veri Analizi- I\n\nTek değişkenli görselleştirme (barplot, histogram, boxplot)\n\nDağılımların yorumlanması"
+  },
+  {
+    "objectID": "index.html#hafta-5-keşfedici-veri-analizi--ii",
+    "href": "index.html#hafta-5-keşfedici-veri-analizi--ii",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.5 Hafta 5 – Keşfedici Veri Analizi- II",
+    "text": "3.5 Hafta 5 – Keşfedici Veri Analizi- II\n\nİki değişkenli görselleştirme (scatterplot, grouped barplot)\n\nKategorik + sayısal ilişkiler, korelasyon"
+  },
+  {
+    "objectID": "index.html#hafta-6-regresyon-i",
+    "href": "index.html#hafta-6-regresyon-i",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.6 Hafta 6 – Regresyon I",
+    "text": "3.6 Hafta 6 – Regresyon I\n\nBasit doğrusal regresyon\n\nRegresyon katsayılarının yorumlanmas"
+  },
+  {
+    "objectID": "index.html#hafta-7-regresyon-ii",
+    "href": "index.html#hafta-7-regresyon-ii",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.7 Hafta 7 – Regresyon II",
+    "text": "3.7 Hafta 7 – Regresyon II\n\nÇoklu regresyon\n\nVarsayımlar, etkileşim terimleri"
+  },
+  {
+    "objectID": "index.html#hafta-8-ara-sınav",
+    "href": "index.html#hafta-8-ara-sınav",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.8 Hafta 8 – Ara Sınav",
+    "text": "3.8 Hafta 8 – Ara Sınav"
+  },
+  {
+    "objectID": "index.html#hafta-9-regresyon-iii",
+    "href": "index.html#hafta-9-regresyon-iii",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.9 Hafta 9 – Regresyon III",
+    "text": "3.9 Hafta 9 – Regresyon III\n\nRegresyon modelleme uygulamaları"
+  },
+  {
+    "objectID": "index.html#hafta-10-istatistiksel-çıkarım-i",
+    "href": "index.html#hafta-10-istatistiksel-çıkarım-i",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.10 Hafta 10 – İstatistiksel çıkarım I",
+    "text": "3.10 Hafta 10 – İstatistiksel çıkarım I\n\nÖrnekleme dağılımı\nMerkezî limit teoremi, güven aralıkları"
+  },
+  {
+    "objectID": "index.html#hafta-11-istatistiksel-çıkarım-ii",
+    "href": "index.html#hafta-11-istatistiksel-çıkarım-ii",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.11 Hafta 11 – İstatistiksel çıkarım II",
+    "text": "3.11 Hafta 11 – İstatistiksel çıkarım II\n\nHipotez testleri: t-test, ki-kare testleri"
+  },
+  {
+    "objectID": "index.html#hafta-12-istatistiksel-çıkarım-iii",
+    "href": "index.html#hafta-12-istatistiksel-çıkarım-iii",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.12 Hafta 12 – İstatistiksel çıkarım III",
+    "text": "3.12 Hafta 12 – İstatistiksel çıkarım III\n\nANOVA, post-hoc testler\nEtki büyüklüğü, yorumlama"
+  },
+  {
+    "objectID": "index.html#hafta-13-çıkarımsal-modelleme-i",
+    "href": "index.html#hafta-13-çıkarımsal-modelleme-i",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.13 Hafta 13 – Çıkarımsal Modelleme I",
+    "text": "3.13 Hafta 13 – Çıkarımsal Modelleme I\n\nLojistik regresyon\nModel karşılaştırmaları"
+  },
+  {
+    "objectID": "index.html#hafta-14-çıkarımsal-modelleme-ii",
+    "href": "index.html#hafta-14-çıkarımsal-modelleme-ii",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.14 Hafta 14 – Çıkarımsal Modelleme II",
+    "text": "3.14 Hafta 14 – Çıkarımsal Modelleme II\n\nModel seçimi, çapraz doğrulama\nGenel tekrar ve proje sunumları"
+  },
+  {
+    "objectID": "index.html#hafta-15-genel-tekrar-ve-tartışma",
+    "href": "index.html#hafta-15-genel-tekrar-ve-tartışma",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.15 Hafta 15 – Genel tekrar ve tartışma",
+    "text": "3.15 Hafta 15 – Genel tekrar ve tartışma"
+  },
+  {
+    "objectID": "index.html#hafta-16-final-sınavı-proje-teslimi",
+    "href": "index.html#hafta-16-final-sınavı-proje-teslimi",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "3.16 Hafta 16 – Final sınavı / Proje teslimi",
+    "text": "3.16 Hafta 16 – Final sınavı / Proje teslimi"
+  },
+  {
+    "objectID": "index.html#ilgili-bağlantılar-ve-mevzuat",
+    "href": "index.html#ilgili-bağlantılar-ve-mevzuat",
+    "title": "Ders Tanıtımı ve İzlence",
+    "section": "7.1 🔗 İlgili Bağlantılar ve Mevzuat",
+    "text": "7.1 🔗 İlgili Bağlantılar ve Mevzuat\n📄 Dersin AKTS Bilgi Paketi Sayfası (Hacettepe Üniversitesi)\n📜 Bu ders, Hacettepe Üniversitesi Lisansüstü Eğitim ve Öğretim Yönetmeliği hükümlerine uygun olarak yürütülmektedir."
+  },
+  {
+    "objectID": "haftalar/index.html",
+    "href": "haftalar/index.html",
+    "title": "📅 Haftalık İçerik",
+    "section": "",
+    "text": "Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar üzerine tıklayarak detaylara ulaşabilirsiniz."
+  },
+  {
+    "objectID": "haftalar/index.html#hafta-temeller",
+    "href": "haftalar/index.html#hafta-temeller",
+    "title": "📅 Haftalık İçerik",
+    "section": "🔹 1-2. Hafta – Temeller",
+    "text": "🔹 1-2. Hafta – Temeller\n\nPaketlerden veri yüklemek\nVeri setlerini (data frame) tanıtmak\nDeğişken türleri tanıtmak\nVeri setlerini değişken türlerini dönüştürmek için mutate() fonksiyonunu kullanmak\nSayısal değişkenleri kategorik değişkenlere dönüştürmek\nVerileri filtrelemek ve ardından gereksiz düzeyleri (levels) kaldırmak\nKategorik değişkenlerde bazı düzeyleri birleştirmek\nİki mevcut değişkene dayalı yeni bir değişken oluşturmak"
+  },
+  {
+    "objectID": "haftalar/index.html#hafta-veri-inceleme",
+    "href": "haftalar/index.html#hafta-veri-inceleme",
+    "title": "📅 Haftalık İçerik",
+    "section": "🔹 3. Hafta – Veri İnceleme",
+    "text": "🔹 3. Hafta – Veri İnceleme\n\nVerilerin düzenlenmesi, özetlenmesi ve görselleştirilmesi yoluyla farklı bakış açılarının nasıl elde edilebileceğini öğrenmek.\nYanıltıcı özet istatistiklerin önüne geçmek için verileri farklı açılardan incelemenin önemini kavramak.\n\n\n\n🔹 4-5. Hafta – Keşfedici Veri Analizi- I\n\n\n\n🔹 [6-7. Hafta – Regresyon]\n\n\n🔹 [9. Hafta – Regresyon]\n\n\n🔹 [10. Hafta – Hipotez Testleri]\n\n\n\n🔹 [11. Hafta – İstatistiksel çıkarım I]\n\n\n\n🔹 [12. Hafta – Çıkarımsal Modelleme I]\n📌 Not: 9. hafta (Ara sınav) ve 16. hafta (Final sınavı) içerik sayfası olarak eklenmemiştir."
+  },
+  {
+    "objectID": "haftalar/demo/html_document2_1.html",
+    "href": "haftalar/demo/html_document2_1.html",
+    "title": "referans verme",
+    "section": "",
+    "text": "Pırlanta ücretleri çeşitli faktörlere bağlıdır\n\ncut (Bakınız Tablo @ref(tab:kesim))\ncolour (Bakınız Tablo @ref(tab:renk))\nclarity (Bakınız Şekil @ref(fig:parlaklik))\ncarats (Bakınız Şekil @ref(fig:karat))\nBakınız Bolum @ref(sonuclar) sonuclar icin\n\n\n\n\n\n\n\n\nKesime göre ortalama pırlanta fiyatı.\n\n\nCut\nAverage Price\n\n\n\n\nFair\n4359\n\n\nGood\n3929\n\n\nVery Good\n3982\n\n\nPremium\n4584\n\n\nIdeal\n3458\n\n\n\n\n\n\n\n\n\n\n\nRenge göre ortalama pırlanta fiyatı.\n\n\nCut\nAverage Price\n\n\n\n\nD\n3170\n\n\nE\n3077\n\n\nF\n3725\n\n\nG\n3999\n\n\nH\n4487\n\n\nI\n5092\n\n\nJ\n5324\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nParlaklığa göre pırlanta fiyatı\n\n\n\n\n\n\n\n\n\n\n\n\nKarata göre pırlanta fiyatı\n\n\n\n\n\n\n\n“Kodlar haricinde pırlantalarla ilgilenmiyorum :)”"
+  },
+  {
+    "objectID": "haftalar/demo/html_document2_1.html#tablolar",
+    "href": "haftalar/demo/html_document2_1.html#tablolar",
+    "title": "referans verme",
+    "section": "",
+    "text": "Kesime göre ortalama pırlanta fiyatı.\n\n\nCut\nAverage Price\n\n\n\n\nFair\n4359\n\n\nGood\n3929\n\n\nVery Good\n3982\n\n\nPremium\n4584\n\n\nIdeal\n3458\n\n\n\n\n\n\n\n\n\n\n\nRenge göre ortalama pırlanta fiyatı.\n\n\nCut\nAverage Price\n\n\n\n\nD\n3170\n\n\nE\n3077\n\n\nF\n3725\n\n\nG\n3999\n\n\nH\n4487\n\n\nI\n5092\n\n\nJ\n5324"
+  },
+  {
+    "objectID": "haftalar/demo/html_document2_1.html#grafikler",
+    "href": "haftalar/demo/html_document2_1.html#grafikler",
+    "title": "referans verme",
+    "section": "",
+    "text": "Parlaklığa göre pırlanta fiyatı\n\n\n\n\n\n\n\n\n\n\n\n\nKarata göre pırlanta fiyatı\n\n\n\n\n\n\n\n“Kodlar haricinde pırlantalarla ilgilenmiyorum :)”"
+  },
+  {
+    "objectID": "haftalar/02_Veri_duz.html",
+    "href": "haftalar/02_Veri_duz.html",
+    "title": "Veri İnceleme",
+    "section": "",
+    "text": "Bu derste temel amacımız, veri düzenleme ve özetleme tekniklerini uygulamalı olarak öğrenmektir.\nÖzellikle, değişkenler arasındaki ilişkileri incelerken verilerin farklı düzeylerde (toplam vs. alt gruplar) nasıl farklı görünebileceğini keşfedeceğiz.\nBu bağlamda Simpson Paradoksu ve verilerin uygun şekilde düzenlenip gruplanmaması durumunda nasıl yanıltıcı sonuçlara ulaşılabileceğini göstermesi açısından güçlü bir örnektir.\nAnscombe’un Dörtlüsü ise, aynı özet istatistiklere sahip veri setlerinin görselleştirilmeden yanlış yorumlanabileceğini ortaya koyar.\n\nVeri düzenlemenin önemi, sadece “doğru hesaplama” yapmak değil; aynı zamanda hangi değişkenlerin kontrol edilmesi gerektiğini fark ederek daha anlamlı sonuçlar çıkarmaktır.\n🔎 Uygulamalar\n\nSimpson Paradoksu (UCBadmit Örneği)\n\nGenel oranlar ile alt grup oranlarını karşılaştırma\nKarıştırıcı (confounding) değişkenlerin etkisini görme\nVeri düzenlemenin ve doğru gruplamanın önemini tartışma\n\n\n\n\nAnscombe’un Dörtlüsü\n\nAynı özet istatistiklere sahip farklı veri setlerini keşfetme\nÖzet istatistikler (ortalama, sd, korelasyon, regresyon) ile görselleştirme sonuçlarını karşılaştırma\nVeriyi görselleştirmeden sadece özet istatistiklere güvenmenin sakıncalarını tartışma\nDersin simspon paradoksu kısmı OpenIntro’nun Introduction to Modern Statistics bölümünden uyarlanmıştır.",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Veri İnceleme"
+    ]
+  },
+  {
+    "objectID": "haftalar/02_Veri_duz.html#uygulama-görevi",
+    "href": "haftalar/02_Veri_duz.html#uygulama-görevi",
+    "title": "Veri İnceleme",
+    "section": "💡 Uygulama Görevi",
+    "text": "💡 Uygulama Görevi\npalmerpenguins paketinden penguins veri setini yükleyin.\nVeri seti Antarktika’daki penguenlerin türü, ada, boy, ağırlık, yüzgeç uzunluğu, cinsiyet vb.bilgilerini içerir.\n\npenguenlerin vücut kitle indeksini (body_mass_g / flipper_length_mm) veri setine ekleyin\nBu yeni değişken için türler göre ortalama, standart sapma, minimum ve maksimum değerlerini hesaplayın.\n\nGörsel: tür × ada kutu grafiği\n\n\nWarning: package 'palmerpenguins' was built under R version 4.4.3\n\n\n\n  \n\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_boxplot()`).",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Veri İnceleme"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\nCode\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "haftalar/01_Giris.html",
+    "href": "haftalar/01_Giris.html",
+    "title": "Temeller",
+    "section": "",
+    "text": "Paketlerden veri yüklemek\nVeri setelerini (data frame) ve tidy data yaklaşımını tanıtmak\nDeğişken türlerini tartışmak ve ilişkilendirmek\nVeri setlerini değişken türlerini dönüştürmek için mutate fonksiyonunu kullanmak\nSayısal değişkenleri kategorik değişkenlere dönüştürmek\nVerileri filtrelemek ve ardından gereksiz düzeyleri (levels) kaldırmak\nKategorik değişkenlerde bazı düzeyleri birleştirmek\nİki mevcut değişkene dayalı yeni bir değişken oluşturmak\n\nBu amaçları, R yazılıma giriş için açıklayıcı olduğunu düşündüğüm bir kılavuz üzerinden ilerleyerek açıklamak istiyorum.\nİlk bölümün linki🔗 Language of data\n\nPaket yükleme\n\n\n📌 Uyarılara dikkat ediniz.\n\n\nlibrary(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\nWarning: package 'purrr' was built under R version 4.4.3\n\n\nWarning: package 'dplyr' was built under R version 4.4.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(openintro)\n\nWarning: package 'openintro' was built under R version 4.4.3\n\n\nLoading required package: airports\n\n\nWarning: package 'airports' was built under R version 4.4.3\n\n\nLoading required package: cherryblossom\n\n\nWarning: package 'cherryblossom' was built under R version 4.4.3\n\n\nLoading required package: usdata\n\n\nWarning: package 'usdata' was built under R version 4.4.3\n\n\n\nBu klavuzda, openintro paketinde yer alan High School and Beyond veri seti hsb2 ile kullanılmıştır.\n\n\nhsb2",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/01_Giris.html#uygulamalı-görev---1",
+    "href": "haftalar/01_Giris.html#uygulamalı-görev---1",
+    "title": "Temeller",
+    "section": "💡 Uygulamalı Görev - 1",
+    "text": "💡 Uygulamalı Görev - 1\nR’da yer alan mtcars veri setini yükleyin ve veri setinin ilk birkaç satırını görüntüleyin.\n\n📌 veri seti yüklendikten sonra head() fonksiyonunu kullanarak veri setinin ilk birkaç satırını görüntüleyebilirsiniz.",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/01_Giris.html#veri-inceleme",
+    "href": "haftalar/01_Giris.html#veri-inceleme",
+    "title": "Temeller",
+    "section": "1.1 Veri inceleme",
+    "text": "1.1 Veri inceleme\nBu veri setinin boyutlarını, değişken adlarını ve ilk birkaç gözlemini görmek için veri setinin adını glimpse() fonksiyonunun içine yazabilirsiniz.\n\nglimpse(hsb2)\n\nRows: 200\nColumns: 11\n$ id      &lt;int&gt; 70, 121, 86, 141, 172, 113, 50, 11, 84, 48, 75, 60, 95, 104, 3…\n$ gender  &lt;chr&gt; \"male\", \"female\", \"male\", \"male\", \"male\", \"male\", \"male\", \"mal…\n$ race    &lt;chr&gt; \"white\", \"white\", \"white\", \"white\", \"white\", \"white\", \"african…\n$ ses     &lt;fct&gt; low, middle, high, high, middle, middle, middle, middle, middl…\n$ schtyp  &lt;fct&gt; public, public, public, public, public, public, public, public…\n$ prog    &lt;fct&gt; general, vocational, general, vocational, academic, academic, …\n$ read    &lt;int&gt; 57, 68, 44, 63, 47, 44, 50, 34, 63, 57, 60, 57, 73, 54, 45, 42…\n$ write   &lt;int&gt; 52, 59, 33, 44, 52, 52, 59, 46, 57, 55, 46, 65, 60, 63, 57, 49…\n$ math    &lt;int&gt; 41, 53, 54, 47, 57, 51, 42, 45, 54, 52, 51, 51, 71, 57, 50, 43…\n$ science &lt;int&gt; 47, 63, 58, 53, 53, 63, 53, 39, 58, 50, 53, 63, 61, 55, 31, 50…\n$ socst   &lt;int&gt; 57, 61, 31, 56, 61, 61, 61, 36, 51, 51, 61, 61, 71, 46, 56, 56…\n\n\nSırada, gapminder paketindeki gapminder veri setini inceleyelim. Veri seti 1952–2007 yılları arasında ülkelerin yaşam beklentisi, nüfus ve kişi başına gayri safi milli hasıla verilerini içerir.\nglimpse() fonksiyonunu kullanarak gapminder veri setine göz atın.\n\nlibrary(gapminder)\n\nWarning: package 'gapminder' was built under R version 4.4.3\n\nglimpse(gapminder)\n\nRows: 1,704\nColumns: 6\n$ country   &lt;fct&gt; \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", …\n$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …\n$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …\n$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…\n$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…\n$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …\n\n\n\nFarklı veri türlerini farkettiniz mi?",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/01_Giris.html#sayısal-veriler",
+    "href": "haftalar/01_Giris.html#sayısal-veriler",
+    "title": "Temeller",
+    "section": "2.1 Sayısal Veriler",
+    "text": "2.1 Sayısal Veriler\nSayısal (ya da nicel) değişkenler, sayısal değerler alır. Bu değerlerle toplama, çıkarma, ortalama alma gibi aritmetik işlemler yapmak anlamlıdır.\nSayısal değişkenler sürekli (continuous) veya kesikli (discrete) olabilir:\n\nSürekli sayısal değişkenler genellikle ölçme yoluyla elde edilir (ör. boy uzunluğu). Belirli bir aralıkta sonsuz sayıda değer alabilirler.\nKesikli sayısal değişkenler ise belirli ve sayılabilir değerlerden birini alır. Örneğin bir evdeki çocuk sayısı. Genel olarak sayma verileri (count data) kesikli değişkenlere örnektir.\n\nBir değişkenin sürekli mi kesikli mi olduğuna karar verirken, gözlenen değerden çok değişkenin doğasına bakmak önemlidir. Örneğin, boy aslında sürekli bir değişkendir; ancak biz boyu santimetre ya da inç gibi en yakın birime yuvarlayarak raporladığımız için kesikli gibi görünebilir.",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/01_Giris.html#kategorik-veriler",
+    "href": "haftalar/01_Giris.html#kategorik-veriler",
+    "title": "Temeller",
+    "section": "2.2 Kategorik Veriler",
+    "text": "2.2 Kategorik Veriler\nKategorik (ya da nitel) değişkenler sınırlı sayıda farklı kategori alır.\n\nEğer kategoriler sıralı bir yapıya sahipse, bu tür değişkenlere ordinal denir.\nÖrneğin: Bir ankette müşteri hizmetlerinden memnuniyet “çok memnun değilim”, “memnun değilim”, “kararsızım”, “memnunum”, “çok memnunum” şeklinde derecelendirilebilir. Burada doğal bir sıralama olduğu için değişken ordinale girer.\nEğer kategoriler arasında doğal bir sıralama yoksa, değişken nominal olarak adlandırılır.\nÖrneğin: “Tabletiniz var mı? (Evet / Hayır)” sorusu. Burada cevapların sırası yoktur.\n\nNot: Kategorik değişkenler sayılarla kodlanabilir (ör. likert ölçeğinde 1–5 arası puanlama). Ancak bu sayılar yalnızca kategori düzeylerini temsil eden sembollerdir; aritmetik işlemler yapmak anlamlı değildir.",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/01_Giris.html#high-school-and-beyond-veri-setindeki-değişkenler",
+    "href": "haftalar/01_Giris.html#high-school-and-beyond-veri-setindeki-değişkenler",
+    "title": "Temeller",
+    "section": "2.3 High School and Beyond Veri Setindeki Değişkenler",
+    "text": "2.3 High School and Beyond Veri Setindeki Değişkenler\nglimpse() fonksiyonunu kullanarak veri setindeki değişkenlerin listesini görebilir ve bu değişkenlerde hangi tür değerlerin saklandığını inceleyebiliriz.\n\nid: Öğrenciye ait kimlik numarasıdır. Teknik olarak kategorik bir değişken olsa da analizlerde ilişkileri incelemek için kullanışlı değildir. Bunu, öğrencilerin isimlerinin anonimleştirilmiş bir karşılığı gibi düşünebilirsiniz.\ngender (cinsiyet): “male” ve “female” düzeylerine sahip kategorik bir değişkendir. Burada dikkat edilmesi gereken nokta, High School and Beyond gibi resmi araştırmalarda kullanılan dilin değişmesinin genellikle yavaş olmasıdır. Bu nedenle “gender” olarak etiketlenmiş değişkenler aslında biyolojik cinsiyeti (erkek/kadın) ölçmektedir. Bu değişkende doğal bir sıralama yoktur; dolayısıyla sadece kategorik bir değişkendir.\nrace (ırk/etnik köken): “white”, “african american”, “hispanic” ve “asian” düzeylerine sahip kategorik bir değişkendir. Bu değişkende de doğal bir sıralama yoktur.\nsocio-economic status (sosyo-ekonomik durum): “low”, “middle” ve “high” düzeylerine sahiptir. Bu düzeyler arasında doğal bir sıralama olduğundan, bu değişken ordinal kategorik bir değişkendir.\nschool type ve program: Bunlar da kategorik değişkenlerdir, ancak düzeyleri arasında doğal bir sıralama yoktur.\nokuma, yazma, matematik, fen ve sosyal bilgiler puanları: Bu değişkenler, öğrencilerin testlerden aldıkları puanlardır. Tam sayılardan oluşur ve (sınavlarda küsuratlı puanların verilmediğini varsayarsak) kesikli (discrete) sayısal değişkenlerdir.\n\n\n💡 Uygulamalı Görev - 2\ngapminder veri setindeki değişkenleri inceleyin ve her bir değişkenin türünü (sayısal/kategorik) belirleyin. Özellikle year, lifeExp, pop ve gdpPercap değişkenlerine odaklanın.",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/01_Giris.html#rde-kategorik-veriler-faktörler",
+    "href": "haftalar/01_Giris.html#rde-kategorik-veriler-faktörler",
+    "title": "Temeller",
+    "section": "2.4 R’de Kategorik Veriler: Faktörler",
+    "text": "2.4 R’de Kategorik Veriler: Faktörler\nR’de farklı veri sınıfları vardır. Bunlardan biri faktör (factor) sınıfıdır. R, kategorik değişkenleri çoğunlukla faktör olarak saklar.\nFaktörlerin önemli bir kullanım alanı istatistiksel modellemedir, çünkü kategorik değişkenler modellere sayısal değişkenlerden farklı şekilde girer. Şimdilik bilmeniz gereken, faktörlerin bazı durumlarda gereksiz görünse de birçok analiz için doğru şekilde çalışmayı sağlayan vazgeçilmez bir yapı olduğudur.\nKategorik veri ile yapılan analizlerde yaygın bir adım, yalnızca verinin bir alt kümesiyle çalışmaktır.\nÖrneğin:\n\nSadece devlet okulundaki öğrencilerin verilerini analiz etmek\n\nSadece “female” olarak tanımlanan öğrenciler üzerinde çalışmak\n\nBu alt kümeleri elde etmek için kategorik değişkenin belirli düzeylerini (levels) filtreleriz.\n\n2.4.1 Örnek: High School and Beyond Verisinde Alt Grup Analizi\nDiyelim ki sadece devlet okullarındaki öğrenciler üzerinde bir analiz yapmak istiyoruz. İlk adım, bu türde kaç öğrenci olduğunu bulmaktır.\nBunun için kullanabileceğimiz yollardan biri, tidyverse içinde yer alan dplyr paketindeki count() fonksiyonudur.\n\ncount() fonksiyonu, bir sütundaki her benzersiz değerin kaç kez tekrarlandığını (frekansını) verir.\nBu örnekte, schtyp (school type) sütunundaki her düzey için öğrenci sayısını elde edeceğiz.\n\n\nlibrary(dplyr)\nlibrary(openintro)\n\n# Her okul türündeki öğrenci sayısını bulma\nhsb2 %&gt;% \n  count(schtyp)",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/01_Giris.html#pipe-operatörü",
+    "href": "haftalar/01_Giris.html#pipe-operatörü",
+    "title": "Temeller",
+    "section": "2.5 Pipe Operatörü %>%",
+    "text": "2.5 Pipe Operatörü %&gt;%\nPipe operatörü (%&gt;%) dikey çizgi ve büyüktür işaretinden oluşur. R’ye, solda gelen nesneyi sağdaki fonksiyonun ilk argümanına aktarmasını söyler.\nMatematiksel olarak:\nx %&gt;% f(y) ifadesi f(x, y) haline gelir, çünkü x, f() fonksiyonunun ilk argümanına aktarılmıştır.\n\nhsb2_public %&gt;% count(schtyp)\n\nKodu şöyle okuyabiliriz:\n“hsb2 veri setini al, count() fonksiyonuna pipe (aktar) et, ardından count() fonksiyonu ile schtyp değişkenindeki benzersiz değerlerin kaç kez geçtiğini say.”\nÖrnek:\nR’de sayıları toplamanın bir yolu sum() fonksiyonudur.\n\nsum(3, 4)\n\n[1] 7\n\n\nBurada 3 ve 4, virgülle ayrılarak toplama işlemine sokulur.\nAynı işlemi pipe ile şöyle yazabiliriz:\n\n3 %&gt;% sum(4)\n\n[1] 7\n\n\nBu kullanım ilk bakışta çok fark yaratmıyor gibi görünebilir. Ancak ders boyunca ilerledikçe pipe operatörünün, veri düzenleme adımlarını ardışık olarak zincirlemeye izin verdiğini göreceğiz.\nBu sayede daha uzun işlemler bile çok daha okunabilir hale gelir.\n\n2.5.1 Filtreleme\n\nfilter() fonksiyonunu kullanarak sadece devlet okullarındaki öğrencileri seçelim.\n\nhsb2 veri setinde al, filter() fonksiyonuna aktar. Ardından school type değişkeni public olan satırları seç. Sonucu hsb2_public adlı yeni bir veri setine ata.”\n\nhsb2_public &lt;- hsb2 %&gt;%\n  filter(schtyp == \"public\")\n\n\n\n2.5.2 Önemli Noktalar\n\nÇift eşittir (==): R’de mantıksal testtir. “Eşit mi?” sorusunu sorar.\nTırnak işareti (““): Kategorik değişkenler karakter tipindedir. Bu yüzden schtyp ==”public” ifadesinde “public” tırnak içinde yazılmalıdır. Tırnak koymayı unutursanız R hata mesajı döner!\n\n\nhsb2_public %&gt;% count(schtyp)\n\n\n  \n\n\n\n\n\n💡 Uygulamalı Görev - 3\n“Devlet okulunda okuyan ve sosyo-ekonomik durumu düşük olan öğrencileri filtreleyin. Kaç gözlem kaldı?”",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/01_Giris.html#değişkenleri-kategorik-hale-getirme",
+    "href": "haftalar/01_Giris.html#değişkenleri-kategorik-hale-getirme",
+    "title": "Temeller",
+    "section": "2.6 Değişkenleri Kategorik Hale Getirme",
+    "text": "2.6 Değişkenleri Kategorik Hale Getirme\nVar olan bir değişkenden yeni bir değişken üretmenin yaygın yollarından biri kategorik hale getirnedır (discretizing).\nBu, sayısal bir değişkeni belirli kriterlere göre kategorik bir değişkene dönüştürmek anlamına gelir.\nDiyelim ki öğrencilerin gerçek okuma puanı ile ilgilenmiyoruz; onun yerine puanlarının ortalamanın altında mı yoksa üzerinde mi olduğuna bakmak istiyoruz.\nÖnce ortalama okuma puanını mean() fonksiyonu ile hesaplayalım:\n\nlibrary(dplyr)\nlibrary(openintro)\n\nmean(hsb2$read)\n\n[1] 52.23\n\n\nBu değeri daha sonra kullanabilmek için bir nesneye atayalım:\n\navg_read &lt;- mean(hsb2$read)\navg_read\n\n[1] 52.23\n\n\nKısayol: Atamayı parantez içine alırsak hem nesneye atar hem de çıktısını görürüz:\n\n(avg_read &lt;- mean(hsb2$read)) # nesne adını tekrar yazmak zorunda kalmadık\n\n[1] 52.23\n\n\nŞimdi her öğrenci için okuma puanı ortalamanın altında mı yoksa ortalama ve üzerinde mi olduğunu belirleyen yeni bir değişken oluşturalım.\nBunun için mutate() ve if_else() fonksiyonlarını kullanacağız:\n\nhsb2_updated &lt;- hsb2 %&gt;%\n  mutate(read_cat = if_else(read &lt; avg_read, \n                            \"ortalama altı\", \n                            \"ortalama ve üstü\"))\n\nMantık:\n\nŞart (logical test): read &lt; avg_read\nTRUE ise: “ortalama altı”\nFALSE ise: “ortalama ve üstü”\n\n\nhsb2_updated %&gt;% count(read_cat)\n\n\n  \n\n\n\n\nlibrary(ggplot2)\nggplot(hsb2_updated, aes(x = read_cat)) +\n  geom_bar()\n\n\n\n\n\n\n\n\n\n📌 Herhangi bir veri analizinin en mantıklı ve faydalı ilk adımı keşifsel analizdir.\n\nKeşifsel veri analizinin en önemli bileşenlerinden biri ise görselleştirmedir.\nR’de veri görselleştirmenin birçok yöntemi vardır. Bu derste tidyverse içinde yer alan ggplot2 paketini kullanacağız.\n\nggplot2, modern görünümlü, kullanımı kolay grafikler üretir.\nBasit iki değişkenli grafikler üretmeyi öğrendikten sonra, aynı sözdizimini biraz daha genişleterek çok değişkenli görselleştirmeler de kolayca yapılabilir.\nggplot2’nin en cazip özelliklerinden biri, grafiklerin katmanlar halinde inşa edilmesidir:\n\nİlk katmanda ham veriler\nÜzerine anotasyonlar, özet istatistikler veya eğilim çizgileri eklenebilir.\n\nBu yaklaşım öğrenmeyi kolaylaştırır, çünkü adım adım basitten karmaşığa geçiş yapılabilir.\n\n\n2.6.1 💡 Uygulamalı Görev - 4\nhsb2_updated veri setine yeni bir değişken oluşturarak matematik puanlarını alt orta ve ust olarak kategorize edin. Her kategoride kaç öğrenci var, bunu bir bar grafiğinde gösteriniz?\n\n📌 25. çeyrek ve altı alt, 26.-75. çeyrek orta, 76. çeyrek ve üstü üst olarak kategorize edebilirsiniz.",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/01_Giris.html#görselleştirme",
+    "href": "haftalar/01_Giris.html#görselleştirme",
+    "title": "Temeller",
+    "section": "2.7 Görselleştirme",
+    "text": "2.7 Görselleştirme\nHigh School and Beyond veri setindeki öğrencilerin matematik ve fen puanları arasındaki ilişkiyi görselleştirelim:\n\nlibrary(ggplot2)\nlibrary(openintro)\n\nggplot(hsb2, aes(x = math, y = science)) +\n  geom_point() +\n  labs(title = \"Matematik ve Fen Puanları Arasındaki İlişki\",\n       x = \"Matematik Puanı\",\n       y = \"Fen Puanı\")\n\n\n\n\n\n\n\n\n\nGrafik üretmek için ggplot() fonksiyonunu kullanıyoruz.\n\nİlk argüman, kullanmak istediğimiz veri çerçevesi: data = hsb2.\n\naes() (aesthetics) içinde, veri çerçevesindeki değişkenleri grafiğin eksenlerine eşliyoruz.\n\nBu örnekte, x eksenine fen puanı (science), y eksenine matematik puanı (math) eşlenmiştir.\n\n\nSon olarak, her gözlemi grafikte hangi geometrik şekille göstermek istediğimizi belirtiyoruz.\n\nDağılım grafiği (scatter plot) yapmak istediğimiz için, her gözlemi bir “nokta” ile gösteriyoruz.\n\nBu katmanı eklemek için geom_point() fonksiyonunu kullanıyoruz.\n\n\nÖzetle:\n\nAna fonksiyon: ggplot()\nİlk argüman: kullanılacak veri\naes(): değişkenleri grafiğin özelliklerine (eksene, renge, vb.) eşler\ngeom_XXX(): hangi tür grafik çizileceğini belirler\n\n\n2.7.1 Katman Mantığı\nDikkat edilmesi gereken bir diğer nokta: geom_XXX() fonksiyonu, ggplot()’tan sonra + işareti ile eklenir.\n\nggplot2 grafiklerinin katmanlar halinde oluşturulduğunu söylemiştik.\n\n+ işareti bu katmanları birbirinden ayırır.\n\nGenel olarak + satır sonu gibi düşünülebilir, bu yüzden + yazdıktan sonra Enter tuşuna basmak iyi bir alışkanlıktır.\n\nZorunlu olmasa da, her katmanı yeni bir satırda yazmak kodun daha okunabilir olmasını sağlar.\n\nBu nedenle biz de bu derste bu yapıyı kullanacağız ve siz de grafiklerinizde bu yöntemi takip etmenizi tavsiye ederiz.\n\n\n2.7.2 Grafiğin Yorumlanması\nElde ettiğimiz grafikte, öğrencilerin fen ve matematik puanları arasında pozitif bir ilişki görüyoruz.\nYani fen puanı yüksek olan öğrenciler genellikle matematikten de yüksek puan alıyor.\nBu sonuç, çok da şaşırtıcı olmasa gerek 😊",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/01_Giris.html#matematik-fen-ve-program-türü",
+    "href": "haftalar/01_Giris.html#matematik-fen-ve-program-türü",
+    "title": "Temeller",
+    "section": "2.8 Matematik, Fen ve Program Türü",
+    "text": "2.8 Matematik, Fen ve Program Türü\nŞimdi öğrencilerin matematik ve fen puanlarını tekrar görselleştirelim,\nancak bu kez öğrencilerin dahil oldukları program türünü de dikkate alalım:\n- general\n- academic\n- vocational\nBunu yapmak için color estetiğini kullanarak her program türüne farklı bir renk atayabiliriz:\n\nggplot(hsb2, aes(x = science , y = math, color = prog)) +\n  geom_point() +\n  labs(title = \"Matematik ve Fen Puanları: Program Türüne Göre\",\n       x = \"Matematik Puanı\",\n       y = \"Fen Puanı\",\n       color = \"Program Türü\")\n\n\n\n\n\n\n\n\nFen ve matematik puanları arasındaki pozitif ilişki hâlâ belirgindir.\nAncak grafiğe program türünü eklediğimizde şunu görüyoruz:\n- Akademik programlardaki öğrenciler (yeşil noktalar) genellikle matematikte fen puanlarına göre daha yüksek puan alma eğilimindedir.\n- Mesleki (vocational) programdaki öğrenciler (mavi) ve genel programdaki öğrenciler (kırmızı) ise görece daha düşük puanlara sahiptir.\n\n💡 Uygulamalı Görev - 4\nYukarıdaki grafiğe, her bir program türü için ayrı bir doğrusal regresyon doğrusunu ekleyin.\nİpucu: geom_smooth(method = “lm”, se = FALSE) fonksiyonunu kullanabilirsiniz.\nOrtaya çıkan grafiği yorumlayın:\nSizce program türüne göre öğrencilerin matematik ve fen puanları arasındaki ilişki nasıl farklılaşıyor?\nHangi program türünde matematik puanları fen puanlarına göre daha yüksek çıkma eğiliminde görünüyor?\n\nggplot(hsb2, aes(x = science , y = math, color = prog)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(title = \"Matematik ve Fen Puanları: Program Türüne Göre\",\n       x = \"Matematik Puanı\",\n       y = \"Fen Puanı\",\n       color = \"Program Türü\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n💡 Uygulamalı Görev - 5\nDersin devam eden süreçlerinde size ödev olarak bırakacağım ilk lab çalışmasını derste beraber yapacağız",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Temeller"
+    ]
+  },
+  {
+    "objectID": "haftalar/demo/html_document2.html",
+    "href": "haftalar/demo/html_document2.html",
+    "title": "referans verme",
+    "section": "",
+    "text": "Pırlanta ücretleri çeşitli faktörlere bağlıdır\n\ncut (Bakınız Tablo @ref(tab:kesim))\ncolour (Bakınız Tablo @ref(tab:renk))\nclarity (Bakınız Şekil @ref(fig:parlaklik))\ncarats (Bakınız Şekil @ref(fig:karat))\nBakınız Bolum @ref(sonuclar) sonuclar icin\n\n\n\n\n\n\n\n\nKesime göre ortalama pırlanta fiyatı.\n\n\nCut\nAverage Price\n\n\n\n\nFair\n4359\n\n\nGood\n3929\n\n\nVery Good\n3982\n\n\nPremium\n4584\n\n\nIdeal\n3458\n\n\n\n\n\n\n\n\n\n\n\nRenge göre ortalama pırlanta fiyatı.\n\n\nCut\nAverage Price\n\n\n\n\nD\n3170\n\n\nE\n3077\n\n\nF\n3725\n\n\nG\n3999\n\n\nH\n4487\n\n\nI\n5092\n\n\nJ\n5324\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nParlaklığa göre pırlanta fiyatı\n\n\n\n\n\n\n\n\n\n\n\n\nKarata göre pırlanta fiyatı\n\n\n\n\n\n\n\n“Kodlar haricinde pırlantalarla ilgilenmiyorum :)”"
+  },
+  {
+    "objectID": "haftalar/demo/html_document2.html#tablolar",
+    "href": "haftalar/demo/html_document2.html#tablolar",
+    "title": "referans verme",
+    "section": "",
+    "text": "Kesime göre ortalama pırlanta fiyatı.\n\n\nCut\nAverage Price\n\n\n\n\nFair\n4359\n\n\nGood\n3929\n\n\nVery Good\n3982\n\n\nPremium\n4584\n\n\nIdeal\n3458\n\n\n\n\n\n\n\n\n\n\n\nRenge göre ortalama pırlanta fiyatı.\n\n\nCut\nAverage Price\n\n\n\n\nD\n3170\n\n\nE\n3077\n\n\nF\n3725\n\n\nG\n3999\n\n\nH\n4487\n\n\nI\n5092\n\n\nJ\n5324"
+  },
+  {
+    "objectID": "haftalar/demo/html_document2.html#grafikler",
+    "href": "haftalar/demo/html_document2.html#grafikler",
+    "title": "referans verme",
+    "section": "",
+    "text": "Parlaklığa göre pırlanta fiyatı\n\n\n\n\n\n\n\n\n\n\n\n\nKarata göre pırlanta fiyatı\n\n\n\n\n\n\n\n“Kodlar haricinde pırlantalarla ilgilenmiyorum :)”"
+  },
+  {
+    "objectID": "haftalar/demo/repro.html",
+    "href": "haftalar/demo/repro.html",
+    "title": "Uretilebilir Rapor 1",
+    "section": "",
+    "text": "Burada iki koşullu bir çalışmadan elde edilen verileri simüle edeceğiz. A koşulundaki ortalama 0 ve B koşulundaki ortalama 1’dir.\n\n\nCode\nn &lt;- 100\n\ndata &lt;- data.frame(\n  id = 1:n,\n  condition = c(\"A\", \"B\") |&gt; rep(each = n/2),\n  dv = c(rnorm(n/2, 0), rnorm(n/2, 1))\n)"
+  },
+  {
+    "objectID": "haftalar/demo/repro.html#veri-üretim",
+    "href": "haftalar/demo/repro.html#veri-üretim",
+    "title": "Uretilebilir Rapor 1",
+    "section": "",
+    "text": "Burada iki koşullu bir çalışmadan elde edilen verileri simüle edeceğiz. A koşulundaki ortalama 0 ve B koşulundaki ortalama 1’dir.\n\n\nCode\nn &lt;- 100\n\ndata &lt;- data.frame(\n  id = 1:n,\n  condition = c(\"A\", \"B\") |&gt; rep(each = n/2),\n  dv = c(rnorm(n/2, 0), rnorm(n/2, 1))\n)"
+  },
+  {
+    "objectID": "haftalar/demo/repro.html#grafik",
+    "href": "haftalar/demo/repro.html#grafik",
+    "title": "Uretilebilir Rapor 1",
+    "section": "2 Grafik",
+    "text": "2 Grafik"
+  },
+  {
+    "objectID": "haftalar/intro_to_r - tr.html",
+    "href": "haftalar/intro_to_r - tr.html",
+    "title": "R and RStudio Tanıtımı",
+    "section": "",
+    "text": "Bu dersin amacı, sizi R ve RStudio ile tanıştırmaktır. Bu programları ders boyunca hem istatistiksel kavramları öğrenmek hem de gerçek verileri analiz ederek bilinçli sonuçlara ulaşmak için kullanacaksınız. Öncelikle hangisinin ne olduğuna açıklık getirelim:\nR programlama dilinin kendisinin adıdır, RStudio ise R ile çalışmak için kullanılan kullanışlı bir arayüzdür.\nDers ilerledikçe, size verilen yönergelerin ötesinde keşif yapmanız teşvik edilmektedir; denemeye ve kurcalamaya istekli olmak sizi çok daha iyi bir programcı yapacaktır! Ancak o aşamaya gelmeden önce R içinde temel bir akıcılık kazanmanız gerekir.\nŞimdi RStudio’yu açın. Aşağıda gösterilen resme benzeyen bir pencere görmelisiniz.\n\nSol alttaki panel, işlerin gerçekleştiği yerdir. Bu panele konsol (console) denir. Her RStudio’yu açtığınızda, konsolun en üstünde çalıştırdığınız R sürümünü gösteren aynı metni görürsünüz. Bu bilginin hemen altında ise &gt; sembolü ile gösterilen komut istemi (prompt) bulunur. Adından da anlaşılacağı gibi bu istem aslında bir talep niteliğindedir: sizden bir komut bekler.\nBaşlangıçta R ile etkileşim tamamen komut yazmak ve çıktıyı yorumlamaktan ibarettir. Bu komutlar ve sözdizimleri on yıllar boyunca (gerçekten) gelişmiş ve günümüzde birçok kullanıcıya veriye erişmek, verileri düzenlemek, tanımlamak ve istatistiksel hesaplamaları yürütmek için oldukça doğal bir yol sunar.\n\nSağ üstteki panelde, ortamınız (environment) ve daha önce girdiğiniz komutların geçmişi (history) bulunur.\nSağ alttaki panelde ise proje klasörünüzdeki dosyaları (files) inceleyebileceğiniz, R fonksiyonlarına ait yardım (help) dosyalarına ulaşabileceğiniz, R paketlerini (packages) yükleyip yönetebileceğiniz ve görselleştirmeleri inceleyebileceğiniz sekmeler yer alır. Varsayılan olarak, oluşturduğunuz tüm görselleştirmeler onları üretmek için yazdığınız kodun hemen altında görünür. Eğer grafiklerinizin plots sekmesinde görünmesini tercih ederseniz, genel ayarlarınızı (global options) değiştirmeniz gerekir.\n\n\n\nR açık kaynaklı (open-source) bir programlama dilidir. Yani kullanıcılar hayatımızı kolaylaştıracak paketler geliştirebilir ve biz bu paketleri ücretsiz olarak kullanabiliriz.\ntidyverse: Veri düzenleme (data wrangling) ve veri görselleştirme için birçok farklı R paketini barındıran bir “şemsiye” pakettir.\nopenintro: OpenIntro kaynaklarıyla birlikte gelen veri setleri ve özel fonksiyonlar için kullanılan bir R paketidir.\nSağ alttaki köşede bulunan Packages sekmesine tıklayın. Arama kutusuna bu paketlerin isimlerini (tidyverse, openintro) yazın ve kurulu olup olmadıklarını kontrol edin. Eğer bu paketler yazdığınızda görünmüyorsa, aşağıdaki iki satır kodu RStudio oturumunuzdaki konsola kopyalayıp yapıştırarak (veya yazarak) kurabilirsiniz. Her satırı yazdıktan sonra mutlaka Enter/Return tuşuna basın.\n\n\nCode\ninstall.packages(\"tidyverse\")\ninstall.packages(\"openintro\")\n\n\nEnter/Return tuşuna bastıktan sonra, seçtiğiniz konumdan paketi kurarken R’ın yürüttüğü işlemleri gösteren uzun bir metin akışı başlayacaktır. Eğer R’ı yüklerken paketleri indirmek için bir sunucu seçmeniz istenmediyse, RStudio sizden bir sunucu seçmenizi isteyebilir; bu sunucuların herhangi birini seçmeniz yeterlidir.\nPaketleri kurma (install) işlemini yalnızca bir kez yapmanız gerekir, ancak RStudio’yu her yeniden açtığınızda paketleri yüklemeniz (load) gerekir. Paketleri yüklemek için library fonksiyonunu kullanırız. tidyverse ve openintro paketlerini çalışma ortamınıza yüklemek için aşağıdaki iki satırı konsolunuza kopyalayıp yapıştırın (veya kendiniz yazın\n\n\nCode\nlibrary(tidyverse)\nlibrary(openintro)\n\n\ntidyverse paketini veriyle çalışmanın farklı yönleri için gerekli olan paketler bütününden oluşur; veriyi yüklemekten (loading), düzenlemeye (wrangling), görselleştirmeye (visualizing) ve analiz etmeye (analyzing) kadar her aşamayı kapsar. Ayrıca bu paketler ortak felsefeleri paylaşır ve birlikte çalışacak şekilde tasarlanmıştır. tidyverse paketleri hakkında daha fazla bilgiyi tidyverse.org adresinde bulabilirsiniz."
+  },
+  {
+    "objectID": "haftalar/intro_to_r - tr.html#rstudio-arayüz",
+    "href": "haftalar/intro_to_r - tr.html#rstudio-arayüz",
+    "title": "R and RStudio Tanıtımı",
+    "section": "",
+    "text": "Bu dersin amacı, sizi R ve RStudio ile tanıştırmaktır. Bu programları ders boyunca hem istatistiksel kavramları öğrenmek hem de gerçek verileri analiz ederek bilinçli sonuçlara ulaşmak için kullanacaksınız. Öncelikle hangisinin ne olduğuna açıklık getirelim:\nR programlama dilinin kendisinin adıdır, RStudio ise R ile çalışmak için kullanılan kullanışlı bir arayüzdür.\nDers ilerledikçe, size verilen yönergelerin ötesinde keşif yapmanız teşvik edilmektedir; denemeye ve kurcalamaya istekli olmak sizi çok daha iyi bir programcı yapacaktır! Ancak o aşamaya gelmeden önce R içinde temel bir akıcılık kazanmanız gerekir.\nŞimdi RStudio’yu açın. Aşağıda gösterilen resme benzeyen bir pencere görmelisiniz.\n\nSol alttaki panel, işlerin gerçekleştiği yerdir. Bu panele konsol (console) denir. Her RStudio’yu açtığınızda, konsolun en üstünde çalıştırdığınız R sürümünü gösteren aynı metni görürsünüz. Bu bilginin hemen altında ise &gt; sembolü ile gösterilen komut istemi (prompt) bulunur. Adından da anlaşılacağı gibi bu istem aslında bir talep niteliğindedir: sizden bir komut bekler.\nBaşlangıçta R ile etkileşim tamamen komut yazmak ve çıktıyı yorumlamaktan ibarettir. Bu komutlar ve sözdizimleri on yıllar boyunca (gerçekten) gelişmiş ve günümüzde birçok kullanıcıya veriye erişmek, verileri düzenlemek, tanımlamak ve istatistiksel hesaplamaları yürütmek için oldukça doğal bir yol sunar.\n\nSağ üstteki panelde, ortamınız (environment) ve daha önce girdiğiniz komutların geçmişi (history) bulunur.\nSağ alttaki panelde ise proje klasörünüzdeki dosyaları (files) inceleyebileceğiniz, R fonksiyonlarına ait yardım (help) dosyalarına ulaşabileceğiniz, R paketlerini (packages) yükleyip yönetebileceğiniz ve görselleştirmeleri inceleyebileceğiniz sekmeler yer alır. Varsayılan olarak, oluşturduğunuz tüm görselleştirmeler onları üretmek için yazdığınız kodun hemen altında görünür. Eğer grafiklerinizin plots sekmesinde görünmesini tercih ederseniz, genel ayarlarınızı (global options) değiştirmeniz gerekir.\n\n\n\nR açık kaynaklı (open-source) bir programlama dilidir. Yani kullanıcılar hayatımızı kolaylaştıracak paketler geliştirebilir ve biz bu paketleri ücretsiz olarak kullanabiliriz.\ntidyverse: Veri düzenleme (data wrangling) ve veri görselleştirme için birçok farklı R paketini barındıran bir “şemsiye” pakettir.\nopenintro: OpenIntro kaynaklarıyla birlikte gelen veri setleri ve özel fonksiyonlar için kullanılan bir R paketidir.\nSağ alttaki köşede bulunan Packages sekmesine tıklayın. Arama kutusuna bu paketlerin isimlerini (tidyverse, openintro) yazın ve kurulu olup olmadıklarını kontrol edin. Eğer bu paketler yazdığınızda görünmüyorsa, aşağıdaki iki satır kodu RStudio oturumunuzdaki konsola kopyalayıp yapıştırarak (veya yazarak) kurabilirsiniz. Her satırı yazdıktan sonra mutlaka Enter/Return tuşuna basın.\n\n\nCode\ninstall.packages(\"tidyverse\")\ninstall.packages(\"openintro\")\n\n\nEnter/Return tuşuna bastıktan sonra, seçtiğiniz konumdan paketi kurarken R’ın yürüttüğü işlemleri gösteren uzun bir metin akışı başlayacaktır. Eğer R’ı yüklerken paketleri indirmek için bir sunucu seçmeniz istenmediyse, RStudio sizden bir sunucu seçmenizi isteyebilir; bu sunucuların herhangi birini seçmeniz yeterlidir.\nPaketleri kurma (install) işlemini yalnızca bir kez yapmanız gerekir, ancak RStudio’yu her yeniden açtığınızda paketleri yüklemeniz (load) gerekir. Paketleri yüklemek için library fonksiyonunu kullanırız. tidyverse ve openintro paketlerini çalışma ortamınıza yüklemek için aşağıdaki iki satırı konsolunuza kopyalayıp yapıştırın (veya kendiniz yazın\n\n\nCode\nlibrary(tidyverse)\nlibrary(openintro)\n\n\ntidyverse paketini veriyle çalışmanın farklı yönleri için gerekli olan paketler bütününden oluşur; veriyi yüklemekten (loading), düzenlemeye (wrangling), görselleştirmeye (visualizing) ve analiz etmeye (analyzing) kadar her aşamayı kapsar. Ayrıca bu paketler ortak felsefeleri paylaşır ve birlikte çalışacak şekilde tasarlanmıştır. tidyverse paketleri hakkında daha fazla bilgiyi tidyverse.org adresinde bulabilirsiniz."
+  },
+  {
+    "objectID": "haftalar/intro_to_r - tr.html#uygulamalı-görev---1",
+    "href": "haftalar/intro_to_r - tr.html#uygulamalı-görev---1",
+    "title": "R and RStudio Tanıtımı",
+    "section": "2 💡 Uygulamalı Görev - 1",
+    "text": "2 💡 Uygulamalı Görev - 1\nBu ders kapsamında kullanacağız CTT, ltm ve mirt paketlerini yükleyiniz.\n\nJava ve Rtools sadece Windows kullanıcıları için gereklidir.\n\nJava\nRtools Rtools, kaynak koddan derleme yapmaya yarayan araçları içeren bir R yardımcısıdır\n\n\n\n2.1 Yeniden üretilebilir raporlar üretme\nYeniden üretilebilir (reproducible) laboratuvar raporları oluşturmak için R Markdown kullanacağız. Bunun neden ve nasıl yapılacağını açıklayan videoları aşağıda bulabilirsiniz:\nWhy use R Markdown for Lab Reports? \nUsing R Markdown for Lab Reports in RStudio \nKısaca, RStudio’da New File → R Markdown… yolunu izleyin. Ardından “From Template” seçeneğini seçin ve listeden Lab Report for OpenIntro Statistics Lab 1 şablonunu seçin.\nBundan sonra kodunuzu doğrudan konsola yazmaktan kaçınmalısınız; çünkü bu şekilde yazmak istediğiniz çıktıyı hatırlamayı ve yeniden üretmeyi çok zorlaştırır. R Markdown dosyalarının belki de en önemli özelliği, R kodunu yazılı raporun içine gömmemize izin vermesidir. Bir R Markdown dosyasında R kodu gri kutular içinde görünür, biz bunlara “kod parçacıkları (code chunks)” diyoruz. R Markdown, bu gri kutuların R kodu içerdiğini, üç tane ters tırnak işareti (```) ile başlayıp ardından süslü parantezler içinde küçük r harfi ({r}) yazmasından anlar. Bunu zaten yukarıda görmüştünüz!\nKodlarımızı konsola yazmak yerine, her problem için ayrılmış R kod parçacıklarının içine (doğru yanıt veya sadece denediğiniz kodlar fark etmez) yazmanızı tavsiye ediyoruz. Bu kod parçacıklarındaki R kodunu, konsolda yaptığınız gibi çalıştırabilirsiniz. Bir kod satırını çalıştırmak için iki yol vardır:\nİmleci kod satırının üzerine getirin ve aynı anda Ctrl-Enter (veya Mac’te Cmd-Enter) tuşlarına basın.\nİmleci kod satırının üzerine getirin ve R Markdown dosyasının sağ üst köşesinde yer alan “Run” butonuna tıklayın.\nEğer bir kod parçacığındaki tüm R kodunu çalıştırmak isterseniz, o kod parçacığının sağ üst köşesindeki “Play” butonuna (yeşil üçgen) tıklayabilirsiniz.\nHerhangi bir noktada en baştan başlamak ve belirli bir kod parçacığından önceki tüm kod parçacıklarını çalıştırmak isterseniz, o kod parçacığının sağ üst köşesindeki “Fastforward” butonuna (altında çizgi olan gri ters üçgen) tıklayın. Bu, o parçacıktan önceki tüm kodları çalıştırır, ancak seçtiğiniz kod parçacığındaki R kodunu çalıştırmaz."
+  },
+  {
+    "objectID": "haftalar/intro_to_r - tr.html#dr.-arbuthnotun-vaftiz-kayıtları",
+    "href": "haftalar/intro_to_r - tr.html#dr.-arbuthnotun-vaftiz-kayıtları",
+    "title": "R and RStudio Tanıtımı",
+    "section": "3 Dr. Arbuthnot’un Vaftiz Kayıtları",
+    "text": "3 Dr. Arbuthnot’un Vaftiz Kayıtları\nBaşlamak için, hadi veriye kısa bir göz atalım.\n\n\nCode\narbuthnot\n\n\nYukarıdaki kodu çalıştırmak için şunları yapabilirsiniz:\nİmleci satırın üzerine getirip Ctrl-Enter (veya Mac’te Cmd-Enter) tuşlarına basmak,\nİmleci satırın üzerine getirip R Markdown dosyasının sağ üst köşesindeki “Run” butonuna tıklamak, ya da\nKod parçacığının sağ üst köşesindeki yeşil oka tıklamak.\nBu kod parçacığında yer alan tek satırlık komut, R’a bazı verileri yüklemesini söyler: erkek ve kız çocuklarının Arbuthnot vaftiz sayıları. Şimdi RStudio penceresinin sağ üst köşesindeki Environment sekmesinde arbuthnot adında, 82 gözlem ve 3 değişkenden oluşan bir veri seti listelendiğini görmelisiniz. R ile çalışırken çeşitli amaçlarla nesneler (objects) oluşturursunuz. Bazen bu nesneleri bir paketi yükleyerek çalışma alanınıza getirirsiniz (burada yaptığımız gibi), bazen de bir hesaplama süreci, yaptığınız bir analiz veya oluşturduğunuz bir görselleştirme sonucunda kendiniz oluşturursunuz.\nArbuthnot veri seti, 18. yüzyıl hekim, yazar ve matematikçi Dr. John Arbuthnot’un çalışmasına dayanmaktadır. Arbuthnot, erkek ve kız bebeklerin doğum oranıyla ilgilenmiş ve 1629’dan 1710’a kadar Londra’da doğan çocukların vaftiz kayıtlarını toplamıştır. Veriye yeniden bakmak için aşağıdaki kodu çalıştırabilir veya veri setinin adını doğrudan konsola yazabilirsiniz. Dikkat edin: yazım ve büyük/küçük harf kullanımı önemlidir! R büyük/küçük harfe duyarlıdır; eğer yanlışlıkla Arbuthnot yazarsanız, R bu nesnenin bulunamadığını söyleyecektir.\n\n\nCode\narbuthnot\n\n\nBu komut veriyi bizim için gösterir, ancak tüm veri setini konsolda yazdırmak çok da kullanışlı değildir. RStudio’nun avantajlarından biri, dahili bir veri görüntüleyici (Data Viewer) ile gelmesidir. Sağ üst paneldeki Environment sekmesi, ortamınızdaki nesneleri listeler. Burada arbuthnot ismine tıkladığınızda, R Markdown dosyanızın yanında yeni bir Data Viewer sekmesi açılır ve veri setini alternatif bir şekilde görüntülemenizi sağlar. Bu görünüm, veriyi Excel’de incelemeye benzer; veri setini kaydırarak satırları inceleyebilirsiniz. Ancak Excel’den farklı olarak, bu sekmede veriyi düzenleyemezsiniz. İnceleme işiniz bittiğinde, sekmeyi sol üst köşesindeki x işaretine tıklayarak kapatabilirsiniz.\nVeriyi incelerken, dört sütun ve 82 satır görmelisiniz. Her satır, Arbuthnot’un veri topladığı farklı bir yılı temsil eder. Her satırdaki ilk değer satır numarasıdır (istersek belirli yıllara erişmek için kullanabileceğimiz bir indeks). İkinci sütun yıl bilgisini, üçüncü ve dördüncü sütun ise o yıl vaftiz edilen erkek ve kız çocuklarının sayılarını gösterir. Konsol penceresinin sağındaki kaydırma çubuğunu kullanarak veri setinin tamamını inceleyebilirsiniz.\nDikkat edin: İlk sütundaki satır numaraları Arbuthnot’un verilerinin bir parçası değildir. R bu satır numaralarını, çıktıda görsel karşılaştırma yapmanıza yardımcı olmak için ekler. Bunları, bir elektronik tabloda sol tarafta gördüğünüz indeks gibi düşünebilirsiniz. Aslında, veriyi bir tabloya (spreadsheet) benzetmek genelde faydalıdır. R, Arbuthnot’un verilerini elektronik tabloya benzeyen bir nesne içinde saklamıştır; R bu tür nesnelere data frame (veri çerçevesi) adını verir.\nBu veri çerçevesinin boyutlarını, değişken adlarını ve ilk birkaç gözlemini görmek için veri setinin adını glimpse() fonksiyonunun içine yazabilirsiniz, aşağıda görüldüğü gibi:\n\n\nCode\nglimpse(arbuthnot)\n\n\nDaha önce tüm R kodunuzu kod parçacığına (code chunk) yazmanın en iyi uygulama olduğunu söylemiş olsak da, bu komutu konsola yazmanız daha doğru olur. Genel kural olarak, çözümünüz için gerekli olan tüm kodları kod parçacığına yazmalısınız. Ancak bu komut yalnızca veriyi keşfetmek için kullanıldığından, çözüm kodunuz için gerekli değildir ve çözüm dosyanıza eklenmemelidir.\nBu komutun çıktısı aşağıdaki gibi olmalıdır:\n\n\nRows: 82\nColumns: 3\n$ year  &lt;int&gt; 1629, 1630, 1631, 1632, 1633, 1634, 1635, 1636, 1637, 1638, 1639…\n$ boys  &lt;int&gt; 5218, 4858, 4422, 4994, 5158, 5035, 5106, 4917, 4703, 5359, 5366…\n$ girls &lt;int&gt; 4683, 4457, 4102, 4590, 4839, 4820, 4928, 4605, 4457, 4952, 4784…\n\n\nBu veri setinde 82 gözlem ve 3 değişken olduğunu görebiliyoruz. Değişken adları year, boys ve girls’tır. Bu noktada, R komutlarının çoğunun matematik derslerindeki fonksiyonlara çok benzediğini fark edebilirsiniz; yani R komutlarını çalıştırmak, bir fonksiyona belli sayıda girdi (argüman) vermek ve fonksiyonun bu girdileri kullanarak bir çıktı üretmesi anlamına gelir. Örneğin, glimpse() komutu tek bir argüman aldı: bir veri çerçevesinin adı. Sonuç olarak da veri setinin bir özetini çıktı olarak gösterdi."
+  },
+  {
+    "objectID": "haftalar/intro_to_r - tr.html#bazı-keşifler",
+    "href": "haftalar/intro_to_r - tr.html#bazı-keşifler",
+    "title": "R and RStudio Tanıtımı",
+    "section": "4 Bazı Keşifler",
+    "text": "4 Bazı Keşifler\nŞimdi veriyi biraz daha yakından incelemeye başlayalım. Bir veri çerçevesindeki tek bir sütuna, $ işaretiyle o sütunu seçerek erişebiliriz. Örneğin, aşağıdaki kod arbuthnot veri çerçevesinden boys sütununu çıkarır.\n\n\nCode\narbuthnot$boys\n\n\nBu komut yalnızca her yıl vaftiz edilen erkek çocuklarının sayılarını gösterir. R, $ işaretini şöyle yorumlar: “Benden önce gelen veri çerçevesine git ve benden sonra gelen değişkeni bul.”\nPeki sadece vaftiz edilen kız çocuklarının sayılarını çıkarmak için hangi komutu kullanırsınız? Bunu konsolda deneyin!\nDikkat edin, R bu verileri yazdırma biçimini farklı göstermektedir. Tüm veri çerçevesine baktığımızda 82 satır vardı ve her satırda bir yılın verisi yer alıyordu. Ancak bu veriler veri çerçevesinden çıkarıldığı için artık diğer değişkenlerle birlikte bir tablo şeklinde değil. Bunun yerine, bu veriler art arda sıralanmış şekilde gösterilir. Bu şekilde yazdırılan nesnelere vektör (vector) denir. Matematik derslerinden bildiğiniz vektörlere benzer biçimde, R’de vektörler sayı listelerini temsil eder.\nR, vektörün her bir elemanının konumunu göstermek için çıktının sol tarafına köşeli parantezler içinde sayılar ekler. Örneğin, [1] ifadesinden sonra 5218 geliyorsa, bu 5218’in vektörün ilk elemanı olduğu anlamına gelir. Eğer bir satırın başında [43] görüyorsanız, o satırda yazılan ilk sayının vektörün 43. elemanına karşılık geldiğini bilirsiniz.\n\n4.1 Görselleştirme\nR, grafikler oluşturmak için güçlü fonksiyonlara sahiptir. Aşağıdaki kod ile yıllara göre vaftiz edilen kız çocuklarının sayısını gösteren basit bir grafik oluşturabiliriz:\n\n\nCode\nggplot(data = arbuthnot, aes(x = year, y = girls)) + \n  geom_point()\n\n\n\n\n\n\n\n\n\nBu kodda, grafik oluşturmak için ggplot() fonksiyonunu kullanıyoruz. Bu kod parçacığını çalıştırdığınızda, grafiğiniz kodun hemen altında görünecektir. R Markdown belgesi, oluşturduğunuz grafiği kullandığınız kodun altında göstererek, size nihai raporda grafiğin nasıl görüneceğine dair bir fikir verir.\nYukarıdaki komut da matematiksel bir fonksiyona benzer görünüyor. Ancak bu kez fonksiyon birden fazla girdi (argüman) gerektirir ve bu argümanlar virgül ile ayrılır.\nggplot() fonksiyonunda:\nİlk argüman her zaman grafik için kullanmak istediğiniz veri setinin adıdır.\nSonrasında, veri setindeki değişkenleri grafiğin farklı aesthetik (görsel) öğelerine, örneğin x ve y eksenlerine atarsınız.\nBu komutlar size, x ve y eksenlerine atadığınız değişkenlerle boş bir grafik oluşturur. Sonraki adımda, ggplot() fonksiyonuna bu boş şablona hangi tür görselleştirme eklemek istediğinizi söylemeniz gerekir. ggplot()’a yeni bir katman eklemek için:\nSatırın sonuna + işareti ekleyerek yeni bir katman eklediğinizi belirtirsiniz.\nDaha sonra, grafiğin oluşturulması için kullanılacak geometrik nesneyi (geom) belirlersiniz.\nBiz burada bir dağılım grafiği (scatterplot) istediğimiz için geom_point() kullanıyoruz. Bu, ggplot()’a her bir gözlemin grafikte bir nokta ile temsil edilmesi gerektiğini söyler. Eğer yukarıdaki grafiği bir çizgi grafik (line graph) olarak görmek isteseydiniz, geom_point() yerine geom_line() kullanırdınız. Bu durumda ggplot(), her gözlemi bir sonraki gözlemle sırasıyla birleştiren bir çizgi çizerdi.\n\n\nCode\nggplot(data = arbuthnot, aes(x = year, y = girls)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\nGrafiği kullanarak aşağıdaki soruya cevap verin:\nYıllar boyunca vaftiz edilen kız çocuklarının sayısında belirgin bir eğilim var mı? Bunu nasıl tanımlarsınız? (Laboratuvar raporunuzun kapsamlı olması için, grafiği oluşturmak için gereken kodu ve yazılı yorumunuzu mutlaka ekleyin.)\nggplot() fonksiyonunun sözdizimini (syntax) nasıl bileceğinizi merak edebilirsiniz. Neyse ki R, tüm fonksiyonlarını kapsamlı şekilde belgelemiştir. Bir fonksiyonun ne yaptığını ve nasıl kullanılacağını (örneğin, fonksiyonun argümanlarını) öğrenmek için konsola sadece soru işareti yazıp ardından ilgilendiğiniz fonksiyonun adını yazmanız yeterlidir. Konsolunuza şunu yazın:\n\n\nCode\n?ggplot\n\n\nYardım dosyasının öne çıktığını ve sağ alttaki panelde grafiğin yerine geçtiğini fark edeceksiniz. Sekmeler arasında geçiş yapmak için isimlerine tıklayabilirsiniz.\n\n\n4.2 R büyük bir hesap makinesi olarak\nŞimdi, toplam vaftiz sayısını çizdirmek istediğimizi varsayalım. Bunun için, R’ı büyük bir hesap makinesi gibi kullanabileceğimizi göz önünde bulundurabiliriz. Bunu yapmak için, aşağıdaki örnekte olduğu gibi matematiksel ifadeleri konsola yazabiliriz.\n\n\nCode\n5218 + 4683\n\n\nBu hesaplama bize 1629 yılındaki toplam vaftiz sayısını verir. Daha sonra her yıl için bu hesaplamayı tekrarlayabiliriz. Ancak bu epey zaman alır. Neyse ki daha hızlı bir yol var! Erkek çocuklarının vaftiz sayılarını içeren vektörü kız çocuklarının vektörüne eklersek, R bu toplamların her birini aynı anda hesaplayabilir.\n\n\nCode\narbuthnot$boys + arbuthnot$girls\n\n\nKarşınıza 82 sayıdan oluşan bir liste çıkacaktır. Bu sayılar bir liste halinde görünür, çünkü bir data frame ile değil, bir vektör ile çalışıyoruz. Her sayı, o yıl vaftiz edilen erkek ve kız çocuklarının toplamını temsil eder. Hesaplamanın doğru olup olmadığını kontrol etmek için boys ve girls sütunlarının ilk birkaç satırına göz atabilirsiniz.\n\n\n4.3 Veri setine yeni bir sütun ekleme\nToplam vaftiz sayılarını içeren bu yeni vektörü grafikler üretmek için kullanmak istiyoruz, bu yüzden onu veri çerçevemizde kalıcı bir sütun olarak saklamamız gerekir. Bunu aşağıdaki kodu kullanarak yapabiliriz:\n\n\nCode\narbuthnot &lt;- arbuthnot %&gt;%\n  mutate(total = boys + girls)\n\n\nBu kod birçok yeni parça içeriyor, bu yüzden adım adım inceleyelim. İlk satırda iki şey yapıyoruz:\nGüncellenmiş veri çerçevemize yeni bir total sütunu ekliyoruz.\nMevcut arbuthnot veri çerçevesini, bu yeni total sütununu içeren güncellenmiş haliyle üzerine yazıyoruz (overwrite).\nBu iki işlemi birbirine bağlamamızı sağlayan şey pipe (borulama) (%&gt;%) operatörüdür. Pipe operatörü, bir önceki ifadenin çıktısını alır ve onu sonraki ifadenin ilk argümanı olarak “aktarır”.\nBunu matematiksel fonksiyon benzetmesiyle açıklarsak: x %&gt;% f(y) ifadesi, f(x, y) ifadesine eşdeğerdir.\nDolayısıyla arbuthnot ile mutate(total = boys + girls) ifadelerini pipe operatörüyle bağlamak, mutate(arbuthnot, total = boys + girls) yazmakla aynı şeydir. Burada arbuthnot, mutate() fonksiyonuna verilen ilk argüman olur.\n\n“arbuthnot veri setini al ve onu mutate fonksiyonuna pipe et. arbuthnot veri setini, boys ve girls değişkenlerinin toplamı olan total adında yeni bir değişken oluşturarak güncelle. Ardından, ortaya çıkan veri setini arbuthnot adlı nesneye ata; yani eski arbuthnot veri setinin üzerine, yeni değişkeni içeren güncellenmiş halini yaz.”\nBu, her satır için boys ve girls sayılarını toplayıp, bu değeri total adlı yeni bir sütuna kaydetmeye denktir.\n\n\nYeni değişken nerede? Veri setinizde değişiklik yaptığınızda, veri görüntüleyicide güncellenmiş halini görmek için veri setinin adına tekrar tıklayın.7\n\nArtık veri çerçevenize eklenmiş total adında yeni bir sütun olduğunu göreceksiniz. Özel &lt;- sembolü bir atama (assignment) işlemi yapar; yani pipe işlemlerinin çıktısını alır ve ortamınızdaki (environment) bir nesneye kaydeder. Bu durumda, ortamınızda zaten arbuthnot adlı bir nesne olduğundan, bu komut veri setini yeni eklenen sütunla güncelleyerek üzerine yazar.\nYıllara göre toplam vaftiz sayılarını çizgi grafik (line plot) olarak göstermek için şu kodu kullanabilirsiniz:\n\n\nCode\nggplot(data = arbuthnot, aes(x = year, y = total)) + \n  geom_line()\n\n\n\n\n\n\n\n\n\nBenzer şekilde, 1629 yılında vaftiz edilen erkek ve kız çocuklarının toplam sayısını öğrendikten sonra, erkek çocuklarının kız çocuklarına oranını aşağıdaki kod ile hesaplayabilirsiniz:\n\n\nCode\n5218 / 4683\n\n\nAlternatif olarak, bu oranı her yıl için hesaplayabilirsiniz. Bunun için tüm boys ve girls sütunları üzerinde işlem yapmanız yeterlidir; ardından bu hesaplamaları boy_to_girl_ratio adında yeni bir değişkene kaydedebilirsiniz:\n\n\nCode\narbuthnot &lt;- arbuthnot %&gt;%\n  mutate(boy_to_girl_ratio = boys / girls)\n\n\n1629 yılındaki yenidoğanların erkek çocuk olma oranını da aşağıdaki kod ile hesaplayabilirsiniz:\n\n\nCode\n5218 / (5218 + 4683)\n\n\nYa da bunu tüm yıllar için aynı anda hesaplayabilir ve sonuçları veri setine boy_ratio adında yeni bir değişken olarak ekleyebilirsiniz:\n\n\nCode\narbuthnot &lt;- arbuthnot %&gt;%\n  mutate(boy_ratio = boys / total)\n\n\nDikkat edin, bu hesaplamalarda boys + girls ifadesiyle bölmek yerine daha önce oluşturduğumuz total değişkenini kullanıyoruz!\nŞimdi, zaman içinde doğan erkek çocukların oranının grafiğini oluşturun. Ne görüyorsunuz?\n\nTip: Konsolda yukarı ve aşağı ok tuşlarını kullanarak, daha önce yazdığınız komutlar arasında gezinebilirsiniz; buna komut geçmişi (command history) denir. Ayrıca sağ üst paneldeki History sekmesine tıklayarak da komut geçmişinize erişebilirsiniz. Bu özellik, ileride size tekrar tekrar yazmaktan büyük ölçüde tasarruf sağlar.\n\nSon olarak, çıkarma ve bölme gibi basit matematiksel işleçlerin yanı sıra, R’a karşılaştırmalar da yaptırabilirsiniz. Örneğin, büyüktür &gt;, küçüktür &lt; ve eşittir ==.\nÖrneğin, aşağıdaki kod ile her yıl erkek doğumlarının kız doğumlarından fazla olup olmadığını gösteren more_boys adında yeni bir değişken oluşturabiliriz:\n\n\nCode\narbuthnot &lt;- arbuthnot %&gt;%\n  mutate(more_boys = boys &gt; girls)\n\n\nBu komut, arbuthnot veri çerçevesine yeni bir değişken ekler. Eğer o yıl erkek çocuklarının sayısı kız çocuklarından fazlaysa değer TRUE, değilse FALSE olur (cevap sizi şaşırtabilir). Bu değişken, şimdiye kadar karşılaştığımız veri türlerinden farklı bir veri türüdür. arbuthnot veri çerçevesindeki diğer sütunların tümü sayısal değerler (yıl, erkek ve kız çocuklarının sayıları) içerirken, burada R’dan mantıksal (logical) veri oluşturmasını istedik. Mantıksal veriler yalnızca TRUE veya FALSE değerlerinden oluşur.\nGenel olarak veri analizi, birçok farklı veri türünü içerir ve R kullanmamızın nedenlerinden biri de, bu veri türlerinin çoğunu temsil edebilmesi ve üzerinde işlem yapabilmesidir."
+  },
+  {
+    "objectID": "haftalar/intro_to_r - tr.html#daha-fazla-alıştırma",
+    "href": "haftalar/intro_to_r - tr.html#daha-fazla-alıştırma",
+    "title": "R and RStudio Tanıtımı",
+    "section": "5 Daha fazla alıştırma",
+    "text": "5 Daha fazla alıştırma\nÖnceki sayfalarda Arbuthnot’un vaftiz verilerine ait bazı görselleştirmeleri ve ön analizleri yeniden oluşturdunuz. Ödeviniz, bu adımları günümüzdeki Amerika Birleşik Devletleri doğum kayıtları için tekrarlamaktır. Bu veriler present adlı bir veri çerçevesinde saklanmaktadır.\nBir sütunun minimum ve maksimum değerlerini bulmak için summarize() fonksiyonu içinde min() ve max() fonksiyonlarını kullanabilirsiniz. Bu fonksiyon hakkında daha fazla bilgiyi bir sonraki laboratuvar çalışmasında öğreneceksiniz.\nİşte bir yıldaki erkek doğumlarının minimum ve maksimum sayılarını bulmaya yönelik bir örnek:\n\n\nCode\narbuthnot %&gt;%\n  summarize(min = min(boys),\n            max = max(boys)\n            )\n\n\n\nBu veri setinde hangi yıllar yer almaktadır? Veri çerçevesinin boyutları nelerdir? Değişken (sütun) adları nelerdir?\nBu sayılar Arbuthnot’un verileriyle nasıl karşılaştırılır? Benzer büyüklükte midirler?\nZaman içinde doğan erkek çocukların oranını gösteren bir grafik oluşturun. Ne görüyorsunuz? Arbuthnot’un erkek çocukların kız çocuklarından daha yüksek oranda doğduğu yönündeki gözlemi ABD için de geçerli mi? Yanıtınıza grafiği de ekleyin. İpucu: Exercise 3’teki kodunuzu yeniden kullanabilirsiniz, sadece veri çerçevesinin adını değiştirin.\nABD’de toplam doğumların en fazla olduğu yıl hangisidir?\n\nİpucu: Önce toplamları hesaplayın ve bunu yeni bir değişken olarak kaydedin. Daha sonra veri setinizi total sütununa göre azalan düzende sıralayın. Bunu veri görüntüleyicide, değişken adlarının yanındaki okları tıklayarak etkileşimli olarak yapabilirsiniz. Ancak sıralı sonucu raporunuza dahil etmek için iki yeni fonksiyon kullanmanız gerekecek. Önce arrange() fonksiyonunu kullanarak değişkeni sıralayın. Daha sonra desc() fonksiyonu ile veriyi azalan düzende sıralayabilirsiniz. Aşağıda örnek kod verilmiştir.\n\n\nCode\npresent %&gt;%\n  arrange(desc(total))\n\n\nBu veriler, Hastalık Kontrol ve Önleme Merkezleri (Centers for Disease Control) raporlarından alınmıştır. Daha fazla bilgi edinmek için ?present komutunu yazarak yardım dosyasını açabilirsiniz."
+  },
+  {
+    "objectID": "haftalar/intro_to_r - tr.html#resources-for-learning-r-and-working-in-rstudio",
+    "href": "haftalar/intro_to_r - tr.html#resources-for-learning-r-and-working-in-rstudio",
+    "title": "R and RStudio Tanıtımı",
+    "section": "6 Resources for learning R and working in RStudio",
+    "text": "6 Resources for learning R and working in RStudio\nR ve RStudio Öğrenmek İçin Kaynaklar\nBu, R ve RStudio’ya kısa bir girişti. Ders ilerledikçe size daha fazla fonksiyon ve dilin daha kapsamlı bir kullanımını sunacağız.\nBu derste tidyverse paketler grubunu kullanacağız. Grolemund ve Wickham tarafından yazılan R For Data Science kitabı, tidyverse ile R’de veri analizi için harika bir kaynaktır. R kodlarını Google’da ararken, arama sorgunuza bu paket adlarını da eklediğinizden emin olun. Örneğin, “scatterplot in R” yerine “scatterplot in R with the tidyverse” şeklinde aratın.\nDönem boyunca işinize yarayabilecek bazı kaynaklar:\n\nRMarkdown cheatsheet\nData transformation cheatsheet\nData visualization cheatsheet\n\nNot: Bu kısa rehberlerde (cheatsheet) yer alan bazı kodlar bu ders için biraz ileri düzey olabilir. Ancak çoğu, dönem boyunca işinize yarayacaktır."
+  }
+]
