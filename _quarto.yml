@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: _site
 
 website:
   title: "OLC731 – R Yazılımı ile Ölçme Uygulamaları"
