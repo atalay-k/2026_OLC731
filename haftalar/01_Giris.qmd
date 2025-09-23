@@ -14,13 +14,13 @@ format:
 
 -   Paketlerden veri yüklemek
 
--   Veri setelerini (data frame) ve tidy data yaklaşımını tanıtmak
+-   Veri setlerini (data frame) ve tidy data yaklaşımını tanıtmak
 
 -   Değişken türlerini tartışmak ve ilişkilendirmek
 
 -   Veri setlerini değişken türlerini dönüştürmek için mutate fonksiyonunu kullanmak
 
--   Sayısal değişkenleri kategorik değişkenlere dönüştürmek
+-   Sürekli değişkenleri kategorik değişkenlere dönüştürmek
 
 -   Verileri filtrelemek ve ardından gereksiz düzeyleri (levels) kaldırmak
 
@@ -51,7 +51,7 @@ hsb2
 
 Verilerinizi R’a aktarmanın, verilerin nerede saklandığına bağlı olarak birçok farklı yolu vardır. İlk derste bir R paketinde yer alan bir veri seti kullanıyoruz.
 
-Sıklıkla kullanılan diğer veri formatları ise düz metin dosyaları (plain text), virgülle ayrılmış değerler (CSV), Excel dosyaları (XLS veya XLSX) ve R’nin kendi veri saklama formatı olan RData’dır.
+Sıklıkla kullanılan diğer veri formatları ise text dosyaları, virgülle ayrılmış değerler (CSV), Excel dosyaları (XLS veya XLSX) ve R’nin kendi veri saklama formatı olan RData’dır.
 
 Kendi verilerinizle bir analiz yürütürken R’ye veri yükleme yöntemlerini öğrenmek oldukça önemlidir. Bu konuda daha fazla bilgi edinmek için Grolemund ve Wickham tarafından yazılan [R for Data Science](https://r4ds.had.co.nz/data-import.html) kitabındaki Data Import bölümünü inceleyebilirsiniz. Bu dersin ilerleyen aşamalarında da bu konuya değineceğiz.
 
@@ -90,7 +90,7 @@ glimpse(gapminder)
 
 # Değişken Türleri
 
-Bir veri setiyle çalışmaya başladığınızda ilk olarak yapmanız gereken , veri setinin boyutlarını not etmektir: kaç satır (gözlem) ve kaç sütun (değişken) olduğu.
+Bir veri setiyle çalışmaya başladığınızda ilk olarak yapmanız gereken , veri setinin boyutlarını belirlemektir: kaç satır (gözlem) ve kaç sütun (değişken) olduğu.
 
 Değişkenleri sınıflandırma oldukça önemlidir çünkü değişken türü, hangi betimsel istatistikleri hesaplayabileceğimizi, hangi görselleştirmeleri yapabileceğimizi ve hangi istatistiksel yöntemlerin araştırma sorularımıza uygun olacağını belirler.
 
@@ -98,7 +98,7 @@ Genel olarak iki tür değişken vardır: **sayısal** ve **kategorik**.
 
 ## Sayısal Veriler
 
-Sayısal (ya da nicel) değişkenler, sayısal değerler alır. Bu değerlerle toplama, çıkarma, ortalama alma gibi aritmetik işlemler yapmak anlamlıdır.
+Sürekli (ya da nicel) değişkenler, sayısal değerler alır. Bu değerlerle toplama, çıkarma, ortalama alma gibi aritmetik işlemler yapmak anlamlıdır.
 
 Sayısal değişkenler **sürekli (continuous)** veya **kesikli (discrete)** olabilir:
 
@@ -183,7 +183,7 @@ hsb2 %>%
 
 ## Pipe Operatörü `%>%`
 
-Pipe operatörü (`%>%`) dikey çizgi ve büyüktür işaretinden oluşur. R’ye, solda gelen nesneyi sağdaki fonksiyonun ilk argümanına aktarmasını söyler.
+Pipe operatörü (`%>%`) dikey çizgi ve büyüktür işaretinden oluşur. R’a, solda gelen nesneyi sağdaki fonksiyonun ilk argümanına aktarmasını söyler.
 
 Matematiksel olarak:
 
@@ -261,7 +261,7 @@ hsb2_subset %>% count(schtyp, ses)
 
 ## Değişkenleri Kategorik Hale Getirme
 
-Var olan bir değişkenden yeni bir değişken üretmenin yaygın yollarından biri **kategorik hale getirne**dır (discretizing).
+Var olan bir değişkenden yeni bir değişken üretmenin yaygın yollarından biri **kategorik hale getirme**dır (discretizing).
 
 Bu, sayısal bir değişkeni belirli kriterlere göre kategorik bir değişkene dönüştürmek anlamına gelir.
 
@@ -410,8 +410,7 @@ Bu nedenle biz de bu derste bu yapıyı kullanacağız ve siz de grafiklerinizde
 ### Grafiğin Yorumlanması
 
 Elde ettiğimiz grafikte, öğrencilerin fen ve matematik puanları arasında **pozitif bir ilişki** görüyoruz.\
-Yani fen puanı yüksek olan öğrenciler genellikle matematikten de yüksek puan alıyor.\
-Bu sonuç, çok da şaşırtıcı olmasa gerek 😊
+Yani fen puanı yüksek olan öğrenciler genellikle matematikten de yüksek puan alıyor.
 
 ## Matematik, Fen ve Program Türü
 

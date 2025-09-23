@@ -59,7 +59,7 @@ Bu dersi tamamlayan öğrenciler:
 ## Hafta 3 – Veri İnceleme - II
 
 -   Veri temizleme, eksik/veri hataları\
--   Kategorik ve sayısal değişkenlerle temel özet istatistikler
+-   Kategorik ve sürekli  değişkenlerle temel özet istatistikler
 
 ## Hafta 4 – Keşfedici Veri Analizi- I
 
@@ -74,7 +74,7 @@ Bu dersi tamamlayan öğrenciler:
 ## Hafta 6 – Regresyon I
 
 -   Basit doğrusal regresyon\
--   Regresyon katsayılarının yorumlanmas
+-   Regresyon katsayılarının yorumlanması
 
 ## Hafta 7 – Regresyon II
 
@@ -119,13 +119,13 @@ Bu dersi tamamlayan öğrenciler:
 
 | Bileşen             | Ağırlık |
 |---------------------|---------|
-| Ara Sınav           | 30%     |
-| Ödev ve Uygulamalar | 30%     |
-| Genel Sınav         | 40%     |
+| Ara Sınav           | 25%     |
+| Ödev ve Uygulamalar | 25%     |
+| Genel Sınav         | 50%     |
 
 📌 Sınavlar yüzyüze gerçekleştirilecektir.
 
-📌 Her hafta ders kapsamında öğrenme günlüğü oluşturmanız beklenmektedir.
+📌 3. hafta itibariyle her hafta ders kapsamında öğrenme günlüğü oluşturmanız beklenmektedir.
 
 # 🛠️ Teknik Gereksinimler
 
@@ -135,7 +135,7 @@ Bu dersi tamamlayan öğrenciler:
 
     -   `tidyverse`, `ggplot2`, `readr`, `dplyr`, `psych`, `infer`, `learnr`, `quarto`, vb.
 
--   Yapay zeka aracı: ChatGPT (web veya API erişimi önerilir)
+-   Yapay zeka aracı: ChatGPT , copilot (web veya API erişimi önerilir)
 
 # 🌐 Önceki Yılların Ders Web Siteleri
 

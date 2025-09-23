@@ -10,8 +10,7 @@ website:
         href: index.qmd
       - text: "📅 Haftalık İçerik"
         href: haftalar/index.qmd
-      - text: "📚 Kaynaklar"
-        href: kaynaklar/index.qmd
+
 
   sidebar:
     - id: haftalar

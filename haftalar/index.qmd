@@ -22,7 +22,7 @@ Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar 
 
 -   Veri setlerini değişken türlerini dönüştürmek için `mutate()` fonksiyonunu kullanmak
 
--   Sayısal değişkenleri kategorik değişkenlere dönüştürmek
+-   Sürekli değişkenleri kategorik değişkenlere dönüştürmek
 
 -   Verileri filtrelemek ve ardından gereksiz düzeyleri (levels) kaldırmak
 
