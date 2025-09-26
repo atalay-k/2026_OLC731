@@ -337,7 +337,7 @@ R’de veri görselleştirmenin birçok yöntemi vardır. Bu derste **tidyverse*
 
     -   İlk katmanda ham veriler
 
-    -   Üzerine anotasyonlar, özet istatistikler veya eğilim çizgileri eklenebilir.
+    -   Üzerine notasyonlar, özet istatistikler veya eğilim çizgileri eklenebilir.
 
     Bu yaklaşım öğrenmeyi kolaylaştırır, çünkü adım adım basitten karmaşığa geçiş yapılabilir.
 
@@ -407,8 +407,6 @@ Dikkat edilmesi gereken bir diğer nokta: **geom_XXX()** fonksiyonu, `ggplot()`�
 
 Bu nedenle biz de bu derste bu yapıyı kullanacağız ve siz de grafiklerinizde bu yöntemi takip etmenizi tavsiye ederiz.
 
-### Grafiğin Yorumlanması
-
 Elde ettiğimiz grafikte, öğrencilerin fen ve matematik puanları arasında **pozitif bir ilişki** görüyoruz.\
 Yani fen puanı yüksek olan öğrenciler genellikle matematikten de yüksek puan alıyor.
 
@@ -443,15 +441,12 @@ Ancak grafiğe program türünü eklediğimizde şunu görüyoruz:\
 
 Yukarıdaki grafiğe, her bir program türü için ayrı bir doğrusal regresyon doğrusunu ekleyin.
 
-İpucu: geom_smooth(method = "lm", se = FALSE) fonksiyonunu kullanabilirsiniz.
-
-Ortaya çıkan grafiği yorumlayın:
-
 Sizce program türüne göre öğrencilerin matematik ve fen puanları arasındaki ilişki nasıl farklılaşıyor?
 
 Hangi program türünde matematik puanları fen puanlarına göre daha yüksek çıkma eğiliminde görünüyor?
 
 ```{r}
+#| echo: false
 ggplot(hsb2, aes(x = science , y = math, color = prog)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
@@ -470,5 +465,7 @@ ggplot(hsb2, aes(x = science , y = math, color = prog)) +
 📌 [DataCamp](https://www.datacamp.com/) üzerinden size atanan ilk modülü tamamlayınız.
 
 📘 Ders kitabının ilk bölümünü okuyunuz.
+
+[Veri Düzenleme ve Görselleştirme (2023)](https://kitap.epodder.org/veri-duzenleme-ve-gorsellestirme/) kitabının ilk bölümüne de çalışınız
 
 🔗 İlk bölümün buradan da yapabilirsiniz 🔗 [Language of data](https://openintro.shinyapps.io/ims-01-data-01/#section-welcome)

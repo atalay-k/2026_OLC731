@@ -59,7 +59,7 @@ Bu dersi tamamlayan öğrenciler:
 ## Hafta 3 – Veri İnceleme - II
 
 -   Veri temizleme, eksik/veri hataları\
--   Kategorik ve sürekli  değişkenlerle temel özet istatistikler
+-   Kategorik ve sürekli değişkenlerle temel özet istatistikler
 
 ## Hafta 4 – Keşfedici Veri Analizi- I
 
