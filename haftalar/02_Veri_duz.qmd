@@ -61,7 +61,7 @@ Günlük alınan kalori miktarı ile kalp sağlığı arasındaki ilişkiyi dü�
 
 -   "Berkeley'deki California Üniversitesi'ne 1973 sonbaharında yapılan lisansüstü kabullere ilişkin toplu veriler incelendiğinde, kadın başvuru sahiplerine karşı açık ama yanıltıcı bir önyargı örüntüsü görülmektedir.
 
--   Veriler altı bölümden gelmektedir. Gizlilik için bunlara A-F olarak kodlanmıştır.
+-   Veriler altı bölümden gelmektedir. Gizlilik için bölümler A-F olarak kodlanmıştır.
 
 -   Elimizde başvuru sahibinin kadın mı erkek mi olduğu ve kabul edilip edilmediğine dair bilgiler var.
 
@@ -135,7 +135,7 @@ ggplot(ucbadmit, aes(y = gender, fill = admit)) +
   geom_bar(position = "fill") +
   facet_wrap(. ~ dept) +
   scale_x_continuous(labels = scales::label_percent()) +
-  labs(title = "Admissions by gender and department",
+  labs(title = "cinsiyet ve bölümlere göre kabul",
        x = NULL, y = NULL, fill = NULL) +
   theme(legend.position = "bottom")
 ```
@@ -307,13 +307,11 @@ anscombe_quartet |>
 
 palmerpenguins paketinden penguins veri setini yükleyin.
 
-Veri seti Antarktika’daki penguenlerin türü, ada, boy, ağırlık, yüzgeç uzunluğu, cinsiyet vb.bilgilerini içerir.
+Veri seti Antarktika’daki penguenlerin türü, ad, boy, ağırlık, yüzgeç uzunluğu, cinsiyet vb.bilgilerini içerir.
 
 -   penguenlerin vücut kitle indeksini (body_mass_g / flipper_length_mm) veri setine ekleyin
 
 -   Bu yeni değişken için türler göre ortalama, standart sapma, minimum ve maksimum değerlerini hesaplayın.
-
-Görsel: tür × ada kutu grafiği
 
 ```{r}
 #| echo: false

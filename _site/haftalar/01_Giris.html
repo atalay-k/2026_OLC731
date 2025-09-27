@@ -172,8 +172,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
         <li class="sidebar-item">
- <span class="menu-text">haftalar/03_Kat.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../haftalar/03_Kat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kategorik Veriler</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -581,7 +584,7 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <li><p>ggplot2’nin en cazip özelliklerinden biri, grafiklerin katmanlar halinde inşa edilmesidir:</p>
 <ul>
 <li><p>İlk katmanda ham veriler</p></li>
-<li><p>Üzerine anotasyonlar, özet istatistikler veya eğilim çizgileri eklenebilir.</p></li>
+<li><p>Üzerine notasyonlar, özet istatistikler veya eğilim çizgileri eklenebilir.</p></li>
 </ul>
 <p>Bu yaklaşım öğrenmeyi kolaylaştırır, çünkü adım adım basitten karmaşığa geçiş yapılabilir.</p></li>
 </ul>
@@ -650,9 +653,6 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <li>Zorunlu olmasa da, her katmanı yeni bir satırda yazmak kodun daha okunabilir olmasını sağlar.</li>
 </ul>
 <p>Bu nedenle biz de bu derste bu yapıyı kullanacağız ve siz de grafiklerinizde bu yöntemi takip etmenizi tavsiye ederiz.</p>
-</section>
-<section id="grafiğin-yorumlanması" class="level3" data-number="2.7.2">
-<h3 data-number="2.7.2" class="anchored" data-anchor-id="grafiğin-yorumlanması"><span class="header-section-number">2.7.2</span> Grafiğin Yorumlanması</h3>
 <p>Elde ettiğimiz grafikte, öğrencilerin fen ve matematik puanları arasında <strong>pozitif bir ilişki</strong> görüyoruz.<br>
 Yani fen puanı yüksek olan öğrenciler genellikle matematikten de yüksek puan alıyor.</p>
 </section>
@@ -687,18 +687,9 @@ Ancak grafiğe program türünü eklediğimizde şunu görüyoruz:<br>
 <section id="uygulamalı-görev---4-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="uygulamalı-görev---4-1">💡 Uygulamalı Görev - 4</h3>
 <p>Yukarıdaki grafiğe, her bir program türü için ayrı bir doğrusal regresyon doğrusunu ekleyin.</p>
-<p>İpucu: geom_smooth(method = “lm”, se = FALSE) fonksiyonunu kullanabilirsiniz.</p>
-<p>Ortaya çıkan grafiği yorumlayın:</p>
 <p>Sizce program türüne göre öğrencilerin matematik ve fen puanları arasındaki ilişki nasıl farklılaşıyor?</p>
 <p>Hangi program türünde matematik puanları fen puanlarına göre daha yüksek çıkma eğiliminde görünüyor?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hsb2, <span class="fu">aes</span>(<span class="at">x =</span> science , <span class="at">y =</span> math, <span class="at">color =</span> prog)) <span class="sc">+</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Matematik ve Fen Puanları: Program Türüne Göre"</span>,</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Matematik Puanı"</span>,</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Fen Puanı"</span>,</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Program Türü"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -721,6 +712,7 @@ Ancak grafiğe program türünü eklediğimizde şunu görüyoruz:<br>
 <h1 class="unnumbered">📚 Ödev</h1>
 <p>📌 <a href="https://www.datacamp.com/">DataCamp</a> üzerinden size atanan ilk modülü tamamlayınız.</p>
 <p>📘 Ders kitabının ilk bölümünü okuyunuz.</p>
+<p><a href="https://kitap.epodder.org/veri-duzenleme-ve-gorsellestirme/">Veri Düzenleme ve Görselleştirme (2023)</a> kitabının ilk bölümüne de çalışınız</p>
 <p>🔗 İlk bölümün buradan da yapabilirsiniz 🔗 <a href="https://openintro.shinyapps.io/ims-01-data-01/#section-welcome">Language of data</a></p>
 
 

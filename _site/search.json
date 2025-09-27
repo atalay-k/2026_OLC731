@@ -168,33 +168,114 @@
     "text": "Parlaklığa göre pırlanta fiyatı\n\n\n\n\n\n\n\n\n\n\n\n\nKarata göre pırlanta fiyatı\n\n\n\n\n\n\n\n“Kodlar haricinde pırlantalarla ilgilenmiyorum :)”"
   },
   {
-    "objectID": "haftalar/02_Veri_duz.html",
-    "href": "haftalar/02_Veri_duz.html",
-    "title": "Veri İnceleme",
+    "objectID": "haftalar/03_Kat.html",
+    "href": "haftalar/03_Kat.html",
+    "title": "Kategorik Veriler",
     "section": "",
-    "text": "Bu derste temel amacımız, veri düzenleme ve özetleme tekniklerini uygulamalı olarak öğrenmektir.\nÖzellikle, değişkenler arasındaki ilişkileri incelerken verilerin farklı düzeylerde (toplam vs. alt gruplar) nasıl farklı görünebileceğini keşfedeceğiz.\nBu bağlamda Simpson Paradoksu ve verilerin uygun şekilde düzenlenip gruplanmaması durumunda nasıl yanıltıcı sonuçlara ulaşılabileceğini göstermesi açısından güçlü bir örnektir.\nAnscombe’un Dörtlüsü ise, aynı özet istatistiklere sahip veri setlerinin görselleştirilmeden yanlış yorumlanabileceğini ortaya koyar.\n\nVeri düzenlemenin önemi, sadece “doğru hesaplama” yapmak değil; aynı zamanda hangi değişkenlerin kontrol edilmesi gerektiğini fark ederek daha anlamlı sonuçlar çıkarmaktır.\n🔎 Uygulamalar\n\nSimpson Paradoksu (UCBadmit Örneği)\n\nGenel oranlar ile alt grup oranlarını karşılaştırma\nKarıştırıcı (confounding) değişkenlerin etkisini görme\nVeri düzenlemenin ve doğru gruplamanın önemini tartışma\n\n\n\n\nAnscombe’un Dörtlüsü\n\nAynı özet istatistiklere sahip farklı veri setlerini keşfetme\nÖzet istatistikler (ortalama, sd, korelasyon, regresyon) ile görselleştirme sonuçlarını karşılaştırma\nVeriyi görselleştirmeden sadece özet istatistiklere güvenmenin sakıncalarını tartışma\nDersin simspon paradoksu kısmı OpenIntro’nun Introduction to Modern Statistics bölümünden uyarlanmıştır.",
+    "text": "Bu derste kullanacağımız midiPISA veri seti; öğrenci id (OGRENCIID), sınıf düzeyi (SINIF), cinsiyet (CINSIYET), anne eğitim düzeyi (Anne_Egitim), baba eğitim düzeyi (Baba_Egitim), okumaktan zevk alma (OKUMA_ZEVK), ST097Q01TA, ST097Q02TA, ST097Q03TA, ST097Q04TA, ST097Q05TA, okuma puanı olası değer 1 (ODOKUMA1), okuma puanı olası değer 2 (ODOKUMA2), okuma puanı olası değer 3 (ODOKUMA3), okuma puanı olası değer 4 (ODOKUMA4), okuma puanı olası değer 5 (ODOKUMA5) değişkenleri olmak üzere toplam 16 değişkenden oluşmaktadır. Veri Seti\nload(\"data/midiPISA.rda\")\nönce veriyi inceleyelim\nlibrary(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\nWarning: package 'purrr' was built under R version 4.4.3\n\n\nWarning: package 'dplyr' was built under R version 4.4.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(dplyr)\ndplyr::glimpse(\"midiPISA\")\n\n chr \"midiPISA\"\nAnne_Eğitim kategorilerine bakalım\nmidiPISA |&gt; \n  distinct(Anne_Egitim )\nOrtaya çıkan tabloyu incelediğimizde aslında 8 olası değeri olduğunu öğreniyoruz\nBaba_Eğitim kategorilerine bakalım\nmidiPISA |&gt; \n  distinct(Baba_Egitim )\nİki kategorik değişkenin (örneğin burada olduğu gibi) her bir düzey kombinasyonuna düşen gözlem sayılarını göstermek için yaygın kullanılan bir yol “kontenjans tablosu” (contingency table) oluşturmaktır.\nBir kontenjans tablosu oluşturmak için üç adım gerekir:\nmidiPISA |&gt; \n  count(Anne_Egitim, Baba_Egitim)\nbu tabloyu geniş hale getirelim\nama önce spss etiketlerini düzeltelim\nlibrary(sjlabelled)\n\n\nAttaching package: 'sjlabelled'\n\n\nThe following object is masked from 'package:forcats':\n\n    as_factor\n\n\nThe following object is masked from 'package:dplyr':\n\n    as_label\n\n\nThe following object is masked from 'package:ggplot2':\n\n    as_label\n\nmidiPISA &lt;- midiPISA %&gt;% mutate_if(is_labelled, as_factor)\n# Faktor degiskenlere duzey atama amacıyla yazılan fonksiyon\nlevelsnames &lt;- function(x){\n  levels(x) &lt;- names(attr(x,\"labels\"))\n  x\n}\n# Yazılan fonkisyonun faktor degiskenlere uygulanması\nmidiPISA &lt;-mutate_if(midiPISA,is.factor, levelsnames)\nuzun veriyi geniş hale getirmek için pivot_wider\nmidiPISA |&gt; \n  count(Anne_Egitim, Baba_Egitim) |&gt;\n  pivot_wider(names_from = Anne_Egitim, values_from = n)\nBazı düzeylerde çok az sayıda gözlem olduğunu ortaya koydu. Analizi basitleştirmek için bu tür düzeyleri veri setinden çıkarmak genellikle faydalıdır.\nR’da bu işlem iki adım gerektirir:\ndroplevels() fonksiyonunu, sıfır gözleme sahip düzeyleri bir değişkenden temizlemek için kullanırız.\nmidiPISA_filtered &lt;- midiPISA %&gt;% \n  filter(!is.na(Anne_Egitim))%&gt;%\n  filter(!is.na(Baba_Egitim))%&gt;%\n  droplevels()",
     "crumbs": [
       "📘 Tanıtım & İzlence",
-      "Veri İnceleme"
+      "Kategorik Veriler"
     ]
   },
   {
-    "objectID": "haftalar/02_Veri_duz.html#uygulama-görevi",
-    "href": "haftalar/02_Veri_duz.html#uygulama-görevi",
-    "title": "Veri İnceleme",
-    "section": "💡 Uygulama Görevi",
-    "text": "💡 Uygulama Görevi\npalmerpenguins paketinden penguins veri setini yükleyin.\nVeri seti Antarktika’daki penguenlerin türü, ada, boy, ağırlık, yüzgeç uzunluğu, cinsiyet vb.bilgilerini içerir.\n\npenguenlerin vücut kitle indeksini (body_mass_g / flipper_length_mm) veri setine ekleyin\nBu yeni değişken için türler göre ortalama, standart sapma, minimum ve maksimum değerlerini hesaplayın.\n\nGörsel: tür × ada kutu grafiği\n\n\nWarning: package 'palmerpenguins' was built under R version 4.4.3\n\n\n\n  \n\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_boxplot()`).",
+    "objectID": "haftalar/03_Kat.html#çubuk-grafiği",
+    "href": "haftalar/03_Kat.html#çubuk-grafiği",
+    "title": "Kategorik Veriler",
+    "section": "1 Çubuk Grafiği",
+    "text": "1 Çubuk Grafiği\nBir kontenjans tablosu sayıları sayısal olarak gösterirken, çoğu zaman bunları grafiksel olarak göstermek daha anlamlıdır.\nBu alıştırma, aynı veriyi sunmak için birden fazla seçeneğin olabileceğini gösterecek. geom_bar() fonksiyonuna position = \"dodge\" argümanını eklemek, grafiğin yan yana çubuk grafik (yani yığılmamış) olmasını sağlar.\nBu grafikleri oluşturmak için şu adımları izleyin:\n\nggplot2 paketini yükleyin.\nX ekseninde Anne_Egitim olacak şekilde, çubukları karakterlerin CINSIYET değişkenine göre doldurarak (fill) yan yana bir çubuk grafik oluşturun.\nX ekseninde CINSIYET olacak şekilde, çubukları karakterlerin align değişkenine göre doldurarak ikinci yan yana çubuk grafiği oluşturun.\n\n\nggplot(midiPISA_filtered , aes(x = Anne_Egitim  , fill = CINSIYET  )) + \n  geom_bar() \n\n\n\n\n\n\n\n# yan yana \nggplot(midiPISA_filtered , aes(x = Anne_Egitim  , fill = CINSIYET  )) + \n  geom_bar(position = \"dodge\")\n\n\n\n\n\n\n\n\nPek çok görselleştirmede, grafikteki eksen etiketlerini değiştirmek isteyebilirsiniz. Buradaki örnekte “CINSIYET” ve “Anne_Egitim” etiketleri biraz daha açıklayıcı hale getirilebilir.\nBir ggplot() grafiğinin etiketlerini değiştirmek için grafiğe + labs() katmanı eklenir. Bu katmanda x, y, ve fill etiketlerini, ayrıca grafiğin başlığını belirleyebilirsiniz.\n\nggplot(midiPISA_filtered , aes(x = Anne_Egitim  , fill = CINSIYET  )) + \n  geom_bar(position = \"dodge\") + \n   labs(x = \"Eğitim Düzeyi\", \n       fill = \"CINSIYET\", \n       y = \"Sayi\")",
     "crumbs": [
       "📘 Tanıtım & İzlence",
-      "Veri İnceleme"
+      "Kategorik Veriler"
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n\nCode\n1 + 1\n\n\n[1] 2"
+    "objectID": "haftalar/03_Kat.html#sayılardan-oranlara",
+    "href": "haftalar/03_Kat.html#sayılardan-oranlara",
+    "title": "Kategorik Veriler",
+    "section": "2 Sayılardan Oranlara",
+    "text": "2 Sayılardan Oranlara\nBazen ham gözlem sayıları yararlı olsa da çoğu zaman oranlar daha ilgi çekicidir. Bu oranları kafamızdan tahmin etmeye çalışabiliriz ama R ile açıkça hesaplamak çok daha kolaydır.\n\n2.1 Sayılardan Oranlara Geçiş\nher kategoriye düşen gözlemlerin toplam içindeki oranlarını görmek istiyorsak, önceki tablomuzu biraz değiştirmemiz gerekir. Bunun için her bir cinsiyet ve sınıfkombinasyonunda gözlemlerin toplam gözlemler içindeki oranını hesaplayan bir sütun eklemeliyiz.\nHer düzeydeki gözlemleri saydıktan sonra, mutate() fonksiyonu ile bu düzeylere düşen gözlemlerin oranını hesaplarız. Bu oranları prop adlı yeni bir değişkene kaydederiz.\nDaha önce olduğu gibi, uzun tabloyu geniş tabloya dönüştürürüz (pivot_wider()). Ancak burada tabloya eklenmiş ekstra bir sütun (n) vardır ve biz bu sütunu tabloda istemiyoruz. Bu nedenle id_cols argümanına, tabloya dahil etmek istediğimiz değişkenlerin isimlerini bir vektör olarak belirtmemiz gerekir. Böylece names_from ve values_from için kullanılan değişkenler dışında kalan sütunlar korunmuş olur.\n\nmidiPISA |&gt;\n  count(CINSIYET, SINIF) |&gt;\n  group_by(SINIF) |&gt; \n  mutate(prop = n / sum(n)) |&gt; \n  pivot_wider(id_cols = CINSIYET, \n              names_from = SINIF, values_from = prop)",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Kategorik Veriler"
+    ]
+  },
+  {
+    "objectID": "haftalar/03_Kat.html#koşullu-oranlar",
+    "href": "haftalar/03_Kat.html#koşullu-oranlar",
+    "title": "Kategorik Veriler",
+    "section": "3 Koşullu Oranlar",
+    "text": "3 Koşullu Oranlar\nDeğişkenler arasındaki sistematik ilişkilerle ilgileniyorsak, koşullu oranlara bakmamız gerekir.\nBu koşullu oranların tablosunu oluşturmak için, oranları hesaplamadan önce bir gruplama değişkeni belirtmemiz gerekir. Bu gruplamayı, group_by() fonksiyonu ile yaparız.\n👉 Satırlara göre koşullandırma (yani satırların toplamı = 1).\n\nggplot(midiPISA, aes(x = CINSIYET, fill = SINIF)) +\n  geom_bar(position = \"fill\") \n\n\n\n\n\n\n\n\n\nggplot(midiPISA, aes(fill = CINSIYET,  x= SINIF)) +\n  geom_bar(position = \"fill\")",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Kategorik Veriler"
+    ]
+  },
+  {
+    "objectID": "haftalar/03_Kat.html#tek-değişkenin-dağılımı",
+    "href": "haftalar/03_Kat.html#tek-değişkenin-dağılımı",
+    "title": "Kategorik Veriler",
+    "section": "4 Tek Değişkenin Dağılımı",
+    "text": "4 Tek Değişkenin Dağılımı\nTek bir değişken (örneğin CINSIYET) için frekans tablosu oluşturmak için yine count() fonksiyonunu kullanabiliriz. Bu daha basit tabloyu düşünmenin bir yolu da şudur: Orijinal iki yönlü tabloda (iki kategorik değişkenle) her bir SINIF düzeyindeki hücreleri toplayarak özetledik. Diğer değişkenler üzerinden toplama yaptığımız için bu özetleme bazen marjinal dağılım (marginal distribution) olarak adlandırılır.\n\nmidiPISA |&gt; \n  count(CINSIYET)\n\n\n  \n\n\n\n\nmidiPISA |&gt; \n  count(CINSIYET,SINIF) |&gt; \n  pivot_wider(names_from = CINSIYET , values_from = n)",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Kategorik Veriler"
+    ]
+  },
+  {
+    "objectID": "haftalar/03_Kat.html#basit-çubuk-grafik",
+    "href": "haftalar/03_Kat.html#basit-çubuk-grafik",
+    "title": "Kategorik Veriler",
+    "section": "5 Basit Çubuk Grafik",
+    "text": "5 Basit Çubuk Grafik\nBasit çubuk grafik oluşturmanın sözdizimi oldukça basittir; bunu dersin başında görmüştük. Bunun için aes içinden fill = align argümanını çıkarmamız yeterlidir.\n\ncinsiyet\n\n\nggplot(midiPISA, aes(x = CINSIYET)) +\n  geom_bar()\n\n\n\n\n\n\n\n\n\nsınıf düzeyi\n\n\n# Yeni sıralamayla çubuk grafik\nggplot(midiPISA, aes(x = SINIF)) +\n  geom_bar(fill = \"steelblue\") +\n  labs(title = \"Sınıf Düzeylerinin Dağılımı\",\n       x = \"Sınıf\",\n       y = \"Öğrenci Sayısı\")",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Kategorik Veriler"
+    ]
+  },
+  {
+    "objectID": "haftalar/03_Kat.html#faceting-alt-grafikler",
+    "href": "haftalar/03_Kat.html#faceting-alt-grafikler",
+    "title": "Kategorik Veriler",
+    "section": "6 Faceting (Alt Grafikler)",
+    "text": "6 Faceting (Alt Grafikler)\nTek bir değişkenin dağılımını görselleştirmenin başka yararlı bir yolu, onu başka bir değişkenin belirli bir değerine göre koşullandırmaktır. Örneğin yalnızca 10. Sınıf öğrencileri için CINSIYET dağılımını görmek isteyebiliriz.\nBunu yapmak için:\n\nVeri setini filtreleyip sadece SINIF= “10” olanlarla bir çubuk grafik çizebiliriz,\nYa da faceting tekniğini kullanabiliriz. Faceting, veriyi bir kategorik değişkenin düzeylerine göre alt gruplara ayırır ve her düzey için ayrı bir grafik oluşturur.",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Kategorik Veriler"
+    ]
+  },
+  {
+    "objectID": "haftalar/03_Kat.html#facetli-çubuk-grafikler",
+    "href": "haftalar/03_Kat.html#facetli-çubuk-grafikler",
+    "title": "Kategorik Veriler",
+    "section": "7 Facet’li Çubuk Grafikler",
+    "text": "7 Facet’li Çubuk Grafikler\nggplot2’de faceting uygulamak için grafiğe sadece bir katman daha ekleriz. Bunun için facet_wrap() fonksiyonu kullanılır. İçine tilde (~) ve facet yapmak istediğimiz değişkenin adı yazılır (örn. ~SINIF).\nBu, yukarıdaki grafiği oluştur ama bunu SINIFdeğişkenine göre parçala anlamına gelir.\nYüm sınıf düzeyleri için grafikler elde edilir.\n\nggplot(midiPISA, aes(x = CINSIYET)) +\n  geom_bar() +\n  facet_wrap(~SINIF)",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Kategorik Veriler"
+    ]
+  },
+  {
+    "objectID": "haftalar/03_Kat.html#faceting-ve-yığma",
+    "href": "haftalar/03_Kat.html#faceting-ve-yığma",
+    "title": "Kategorik Veriler",
+    "section": "8 Faceting ve Yığma",
+    "text": "8 Faceting ve Yığma\nÖzünde, facet’li grafik dersin başında gördüğümüz yığılmış çubuk grafiklerin farklı bir düzenlemesidir.\nFacet’ler ya da yığılmış çubuklar:\n\nTek bir değişkenin dağılımını görmek için tek bir facet’e ya da çubuğa,\nDeğişkenler arasındaki ilişkiyi görmek için facet’ler ya da çubuklar arasında karşılaştırma yapmaya olanak tanır.\n\n\nggplot(midiPISA, aes(x = CINSIYET ,fill = SINIF)) +\n  geom_bar()",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Kategorik Veriler"
+    ]
+  },
+  {
+    "objectID": "haftalar/03_Kat.html#pasta-grafiği",
+    "href": "haftalar/03_Kat.html#pasta-grafiği",
+    "title": "Kategorik Veriler",
+    "section": "9 Pasta Grafiği",
+    "text": "9 Pasta Grafiği\nPasta grafiği, kategorik verileri göstermenin yaygın bir yoludur. Dilimlerin büyüklüğü, o düzeydeki gözlem oranını gösterir.\n\nggplot(midiPISA, aes(x = \"\", fill = SINIF)) +\n  geom_bar(width = 1) +\n  coord_polar(\"y\") +\n  labs(title = \"Sınıf Dağılımı (Pie Chart)\", fill = \"Sınıf\")\n\n\n\n\n\n\n\n\n\ncinsiyete göre\n\n\nggplot(midiPISA, aes(x = \"\", fill = SINIF)) +\n  geom_bar(width = 1) +\n  coord_polar(\"y\") +\n  facet_wrap(~CINSIYET) +\n  labs(title = \"Cinsiyete Göre Sınıf Dağılımı\", fill = \"Sınıf\")\n\n\n\n\n\n\n\n\n\noranları ekle\n\n\npie_data &lt;- midiPISA %&gt;%\n  count(CINSIYET, SINIF) %&gt;%\n  group_by(CINSIYET) %&gt;%\n  mutate(prop = n / sum(n),\n         label = scales::percent(prop, accuracy = 1))\n\n# Pasta grafik + etiketler\nggplot(pie_data, aes(x = \"\", y = prop, fill = SINIF)) +\n  geom_col(width = 1) +\n  coord_polar(\"y\") +\n  facet_wrap(~CINSIYET) +\n  geom_text(aes(label = label),\n            position = position_stack(vjust = 0.5), # dilimin ortasına koy\n            color = \"white\",\n            size = 4) +\n  labs(title = \"Cinsiyete Göre Sınıf Dağılımı\",\n       fill = \"Sınıf\",\n       x = NULL, y = NULL) +\n  theme_void()\n\n\n\n\n\n\n\n\n\nlibrary(dplyr)\n\npie_data &lt;- midiPISA %&gt;%\n  count(SINIF) %&gt;%\n  mutate(prop = n / sum(n),\n         label = scales::percent(prop, accuracy = 1))\n\nggplot(pie_data, aes(x = \"\", y = prop, fill = SINIF)) +\n  geom_col(width = 1, color = \"white\") +\n  coord_polar(\"y\") +\n  geom_text(aes(label = label),\n            position = position_stack(vjust = 0.5),\n            color = \"white\", size = 4) +\n  labs(title = \"Sınıf Dağılımı (%)\", fill = \"Sınıf\") +\n  theme_void()\n\n\n\n\n\n\n\n\n\nlibrary(dplyr)\nlibrary(plotly)\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n# Veri: SINIF değişkenine göre sayılar\npie_data &lt;- midiPISA %&gt;%\n  count(SINIF)\n\n# Etkileşimli pie chart\nplot_ly(pie_data,\n        labels = ~SINIF,\n        values = ~n,\n        type = \"pie\",\n        textinfo = \"label+percent\",   # etiket + yüzde\n        insidetextorientation = \"radial\") %&gt;%\n  layout(title = \"Sınıf Dağılımı (Pie Chart - Plotly)\")",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Kategorik Veriler"
+    ]
   },
   {
     "objectID": "haftalar/01_Giris.html",
@@ -289,7 +370,7 @@
     "href": "haftalar/01_Giris.html#değişkenleri-kategorik-hale-getirme",
     "title": "Temeller",
     "section": "2.6 Değişkenleri Kategorik Hale Getirme",
-    "text": "2.6 Değişkenleri Kategorik Hale Getirme\nVar olan bir değişkenden yeni bir değişken üretmenin yaygın yollarından biri kategorik hale getirmedır (discretizing).\nBu, sayısal bir değişkeni belirli kriterlere göre kategorik bir değişkene dönüştürmek anlamına gelir.\nDiyelim ki öğrencilerin gerçek okuma puanı ile ilgilenmiyoruz; onun yerine puanlarının ortalamanın altında mı yoksa üzerinde mi olduğuna bakmak istiyoruz.\nÖnce ortalama okuma puanını mean() fonksiyonu ile hesaplayalım:\n\nlibrary(dplyr)\nlibrary(openintro)\n\nmean(hsb2$read)\n\n[1] 52.23\n\n\nBu değeri daha sonra kullanabilmek için bir nesneye atayalım:\n\navg_read &lt;- mean(hsb2$read)\navg_read\n\n[1] 52.23\n\n\nKısayol: Atamayı parantez içine alırsak hem nesneye atar hem de çıktısını görürüz:\n\n(avg_read &lt;- mean(hsb2$read)) # nesne adını tekrar yazmak zorunda kalmadık\n\n[1] 52.23\n\n\nŞimdi her öğrenci için okuma puanı ortalamanın altında mı yoksa ortalama ve üzerinde mi olduğunu belirleyen yeni bir değişken oluşturalım.\nBunun için mutate() ve if_else() fonksiyonlarını kullanacağız:\n\nhsb2_updated &lt;- hsb2 %&gt;%\n  mutate(read_cat = if_else(read &lt; avg_read, \n                            \"ortalama altı\", \n                            \"ortalama ve üstü\"))\n\nMantık:\n\nŞart (logical test): read &lt; avg_read\nTRUE ise: “ortalama altı”\nFALSE ise: “ortalama ve üstü”\n\n\nhsb2_updated %&gt;% count(read_cat)\n\n\n  \n\n\n\n\nlibrary(ggplot2)\nggplot(hsb2_updated, aes(x = read_cat)) +\n  geom_bar()\n\n\n\n\n\n\n\n\n\n📌 Herhangi bir veri analizinin en mantıklı ve faydalı ilk adımı keşifsel analizdir.\n\nKeşifsel veri analizinin en önemli bileşenlerinden biri ise görselleştirmedir.\nR’de veri görselleştirmenin birçok yöntemi vardır. Bu derste tidyverse içinde yer alan ggplot2 paketini kullanacağız.\n\nggplot2, modern görünümlü, kullanımı kolay grafikler üretir.\nBasit iki değişkenli grafikler üretmeyi öğrendikten sonra, aynı sözdizimini biraz daha genişleterek çok değişkenli görselleştirmeler de kolayca yapılabilir.\nggplot2’nin en cazip özelliklerinden biri, grafiklerin katmanlar halinde inşa edilmesidir:\n\nİlk katmanda ham veriler\nÜzerine anotasyonlar, özet istatistikler veya eğilim çizgileri eklenebilir.\n\nBu yaklaşım öğrenmeyi kolaylaştırır, çünkü adım adım basitten karmaşığa geçiş yapılabilir.\n\n\n2.6.1 💡 Uygulamalı Görev - 4\nhsb2_updated veri setine yeni bir değişken oluşturarak matematik puanlarını alt orta ve ust olarak kategorize edin. Her kategoride kaç öğrenci var, bunu bir bar grafiğinde gösteriniz?\n\n📌 25. çeyrek ve altı alt, 26.-75. çeyrek orta, 76. çeyrek ve üstü üst olarak kategorize edebilirsiniz.",
+    "text": "2.6 Değişkenleri Kategorik Hale Getirme\nVar olan bir değişkenden yeni bir değişken üretmenin yaygın yollarından biri kategorik hale getirmedır (discretizing).\nBu, sayısal bir değişkeni belirli kriterlere göre kategorik bir değişkene dönüştürmek anlamına gelir.\nDiyelim ki öğrencilerin gerçek okuma puanı ile ilgilenmiyoruz; onun yerine puanlarının ortalamanın altında mı yoksa üzerinde mi olduğuna bakmak istiyoruz.\nÖnce ortalama okuma puanını mean() fonksiyonu ile hesaplayalım:\n\nlibrary(dplyr)\nlibrary(openintro)\n\nmean(hsb2$read)\n\n[1] 52.23\n\n\nBu değeri daha sonra kullanabilmek için bir nesneye atayalım:\n\navg_read &lt;- mean(hsb2$read)\navg_read\n\n[1] 52.23\n\n\nKısayol: Atamayı parantez içine alırsak hem nesneye atar hem de çıktısını görürüz:\n\n(avg_read &lt;- mean(hsb2$read)) # nesne adını tekrar yazmak zorunda kalmadık\n\n[1] 52.23\n\n\nŞimdi her öğrenci için okuma puanı ortalamanın altında mı yoksa ortalama ve üzerinde mi olduğunu belirleyen yeni bir değişken oluşturalım.\nBunun için mutate() ve if_else() fonksiyonlarını kullanacağız:\n\nhsb2_updated &lt;- hsb2 %&gt;%\n  mutate(read_cat = if_else(read &lt; avg_read, \n                            \"ortalama altı\", \n                            \"ortalama ve üstü\"))\n\nMantık:\n\nŞart (logical test): read &lt; avg_read\nTRUE ise: “ortalama altı”\nFALSE ise: “ortalama ve üstü”\n\n\nhsb2_updated %&gt;% count(read_cat)\n\n\n  \n\n\n\n\nlibrary(ggplot2)\nggplot(hsb2_updated, aes(x = read_cat)) +\n  geom_bar()\n\n\n\n\n\n\n\n\n\n📌 Herhangi bir veri analizinin en mantıklı ve faydalı ilk adımı keşifsel analizdir.\n\nKeşifsel veri analizinin en önemli bileşenlerinden biri ise görselleştirmedir.\nR’de veri görselleştirmenin birçok yöntemi vardır. Bu derste tidyverse içinde yer alan ggplot2 paketini kullanacağız.\n\nggplot2, modern görünümlü, kullanımı kolay grafikler üretir.\nBasit iki değişkenli grafikler üretmeyi öğrendikten sonra, aynı sözdizimini biraz daha genişleterek çok değişkenli görselleştirmeler de kolayca yapılabilir.\nggplot2’nin en cazip özelliklerinden biri, grafiklerin katmanlar halinde inşa edilmesidir:\n\nİlk katmanda ham veriler\nÜzerine notasyonlar, özet istatistikler veya eğilim çizgileri eklenebilir.\n\nBu yaklaşım öğrenmeyi kolaylaştırır, çünkü adım adım basitten karmaşığa geçiş yapılabilir.\n\n\n2.6.1 💡 Uygulamalı Görev - 4\nhsb2_updated veri setine yeni bir değişken oluşturarak matematik puanlarını alt orta ve ust olarak kategorize edin. Her kategoride kaç öğrenci var, bunu bir bar grafiğinde gösteriniz?\n\n📌 25. çeyrek ve altı alt, 26.-75. çeyrek orta, 76. çeyrek ve üstü üst olarak kategorize edebilirsiniz.",
     "crumbs": [
       "📘 Tanıtım & İzlence",
       "Temeller"
@@ -300,7 +381,7 @@
     "href": "haftalar/01_Giris.html#görselleştirme",
     "title": "Temeller",
     "section": "2.7 Görselleştirme",
-    "text": "2.7 Görselleştirme\nHigh School and Beyond veri setindeki öğrencilerin matematik ve fen puanları arasındaki ilişkiyi görselleştirelim:\n\nlibrary(ggplot2)\nlibrary(openintro)\n\nggplot(hsb2, aes(x = math, y = science)) +\n  geom_point() +\n  labs(title = \"Matematik ve Fen Puanları Arasındaki İlişki\",\n       x = \"Matematik Puanı\",\n       y = \"Fen Puanı\")\n\n\n\n\n\n\n\n\n\nGrafik üretmek için ggplot() fonksiyonunu kullanıyoruz.\n\nİlk argüman, kullanmak istediğimiz veri çerçevesi: data = hsb2.\n\naes() (aesthetics) içinde, veri çerçevesindeki değişkenleri grafiğin eksenlerine eşliyoruz.\n\nBu örnekte, x eksenine fen puanı (science), y eksenine matematik puanı (math) eşlenmiştir.\n\n\nSon olarak, her gözlemi grafikte hangi geometrik şekille göstermek istediğimizi belirtiyoruz.\n\nDağılım grafiği (scatter plot) yapmak istediğimiz için, her gözlemi bir “nokta” ile gösteriyoruz.\n\nBu katmanı eklemek için geom_point() fonksiyonunu kullanıyoruz.\n\n\nÖzetle:\n\nAna fonksiyon: ggplot()\nİlk argüman: kullanılacak veri\naes(): değişkenleri grafiğin özelliklerine (eksene, renge, vb.) eşler\ngeom_XXX(): hangi tür grafik çizileceğini belirler\n\n\n2.7.1 Katman Mantığı\nDikkat edilmesi gereken bir diğer nokta: geom_XXX() fonksiyonu, ggplot()’tan sonra + işareti ile eklenir.\n\nggplot2 grafiklerinin katmanlar halinde oluşturulduğunu söylemiştik.\n\n+ işareti bu katmanları birbirinden ayırır.\n\nGenel olarak + satır sonu gibi düşünülebilir, bu yüzden + yazdıktan sonra Enter tuşuna basmak iyi bir alışkanlıktır.\n\nZorunlu olmasa da, her katmanı yeni bir satırda yazmak kodun daha okunabilir olmasını sağlar.\n\nBu nedenle biz de bu derste bu yapıyı kullanacağız ve siz de grafiklerinizde bu yöntemi takip etmenizi tavsiye ederiz.\n\n\n2.7.2 Grafiğin Yorumlanması\nElde ettiğimiz grafikte, öğrencilerin fen ve matematik puanları arasında pozitif bir ilişki görüyoruz.\nYani fen puanı yüksek olan öğrenciler genellikle matematikten de yüksek puan alıyor.",
+    "text": "2.7 Görselleştirme\nHigh School and Beyond veri setindeki öğrencilerin matematik ve fen puanları arasındaki ilişkiyi görselleştirelim:\n\nlibrary(ggplot2)\nlibrary(openintro)\n\nggplot(hsb2, aes(x = math, y = science)) +\n  geom_point() +\n  labs(title = \"Matematik ve Fen Puanları Arasındaki İlişki\",\n       x = \"Matematik Puanı\",\n       y = \"Fen Puanı\")\n\n\n\n\n\n\n\n\n\nGrafik üretmek için ggplot() fonksiyonunu kullanıyoruz.\n\nİlk argüman, kullanmak istediğimiz veri çerçevesi: data = hsb2.\n\naes() (aesthetics) içinde, veri çerçevesindeki değişkenleri grafiğin eksenlerine eşliyoruz.\n\nBu örnekte, x eksenine fen puanı (science), y eksenine matematik puanı (math) eşlenmiştir.\n\n\nSon olarak, her gözlemi grafikte hangi geometrik şekille göstermek istediğimizi belirtiyoruz.\n\nDağılım grafiği (scatter plot) yapmak istediğimiz için, her gözlemi bir “nokta” ile gösteriyoruz.\n\nBu katmanı eklemek için geom_point() fonksiyonunu kullanıyoruz.\n\n\nÖzetle:\n\nAna fonksiyon: ggplot()\nİlk argüman: kullanılacak veri\naes(): değişkenleri grafiğin özelliklerine (eksene, renge, vb.) eşler\ngeom_XXX(): hangi tür grafik çizileceğini belirler\n\n\n2.7.1 Katman Mantığı\nDikkat edilmesi gereken bir diğer nokta: geom_XXX() fonksiyonu, ggplot()’tan sonra + işareti ile eklenir.\n\nggplot2 grafiklerinin katmanlar halinde oluşturulduğunu söylemiştik.\n\n+ işareti bu katmanları birbirinden ayırır.\n\nGenel olarak + satır sonu gibi düşünülebilir, bu yüzden + yazdıktan sonra Enter tuşuna basmak iyi bir alışkanlıktır.\n\nZorunlu olmasa da, her katmanı yeni bir satırda yazmak kodun daha okunabilir olmasını sağlar.\n\nBu nedenle biz de bu derste bu yapıyı kullanacağız ve siz de grafiklerinizde bu yöntemi takip etmenizi tavsiye ederiz.\nElde ettiğimiz grafikte, öğrencilerin fen ve matematik puanları arasında pozitif bir ilişki görüyoruz.\nYani fen puanı yüksek olan öğrenciler genellikle matematikten de yüksek puan alıyor.",
     "crumbs": [
       "📘 Tanıtım & İzlence",
       "Temeller"
@@ -311,10 +392,39 @@
     "href": "haftalar/01_Giris.html#matematik-fen-ve-program-türü",
     "title": "Temeller",
     "section": "2.8 Matematik, Fen ve Program Türü",
-    "text": "2.8 Matematik, Fen ve Program Türü\nŞimdi öğrencilerin matematik ve fen puanlarını tekrar görselleştirelim,\nancak bu kez öğrencilerin dahil oldukları program türünü de dikkate alalım:\n- general\n- academic\n- vocational\nBunu yapmak için color estetiğini kullanarak her program türüne farklı bir renk atayabiliriz:\n\nggplot(hsb2, aes(x = science , y = math, color = prog)) +\n  geom_point() +\n  labs(title = \"Matematik ve Fen Puanları: Program Türüne Göre\",\n       x = \"Matematik Puanı\",\n       y = \"Fen Puanı\",\n       color = \"Program Türü\")\n\n\n\n\n\n\n\n\nFen ve matematik puanları arasındaki pozitif ilişki hâlâ belirgindir.\nAncak grafiğe program türünü eklediğimizde şunu görüyoruz:\n- Akademik programlardaki öğrenciler (yeşil noktalar) genellikle matematikte fen puanlarına göre daha yüksek puan alma eğilimindedir.\n- Mesleki (vocational) programdaki öğrenciler (mavi) ve genel programdaki öğrenciler (kırmızı) ise görece daha düşük puanlara sahiptir.\n\n💡 Uygulamalı Görev - 4\nYukarıdaki grafiğe, her bir program türü için ayrı bir doğrusal regresyon doğrusunu ekleyin.\nİpucu: geom_smooth(method = “lm”, se = FALSE) fonksiyonunu kullanabilirsiniz.\nOrtaya çıkan grafiği yorumlayın:\nSizce program türüne göre öğrencilerin matematik ve fen puanları arasındaki ilişki nasıl farklılaşıyor?\nHangi program türünde matematik puanları fen puanlarına göre daha yüksek çıkma eğiliminde görünüyor?\n\nggplot(hsb2, aes(x = science , y = math, color = prog)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(title = \"Matematik ve Fen Puanları: Program Türüne Göre\",\n       x = \"Matematik Puanı\",\n       y = \"Fen Puanı\",\n       color = \"Program Türü\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n💡 Uygulamalı Görev - 5\nDersin devam eden süreçlerinde size ödev olarak bırakacağım ilk lab çalışmasını derste beraber yapacağız",
+    "text": "2.8 Matematik, Fen ve Program Türü\nŞimdi öğrencilerin matematik ve fen puanlarını tekrar görselleştirelim,\nancak bu kez öğrencilerin dahil oldukları program türünü de dikkate alalım:\n- general\n- academic\n- vocational\nBunu yapmak için color estetiğini kullanarak her program türüne farklı bir renk atayabiliriz:\n\nggplot(hsb2, aes(x = science , y = math, color = prog)) +\n  geom_point() +\n  labs(title = \"Matematik ve Fen Puanları: Program Türüne Göre\",\n       x = \"Matematik Puanı\",\n       y = \"Fen Puanı\",\n       color = \"Program Türü\")\n\n\n\n\n\n\n\n\nFen ve matematik puanları arasındaki pozitif ilişki hâlâ belirgindir.\nAncak grafiğe program türünü eklediğimizde şunu görüyoruz:\n- Akademik programlardaki öğrenciler (yeşil noktalar) genellikle matematikte fen puanlarına göre daha yüksek puan alma eğilimindedir.\n- Mesleki (vocational) programdaki öğrenciler (mavi) ve genel programdaki öğrenciler (kırmızı) ise görece daha düşük puanlara sahiptir.\n\n💡 Uygulamalı Görev - 4\nYukarıdaki grafiğe, her bir program türü için ayrı bir doğrusal regresyon doğrusunu ekleyin.\nSizce program türüne göre öğrencilerin matematik ve fen puanları arasındaki ilişki nasıl farklılaşıyor?\nHangi program türünde matematik puanları fen puanlarına göre daha yüksek çıkma eğiliminde görünüyor?\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n💡 Uygulamalı Görev - 5\nDersin devam eden süreçlerinde size ödev olarak bırakacağım ilk lab çalışmasını derste beraber yapacağız",
     "crumbs": [
       "📘 Tanıtım & İzlence",
       "Temeller"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\nCode\n1 + 1\n\n\n[1] 2"
+  },
+  {
+    "objectID": "haftalar/02_Veri_duz.html",
+    "href": "haftalar/02_Veri_duz.html",
+    "title": "Veri İnceleme",
+    "section": "",
+    "text": "Bu derste temel amacımız, veri düzenleme ve özetleme tekniklerini uygulamalı olarak öğrenmektir.\nÖzellikle, değişkenler arasındaki ilişkileri incelerken verilerin farklı düzeylerde (toplam vs. alt gruplar) nasıl farklı görünebileceğini keşfedeceğiz.\nBu bağlamda Simpson Paradoksu ve verilerin uygun şekilde düzenlenip gruplanmaması durumunda nasıl yanıltıcı sonuçlara ulaşılabileceğini göstermesi açısından güçlü bir örnektir.\nAnscombe’un Dörtlüsü ise, aynı özet istatistiklere sahip veri setlerinin görselleştirilmeden yanlış yorumlanabileceğini ortaya koyar.\n\nVeri düzenlemenin önemi, sadece “doğru hesaplama” yapmak değil; aynı zamanda hangi değişkenlerin kontrol edilmesi gerektiğini fark ederek daha anlamlı sonuçlar çıkarmaktır.\n🔎 Uygulamalar\n\nSimpson Paradoksu (UCBadmit Örneği)\n\nGenel oranlar ile alt grup oranlarını karşılaştırma\nKarıştırıcı (confounding) değişkenlerin etkisini görme\nVeri düzenlemenin ve doğru gruplamanın önemini tartışma\n\n\n\n\nAnscombe’un Dörtlüsü\n\nAynı özet istatistiklere sahip farklı veri setlerini keşfetme\nÖzet istatistikler (ortalama, sd, korelasyon, regresyon) ile görselleştirme sonuçlarını karşılaştırma\nVeriyi görselleştirmeden sadece özet istatistiklere güvenmenin sakıncalarını tartışma\nDersin simspon paradoksu kısmı OpenIntro’nun Introduction to Modern Statistics bölümünden uyarlanmıştır.",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Veri İnceleme"
+    ]
+  },
+  {
+    "objectID": "haftalar/02_Veri_duz.html#uygulama-görevi",
+    "href": "haftalar/02_Veri_duz.html#uygulama-görevi",
+    "title": "Veri İnceleme",
+    "section": "💡 Uygulama Görevi",
+    "text": "💡 Uygulama Görevi\npalmerpenguins paketinden penguins veri setini yükleyin.\nVeri seti Antarktika’daki penguenlerin türü, ad, boy, ağırlık, yüzgeç uzunluğu, cinsiyet vb.bilgilerini içerir.\n\npenguenlerin vücut kitle indeksini (body_mass_g / flipper_length_mm) veri setine ekleyin\nBu yeni değişken için türler göre ortalama, standart sapma, minimum ve maksimum değerlerini hesaplayın.\n\n\n\nWarning: package 'palmerpenguins' was built under R version 4.4.3\n\n\n\n  \n\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_boxplot()`).",
+    "crumbs": [
+      "📘 Tanıtım & İzlence",
+      "Veri İnceleme"
     ]
   },
   {
