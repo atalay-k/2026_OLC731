@@ -22,23 +22,6 @@ website:
         - haftalar/03_Gorsel.qmd
 
 
-    - id: assignments
-      title: "Ödevler"
-      contents:
-        - assignments/odev01.qmd
-        - assignments/odev02.qmd
-
-    - id: uygulamalar
-      title: "Uygulamalar"
-      contents:
-        - uygulamalar/uygulama01.qmd
-        - uygulamalar/uygulama02.qmd
-
-    - id: ai
-      title: "AI Etkileşim"
-      contents:
-        - ai/gpt-yardim.qmd
-        - ai/yorum-cozum.qmd
 
 format:
   html:
