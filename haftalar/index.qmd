@@ -38,7 +38,7 @@ Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar 
 
 ------------------------------------------------------------------------
 
-## 🔹 [4-5. Hafta – Keşfedici Veri Analizi- I](03_Gorsel.html)
+## 🔹 [4-5. Hafta – Keşfedici Veri Analizi- I](03_Gorsel.qmd)
 
 ------------------------------------------------------------------------
 

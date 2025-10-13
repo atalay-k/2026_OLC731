@@ -19,7 +19,7 @@ website:
       contents:
         - haftalar/01_Giris.qmd
         - haftalar/02_Veri_duz.qmd
-        - haftalar/03_Kat.qmd
+        - haftalar/03_Gorsel.qmd
 
 
     - id: assignments
