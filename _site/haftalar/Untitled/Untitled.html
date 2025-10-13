@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Kubra">
+<meta name="author" content="Author Name">
 <meta name="dcterms.date" content="2025-10-13">
 
-<title>referans verme – OLC731 – R Yazılımı ile Ölçme Uygulamaları</title>
+<title>Lab 1: Intro to R – OLC731 – R Yazılımı ile Ölçme Uygulamaları</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,10 +104,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -114,25 +145,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#ornek-dosya" id="toc-ornek-dosya" class="nav-link active" data-scroll-target="#ornek-dosya"><span class="header-section-number">1</span> ORNEK DOSYA</a>
-  <ul class="collapse">
-  <li><a href="#tablolar" id="toc-tablolar" class="nav-link" data-scroll-target="#tablolar"><span class="header-section-number">1.1</span> Tablolar</a></li>
-  <li><a href="#grafikler" id="toc-grafikler" class="nav-link" data-scroll-target="#grafikler"><span class="header-section-number">1.2</span> Grafikler</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">referans verme</h1>
+<h1 class="title">Lab 1: Intro to R</h1>
 </div>
 
 
@@ -142,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Kubra </p>
+             <p>Author Name </p>
           </div>
   </div>
     
@@ -161,138 +182,115 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="ornek-dosya" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> ORNEK DOSYA</h1>
-<p>Pırlanta ücretleri çeşitli faktörlere bağlıdır</p>
-<ul>
-<li>cut (Bakınız Tablo&nbsp;@ref(tab:kesim))</li>
-<li>colour (Bakınız Tablo&nbsp;@ref(tab:renk))</li>
-<li>clarity (Bakınız Şekil&nbsp;@ref(fig:parlaklik))</li>
-<li>carats (Bakınız Şekil&nbsp;@ref(fig:karat))</li>
-<li>Bakınız Bolum&nbsp;@ref(sonuclar) sonuclar icin</li>
-</ul>
-<section id="tablolar" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="tablolar"><span class="header-section-number">1.1</span> Tablolar</h2>
-<section id="kesim" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="kesim"><span class="header-section-number">1.1.1</span> Kesim</h3>
 <div class="cell">
-<div class="cell-output-display">
-<table class="lightable-material caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Kesime göre ortalama pırlanta fiyatı.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Cut</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Average Price</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Fair</td>
-<td style="text-align: right;">4359</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Good</td>
-<td style="text-align: right;">3929</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Very Good</td>
-<td style="text-align: right;">3982</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Premium</td>
-<td style="text-align: right;">4584</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ideal</td>
-<td style="text-align: right;">3458</td>
-</tr>
-</tbody>
-</table>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.4.3</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'openintro' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'airports' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'cherryblossom' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'usdata' was built under R version 4.4.3</code></pre>
 </div>
 </div>
-</section>
-<section id="renk" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="renk"><span class="header-section-number">1.1.2</span> Renk</h3>
+<section id="exercise-1" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">0.1</span> Exercise 1</h3>
 <div class="cell">
-<div class="cell-output-display">
-<table class="lightable-material caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Renge göre ortalama pırlanta fiyatı.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Cut</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Average Price</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">D</td>
-<td style="text-align: right;">3170</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">E</td>
-<td style="text-align: right;">3077</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">F</td>
-<td style="text-align: right;">3725</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">G</td>
-<td style="text-align: right;">3999</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">H</td>
-<td style="text-align: right;">4487</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">I</td>
-<td style="text-align: right;">5092</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">J</td>
-<td style="text-align: right;">5324</td>
-</tr>
-</tbody>
-</table>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>arbuthnot<span class="sc">$</span>girls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 4683 4457 4102 4590 4839 4820 4928 4605 4457 4952 4784 5332 5200 4910 4617
+[16] 3997 3919 3395 3536 3181 2746 2722 2840 2908 2959 3179 3349 3382 3289 3013
+[31] 2781 3247 4107 4803 4881 5681 4858 4319 5322 5560 5829 5719 6061 6120 5822
+[46] 5738 5717 5847 6203 6033 6041 6299 6533 6744 7158 7127 7246 7119 7214 7101
+[61] 7167 7302 7392 7316 7483 6647 6713 7229 7767 7626 7452 7061 7514 7656 7683
+[76] 5738 7779 7417 7687 7623 7380 7288</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="grafikler" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="grafikler"><span class="header-section-number">1.2</span> Grafikler</h2>
-<section id="parlaklık" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="parlaklık"><span class="header-section-number">1.2.1</span> Parlaklık</h3>
+<section id="exercise-2" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">0.2</span> Exercise 2</h3>
+<p>Insert any text here.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="html_document2_files/figure-html/parlaklik-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Parlaklığa göre pırlanta fiyatı</figcaption>
-</figure>
-</div>
-</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert code for Exercise 2 here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
-<section id="karat" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="karat"><span class="header-section-number">1.2.2</span> Karat</h3>
+<section id="exercise-3" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">0.3</span> Exercise 3</h3>
+<p>Insert any text here.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="html_document2_files/figure-html/karat-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Karata göre pırlanta fiyatı</figcaption>
-</figure>
-</div>
-</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert code for Exercise 3 here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
-<section id="sonuclar" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="sonuclar"><span class="header-section-number">1.2.3</span> Sonuclar</h3>
-<p>“Kodlar haricinde pırlantalarla ilgilenmiyorum :)”</p>
+<section id="exercise-4" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">0.4</span> Exercise 4</h3>
+<p>Insert any text here.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert code for Exercise 4 here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="exercise-5" class="level3" data-number="0.5">
+<h3 data-number="0.5" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">0.5</span> Exercise 5</h3>
+<p>Insert any text here.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert code for Exercise 5 here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="exercise-6" class="level3" data-number="0.6">
+<h3 data-number="0.6" class="anchored" data-anchor-id="exercise-6"><span class="header-section-number">0.6</span> Exercise 6</h3>
+<p>Insert any text here.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert code for Exercise 6 here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="exercise-7" class="level3" data-number="0.7">
+<h3 data-number="0.7" class="anchored" data-anchor-id="exercise-7"><span class="header-section-number">0.7</span> Exercise 7</h3>
+<p>Insert any text here.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert code for Exercise 7 here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -30,7 +30,7 @@ Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar 
 
 -   İki mevcut değişkene dayalı yeni bir değişken oluşturmak
 
-## 🔹 [3. Hafta – Veri İnceleme](02_Veri_duz.qmd)
+## 🔹 [3. Hafta – Veri İnceleme](02_Veri_duz.html)
 
 -   Verilerin düzenlenmesi, özetlenmesi ve görselleştirilmesi yoluyla farklı bakış açılarının nasıl elde edilebileceğini öğrenmek.
 
@@ -38,7 +38,7 @@ Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar 
 
 ------------------------------------------------------------------------
 
-### 🔹 [4-5. Hafta – Keşfedici Veri Analizi- I](03_Kat.qmd)
+### 🔹 [4-5. Hafta – Keşfedici Veri Analizi- I](03_Gorsel.qmd)
 
 ------------------------------------------------------------------------
 
