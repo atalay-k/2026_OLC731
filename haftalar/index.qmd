@@ -42,14 +42,12 @@ Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar 
 
 ## 🔹 6-7. Hafta – Regresyon\]
 
-## 🔹 [9. Hafta – Regresyon\]
+## 🔹 \[9. Hafta – Regresyon\]
 
-##🔹 [10. Hafta – Hipotez Testleri\]
+##🔹 \[10. Hafta – Hipotez Testleri\]
 
+## 🔹 \[11. Hafta – İstatistiksel çıkarım I\]
 
-## 🔹 [11. Hafta – İstatistiksel çıkarım I\]
-
-
-## 🔹 [12. Hafta – Çıkarımsal Modelleme I\]
+## 🔹 \[12. Hafta – Çıkarımsal Modelleme I\]
 
 📌 **Not:** 9. hafta (Ara sınav) ve 16. hafta (Final sınavı) içerik sayfası olarak eklenmemiştir.
