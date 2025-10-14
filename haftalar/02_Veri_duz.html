@@ -165,10 +165,6 @@ window.Quarto = {
     <a class="nav-link" href="../haftalar/index.html"> 
 <span class="menu-text">📅 Haftalık İçerik</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../kaynaklar/index.qmd"> 
-<span class="menu-text">📚 Kaynaklar</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -180,7 +176,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../haftalar/02_Veri_duz.html">Veri İnceleme</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Veri İnceleme</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -193,19 +189,13 @@ window.Quarto = {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../haftalar/01_Giris.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temeller</span></a>
-  </div>
-</li>
+ <span class="menu-text">haftalar/01_Giris.html</span>
+  </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../haftalar/02_Veri_duz.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Veri İnceleme</span></a>
-  </div>
-</li>
+ <span class="menu-text">haftalar/02_Veri_duz.html</span>
+  </li>
         <li class="sidebar-item">
- <span class="menu-text">haftalar/03_Kat.qmd</span>
+ <span class="menu-text">haftalar/03_Gorsel.html</span>
   </li>
     </ul>
     </div>
@@ -295,7 +285,7 @@ window.Quarto = {
 <h3 data-number="1.0.1" class="anchored" data-anchor-id="berkeleydeki-cinsiyete-dayalı-kabul-oranları"><span class="header-section-number">1.0.1</span> Berkeley’deki cinsiyete dayalı kabul oranları:</h3>
 <ul>
 <li><p>“Berkeley’deki California Üniversitesi’ne 1973 sonbaharında yapılan lisansüstü kabullere ilişkin toplu veriler incelendiğinde, kadın başvuru sahiplerine karşı açık ama yanıltıcı bir önyargı örüntüsü görülmektedir.</p></li>
-<li><p>Veriler altı bölümden gelmektedir. Gizlilik için bunlara A-F olarak kodlanmıştır.</p></li>
+<li><p>Veriler altı bölümden gelmektedir. Gizlilik için bölümler A-F olarak kodlanmıştır.</p></li>
 <li><p>Elimizde başvuru sahibinin kadın mı erkek mi olduğu ve kabul edilip edilmediğine dair bilgiler var.</p></li>
 <li><p>İlk olarak, kabul edilen erkeklerin yüzdesinin genel olarak kadınlardan gerçekten daha yüksek olup olmadığını değerlendireceğiz. Daha sonra, her bölüm için aynı yüzdeyi hesaplayacağız.</p></li>
 </ul>
@@ -432,7 +422,7 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(. <span class="sc">~</span> dept) <span class="sc">+</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>()) <span class="sc">+</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Admissions by gender and department"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"cinsiyet ve bölümlere göre kabul"</span>,</span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">fill =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -874,12 +864,11 @@ x1          0.5000909 0.500000 0.4997273 0.4999091</code></pre>
 <section id="uygulama-görevi" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="uygulama-görevi">💡 Uygulama Görevi</h2>
 <p>palmerpenguins paketinden penguins veri setini yükleyin.</p>
-<p>Veri seti Antarktika’daki penguenlerin türü, ada, boy, ağırlık, yüzgeç uzunluğu, cinsiyet vb.bilgilerini içerir.</p>
+<p>Veri seti Antarktika’daki penguenlerin türü, ad, boy, ağırlık, yüzgeç uzunluğu, cinsiyet vb.bilgilerini içerir.</p>
 <ul>
 <li><p>penguenlerin vücut kitle indeksini (body_mass_g / flipper_length_mm) veri setine ekleyin</p></li>
 <li><p>Bu yeni değişken için türler göre ortalama, standart sapma, minimum ve maksimum değerlerini hesaplayın.</p></li>
 </ul>
-<p>Görsel: tür × ada kutu grafiği</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'palmerpenguins' was built under R version 4.4.3</code></pre>
@@ -987,7 +976,7 @@ x1          0.5000909 0.500000 0.4997273 0.4999091</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/atalay-k\.github\.io\/2026_OLC731\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

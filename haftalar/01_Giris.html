@@ -136,10 +136,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../haftalar/index.html"> 
 <span class="menu-text">📅 Haftalık İçerik</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../kaynaklar/index.qmd"> 
-<span class="menu-text">📚 Kaynaklar</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -151,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../haftalar/01_Giris.html">Temeller</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Temeller</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -164,19 +160,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../haftalar/01_Giris.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Temeller</span></a>
-  </div>
-</li>
+ <span class="menu-text">haftalar/01_Giris.html</span>
+  </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../haftalar/02_Veri_duz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Veri İnceleme</span></a>
-  </div>
-</li>
+ <span class="menu-text">haftalar/02_Veri_duz.html</span>
+  </li>
         <li class="sidebar-item">
- <span class="menu-text">haftalar/03_Kat.qmd</span>
+ <span class="menu-text">haftalar/03_Gorsel.html</span>
   </li>
     </ul>
     </div>
@@ -235,10 +225,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 class="unnumbered">🎯 Amaç</h1>
 <ul>
 <li><p>Paketlerden veri yüklemek</p></li>
-<li><p>Veri setelerini (data frame) ve tidy data yaklaşımını tanıtmak</p></li>
+<li><p>Veri setlerini (data frame) ve tidy data yaklaşımını tanıtmak</p></li>
 <li><p>Değişken türlerini tartışmak ve ilişkilendirmek</p></li>
 <li><p>Veri setlerini değişken türlerini dönüştürmek için mutate fonksiyonunu kullanmak</p></li>
-<li><p>Sayısal değişkenleri kategorik değişkenlere dönüştürmek</p></li>
+<li><p>Sürekli değişkenleri kategorik değişkenlere dönüştürmek</p></li>
 <li><p>Verileri filtrelemek ve ardından gereksiz düzeyleri (levels) kaldırmak</p></li>
 <li><p>Kategorik değişkenlerde bazı düzeyleri birleştirmek</p></li>
 <li><p>İki mevcut değişkene dayalı yeni bir değişken oluşturmak</p></li>
@@ -314,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="veri-yükleme" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Veri yükleme</h1>
 <p>Verilerinizi R’a aktarmanın, verilerin nerede saklandığına bağlı olarak birçok farklı yolu vardır. İlk derste bir R paketinde yer alan bir veri seti kullanıyoruz.</p>
-<p>Sıklıkla kullanılan diğer veri formatları ise düz metin dosyaları (plain text), virgülle ayrılmış değerler (CSV), Excel dosyaları (XLS veya XLSX) ve R’nin kendi veri saklama formatı olan RData’dır.</p>
+<p>Sıklıkla kullanılan diğer veri formatları ise text dosyaları, virgülle ayrılmış değerler (CSV), Excel dosyaları (XLS veya XLSX) ve R’nin kendi veri saklama formatı olan RData’dır.</p>
 <p>Kendi verilerinizle bir analiz yürütürken R’ye veri yükleme yöntemlerini öğrenmek oldukça önemlidir. Bu konuda daha fazla bilgi edinmek için Grolemund ve Wickham tarafından yazılan <a href="https://r4ds.had.co.nz/data-import.html">R for Data Science</a> kitabındaki Data Import bölümünü inceleyebilirsiniz. Bu dersin ilerleyen aşamalarında da bu konuya değineceğiz.</p>
 <section id="uygulamalı-görev---1" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="uygulamalı-görev---1">💡 Uygulamalı Görev - 1</h2>
@@ -370,12 +360,12 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </section>
 <section id="değişken-türleri" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Değişken Türleri</h1>
-<p>Bir veri setiyle çalışmaya başladığınızda ilk olarak yapmanız gereken , veri setinin boyutlarını not etmektir: kaç satır (gözlem) ve kaç sütun (değişken) olduğu.</p>
+<p>Bir veri setiyle çalışmaya başladığınızda ilk olarak yapmanız gereken , veri setinin boyutlarını belirlemektir: kaç satır (gözlem) ve kaç sütun (değişken) olduğu.</p>
 <p>Değişkenleri sınıflandırma oldukça önemlidir çünkü değişken türü, hangi betimsel istatistikleri hesaplayabileceğimizi, hangi görselleştirmeleri yapabileceğimizi ve hangi istatistiksel yöntemlerin araştırma sorularımıza uygun olacağını belirler.</p>
 <p>Genel olarak iki tür değişken vardır: <strong>sayısal</strong> ve <strong>kategorik</strong>.</p>
 <section id="sayısal-veriler" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sayısal-veriler"><span class="header-section-number">2.1</span> Sayısal Veriler</h2>
-<p>Sayısal (ya da nicel) değişkenler, sayısal değerler alır. Bu değerlerle toplama, çıkarma, ortalama alma gibi aritmetik işlemler yapmak anlamlıdır.</p>
+<p>Sürekli (ya da nicel) değişkenler, sayısal değerler alır. Bu değerlerle toplama, çıkarma, ortalama alma gibi aritmetik işlemler yapmak anlamlıdır.</p>
 <p>Sayısal değişkenler <strong>sürekli (continuous)</strong> veya <strong>kesikli (discrete)</strong> olabilir:</p>
 <ul>
 <li><p><strong>Sürekli sayısal değişkenler</strong> genellikle ölçme yoluyla elde edilir (ör. boy uzunluğu). Belirli bir aralıkta sonsuz sayıda değer alabilirler.</p></li>
@@ -449,7 +439,7 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </section>
 <section id="pipe-operatörü" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="pipe-operatörü"><span class="header-section-number">2.5</span> Pipe Operatörü <code>%&gt;%</code></h2>
-<p>Pipe operatörü (<code>%&gt;%</code>) dikey çizgi ve büyüktür işaretinden oluşur. R’ye, solda gelen nesneyi sağdaki fonksiyonun ilk argümanına aktarmasını söyler.</p>
+<p>Pipe operatörü (<code>%&gt;%</code>) dikey çizgi ve büyüktür işaretinden oluşur. R’a, solda gelen nesneyi sağdaki fonksiyonun ilk argümanına aktarmasını söyler.</p>
 <p>Matematiksel olarak:</p>
 <p><code>x %&gt;% f(y)</code> ifadesi <code>f(x, y)</code> haline gelir, çünkü <code>x</code>, <code>f()</code> fonksiyonunun ilk argümanına aktarılmıştır.</p>
 <div class="cell">
@@ -510,7 +500,7 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </section>
 <section id="değişkenleri-kategorik-hale-getirme" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="değişkenleri-kategorik-hale-getirme"><span class="header-section-number">2.6</span> Değişkenleri Kategorik Hale Getirme</h2>
-<p>Var olan bir değişkenden yeni bir değişken üretmenin yaygın yollarından biri <strong>kategorik hale getirne</strong>dır (discretizing).</p>
+<p>Var olan bir değişkenden yeni bir değişken üretmenin yaygın yollarından biri <strong>kategorik hale getirme</strong>dır (discretizing).</p>
 <p>Bu, sayısal bir değişkeni belirli kriterlere göre kategorik bir değişkene dönüştürmek anlamına gelir.</p>
 <p>Diyelim ki öğrencilerin gerçek <strong>okuma puanı</strong> ile ilgilenmiyoruz; onun yerine puanlarının ortalamanın <strong>altında mı yoksa üzerinde mi</strong> olduğuna bakmak istiyoruz.</p>
 <p>Önce ortalama okuma puanını <code>mean()</code> fonksiyonu ile hesaplayalım:</p>
@@ -585,7 +575,7 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <li><p>ggplot2’nin en cazip özelliklerinden biri, grafiklerin katmanlar halinde inşa edilmesidir:</p>
 <ul>
 <li><p>İlk katmanda ham veriler</p></li>
-<li><p>Üzerine anotasyonlar, özet istatistikler veya eğilim çizgileri eklenebilir.</p></li>
+<li><p>Üzerine notasyonlar, özet istatistikler veya eğilim çizgileri eklenebilir.</p></li>
 </ul>
 <p>Bu yaklaşım öğrenmeyi kolaylaştırır, çünkü adım adım basitten karmaşığa geçiş yapılabilir.</p></li>
 </ul>
@@ -654,12 +644,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <li>Zorunlu olmasa da, her katmanı yeni bir satırda yazmak kodun daha okunabilir olmasını sağlar.</li>
 </ul>
 <p>Bu nedenle biz de bu derste bu yapıyı kullanacağız ve siz de grafiklerinizde bu yöntemi takip etmenizi tavsiye ederiz.</p>
-</section>
-<section id="grafiğin-yorumlanması" class="level3" data-number="2.7.2">
-<h3 data-number="2.7.2" class="anchored" data-anchor-id="grafiğin-yorumlanması"><span class="header-section-number">2.7.2</span> Grafiğin Yorumlanması</h3>
 <p>Elde ettiğimiz grafikte, öğrencilerin fen ve matematik puanları arasında <strong>pozitif bir ilişki</strong> görüyoruz.<br>
-Yani fen puanı yüksek olan öğrenciler genellikle matematikten de yüksek puan alıyor.<br>
-Bu sonuç, çok da şaşırtıcı olmasa gerek 😊</p>
+Yani fen puanı yüksek olan öğrenciler genellikle matematikten de yüksek puan alıyor.</p>
 </section>
 </section>
 <section id="matematik-fen-ve-program-türü" class="level2" data-number="2.8">
@@ -692,18 +678,9 @@ Ancak grafiğe program türünü eklediğimizde şunu görüyoruz:<br>
 <section id="uygulamalı-görev---4-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="uygulamalı-görev---4-1">💡 Uygulamalı Görev - 4</h3>
 <p>Yukarıdaki grafiğe, her bir program türü için ayrı bir doğrusal regresyon doğrusunu ekleyin.</p>
-<p>İpucu: geom_smooth(method = “lm”, se = FALSE) fonksiyonunu kullanabilirsiniz.</p>
-<p>Ortaya çıkan grafiği yorumlayın:</p>
 <p>Sizce program türüne göre öğrencilerin matematik ve fen puanları arasındaki ilişki nasıl farklılaşıyor?</p>
 <p>Hangi program türünde matematik puanları fen puanlarına göre daha yüksek çıkma eğiliminde görünüyor?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hsb2, <span class="fu">aes</span>(<span class="at">x =</span> science , <span class="at">y =</span> math, <span class="at">color =</span> prog)) <span class="sc">+</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Matematik ve Fen Puanları: Program Türüne Göre"</span>,</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Matematik Puanı"</span>,</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Fen Puanı"</span>,</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Program Türü"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -726,6 +703,7 @@ Ancak grafiğe program türünü eklediğimizde şunu görüyoruz:<br>
 <h1 class="unnumbered">📚 Ödev</h1>
 <p>📌 <a href="https://www.datacamp.com/">DataCamp</a> üzerinden size atanan ilk modülü tamamlayınız.</p>
 <p>📘 Ders kitabının ilk bölümünü okuyunuz.</p>
+<p><a href="https://kitap.epodder.org/veri-duzenleme-ve-gorsellestirme/">Veri Düzenleme ve Görselleştirme (2023)</a> kitabının ilk bölümüne de çalışınız</p>
 <p>🔗 İlk bölümün buradan da yapabilirsiniz 🔗 <a href="https://openintro.shinyapps.io/ims-01-data-01/#section-welcome">Language of data</a></p>
 
 
@@ -804,7 +782,7 @@ Ancak grafiğe program türünü eklediğimizde şunu görüyoruz:<br>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/atalay-k\.github\.io\/2026_OLC731\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
