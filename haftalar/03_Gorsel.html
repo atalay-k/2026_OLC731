@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#çubuk-grafiği" id="toc-çubuk-grafiği" class="nav-link active" data-scroll-target="#çubuk-grafiği"><span class="header-section-number">1</span> Çubuk Grafiği</a></li>
   <li><a href="#sayılardan-oranlara" id="toc-sayılardan-oranlara" class="nav-link" data-scroll-target="#sayılardan-oranlara"><span class="header-section-number">2</span> Sayılardan Oranlara</a></li>
   <li><a href="#koşullu-oranlar" id="toc-koşullu-oranlar" class="nav-link" data-scroll-target="#koşullu-oranlar"><span class="header-section-number">3</span> Koşullu Oranlar</a></li>
-  <li><a href="#tek-değişkenin-dağılımı" id="toc-tek-değişkenin-dağılımı" class="nav-link" data-scroll-target="#tek-değişkenin-dağılımı"><span class="header-section-number">4</span> Tek Değişkenin Dağılımı</a></li>
+  <li><a href="#tek-ve-iki-değişkenin-dağılımı" id="toc-tek-ve-iki-değişkenin-dağılımı" class="nav-link" data-scroll-target="#tek-ve-iki-değişkenin-dağılımı"><span class="header-section-number">4</span> Tek ve İki Değişkenin Dağılımı</a></li>
   <li><a href="#basit-çubuk-grafik" id="toc-basit-çubuk-grafik" class="nav-link" data-scroll-target="#basit-çubuk-grafik"><span class="header-section-number">5</span> Basit Çubuk Grafik</a></li>
   <li><a href="#faceting-alt-grafikler" id="toc-faceting-alt-grafikler" class="nav-link" data-scroll-target="#faceting-alt-grafikler"><span class="header-section-number">6</span> Faceting (Alt Grafikler)</a></li>
   <li><a href="#facetli-çubuk-grafikler" id="toc-facetli-çubuk-grafikler" class="nav-link" data-scroll-target="#facetli-çubuk-grafikler"><span class="header-section-number">7</span> Facet’li Çubuk Grafikler</a></li>
@@ -209,6 +209,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram"><span class="header-section-number">11</span> Histogram</a></li>
   <li><a href="#yoğunluk-grafiği-density-plot" id="toc-yoğunluk-grafiği-density-plot" class="nav-link" data-scroll-target="#yoğunluk-grafiği-density-plot"><span class="header-section-number">12</span> Yoğunluk grafiği (Density plot)</a></li>
   <li><a href="#boxplotlar-dotplotlar" id="toc-boxplotlar-dotplotlar" class="nav-link" data-scroll-target="#boxplotlar-dotplotlar"><span class="header-section-number">13</span> Boxplotlar &amp; Dotplotlar</a></li>
+  <li><a href="#daha-yüksek-boyutlarda-görselleştirme" id="toc-daha-yüksek-boyutlarda-görselleştirme" class="nav-link" data-scroll-target="#daha-yüksek-boyutlarda-görselleştirme"><span class="header-section-number">14</span> Daha yüksek boyutlarda görselleştirme</a></li>
+  <li><a href="#daha-yüksek-boyutlu-grafikler" id="toc-daha-yüksek-boyutlu-grafikler" class="nav-link" data-scroll-target="#daha-yüksek-boyutlu-grafikler"><span class="header-section-number">15</span> Daha yüksek boyutlu grafikler</a></li>
   </ul>
 </nav>
     </div>
@@ -235,7 +237,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Bu derste kullanacağımız midiPISA veri seti;</p>
-<p>öğrenci id (OGRENCIID), sınıf düzeyi (SINIF), cinsiyet (CINSIYET), anne eğitim düzeyi (Anne_Egitim), baba eğitim düzeyi (Baba_Egitim), okumaktan zevk alma (OKUMA_ZEVK), ST097Q01TA, ST097Q02TA, ST097Q03TA, ST097Q04TA, ST097Q05TA, okuma puanı olası değer 1 (ODOKUMA1), okuma puanı olası değer 2 (ODOKUMA2), okuma puanı olası değer 3 (ODOKUMA3), okuma puanı olası değer 4 (ODOKUMA4), okuma puanı olası değer 5 (ODOKUMA5) değişkenleri olmak üzere toplam 16 değişkenden oluşmaktadır. <a href="data/midiPISA.rda">Veri Seti</a></p>
+<p>öğrenci id (OGRENCIID),</p>
+<p>sınıf düzeyi (SINIF),</p>
+<p>cinsiyet (CINSIYET),</p>
+<p>anne eğitim düzeyi (Anne_Egitim),</p>
+<p>baba eğitim düzeyi (Baba_Egitim),</p>
+<p>okumaktan zevk alma (OKUMA_ZEVK), ST097Q01TA, ST097Q02TA, ST097Q03TA, ST097Q04TA, ST097Q05TA,</p>
+<p>okuma puanı olası değer 1 (ODOKUMA1), okuma puanı olası değer 2 (ODOKUMA2), okuma puanı olası değer 3 (ODOKUMA3), okuma puanı olası değer 4 (ODOKUMA4), okuma puanı olası değer 5 (ODOKUMA5)</p>
+<p>değişkenleri olmak üzere toplam 16 değişkenden oluşmaktadır. <a href="data/midiPISA.rda">Veri Seti</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/midiPISA.rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -288,7 +297,7 @@ $ ODOKUMA5    &lt;dbl&gt; 434.434, 500.394, 392.434, 378.563, 532.487, 473.036, 
 </div>
 <p>Anne_Eğitim kategorilerine bakalım</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(Anne_Egitim )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -301,7 +310,7 @@ $ ODOKUMA5    &lt;dbl&gt; 434.434, 500.394, 392.434, 378.563, 532.487, 473.036, 
 <p>Ortaya çıkan tabloyu incelediğimizde aslında <strong>8 olası</strong> değeri olduğunu öğreniyoruz</p>
 <p>Baba_Eğitim kategorilerine bakalım</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(Baba_Egitim )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -312,11 +321,6 @@ $ ODOKUMA5    &lt;dbl&gt; 434.434, 500.394, 392.434, 378.563, 532.487, 473.036, 
 </div>
 </div>
 <p>İki kategorik değişkenin (örneğin burada olduğu gibi) her bir düzey kombinasyonuna düşen gözlem sayılarını göstermek için yaygın kullanılan bir yol <strong>“kontenjans tablosu” (contingency table)</strong> oluşturmaktır.</p>
-<p>Bir kontenjans tablosu oluşturmak için üç adım gerekir:</p>
-<ol type="1">
-<li><p>Gözlem sayılarını saymak için <code>count()</code> fonksiyonunu kullanmak</p></li>
-<li><p>İlgilendiğiniz değişkenleri <code>count()</code> fonksiyonu içine belirtmek.</p></li>
-</ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">|&gt;</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Anne_Egitim, Baba_Egitim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -437,14 +441,14 @@ Attaching package: 'sjlabelled'</code></pre>
 <section id="sayılardan-oranlara" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="sayılardan-oranlara"><span class="header-section-number">2</span> Sayılardan Oranlara</h2>
 <p>Bazen ham gözlem sayıları yararlı olsa da çoğu zaman <strong>oranlar</strong> daha ilgi çekicidir. Bu oranları kafamızdan hesaplamaya çalışabiliriz ama R ile açıkça hesaplamak çok daha kolaydır.</p>
-<p>Her kategoriye düşen gözlemlerin <strong>toplam içindeki oranlarını</strong> görmek istiyorsak, önceki tablomuzu biraz değiştirmemiz gerekir. Bunun için her bir <strong>cinsiyet</strong> ve <strong>sınıf</strong>kombinasyonunda gözlemlerin toplam gözlemler içindeki oranını hesaplayan bir sütun eklemeliyiz.</p>
+<p>Her kategoriye düşen gözlemlerin <strong>toplam içindeki oranlarını</strong> görmek istiyorsak, önceki tablomuzu biraz değiştirmemiz gerekir. Bunun için her bir <strong>cinsiyet</strong> ve <strong>sınıf</strong> kombinasyonunda gözlemlerin toplam gözlemler içindeki oranını hesaplayan bir sütun eklemeliyiz.</p>
 <p>Her düzeydeki gözlemleri saydıktan sonra, <code>mutate()</code> fonksiyonu ile bu düzeylere düşen gözlemlerin oranını hesaplarız. Bu oranları <strong>prop</strong> adlı yeni bir değişkene kaydederiz.</p>
 <p>Daha önce olduğu gibi, uzun tabloyu geniş tabloya dönüştürürüz (<code>pivot_wider()</code>). Ancak burada tabloya eklenmiş <strong>ekstra bir sütun (n)</strong> vardır ve biz bu sütunu tabloda istemiyoruz. Bu nedenle <code>id_cols</code> argümanına, tabloya dahil etmek istediğimiz değişkenlerin isimlerini bir vektör olarak belirtmemiz gerekir. Böylece <code>names_from</code> ve <code>values_from</code> için kullanılan değişkenler dışında kalan sütunlar korunmuş olur.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(CINSIYET, SINIF) <span class="sc">|&gt;</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SINIF) <span class="sc">|&gt;</span> </span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(CINSIYET, SINIF)  <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SINIF) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))<span class="sc">%&gt;%</span> </span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> CINSIYET, </span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_from =</span> SINIF, <span class="at">values_from =</span> prop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -484,11 +488,11 @@ Attaching package: 'sjlabelled'</code></pre>
 </div>
 </div>
 </section>
-<section id="tek-değişkenin-dağılımı" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="tek-değişkenin-dağılımı"><span class="header-section-number">4</span> Tek Değişkenin Dağılımı</h2>
-<p>Tek bir değişken (örneğin CINSIYET) için frekans tablosu oluşturmak için yine <code>count()</code> fonksiyonunu kullanabiliriz. Bu daha basit tabloyu düşünmenin bir yolu da şudur: Orijinal iki yönlü tabloda (iki kategorik değişkenle) her bir SINIF düzeyindeki hücreleri toplayarak özetledik. Diğer değişkenler üzerinden toplama yaptığımız için bu özetleme bazen marjinal dağılım (marginal distribution) olarak adlandırılır.</p>
+<section id="tek-ve-iki-değişkenin-dağılımı" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="tek-ve-iki-değişkenin-dağılımı"><span class="header-section-number">4</span> Tek ve İki Değişkenin Dağılımı</h2>
+<p>Tek bir değişken (örneğin CINSIYET) için frekans tablosu oluşturmak için yine <code>count()</code> fonksiyonunu kullanabiliriz. Bu daha basit tabloyu düşünmenin bir yolu da şudur: Orijinal iki yönlü tabloda (iki kategorik değişkenle) her bir SINIF düzeyindeki hücreleri toplayarak özetleyebiliriz.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(CINSIYET)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -500,7 +504,7 @@ Attaching package: 'sjlabelled'</code></pre>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">|&gt;</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(CINSIYET,SINIF) <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(CINSIYET,SINIF) <span class="sc">%&gt;%</span> </span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> CINSIYET , <span class="at">values_from =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -597,11 +601,25 @@ Attaching package: 'sjlabelled'</code></pre>
 <section id="pasta-grafiği" class="level2" data-number="9">
 <h2 data-number="9" class="anchored" data-anchor-id="pasta-grafiği"><span class="header-section-number">9</span> Pasta Grafiği</h2>
 <p>Pasta grafiği, kategorik verileri göstermenin yaygın bir yoludur. Dilimlerin büyüklüğü, o düzeydeki gözlem oranını gösterir.</p>
+<ul>
+<li>cinsiyete göre</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(midiPISA, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">fill =</span> SINIF)) <span class="sc">+</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sınıf Dağılımı (Pie Chart)"</span>, <span class="at">fill =</span> <span class="st">"Sınıf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>pie_data <span class="ot">&lt;-</span> midiPISA <span class="sc">%&gt;%</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(SINIF) <span class="sc">%&gt;%</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n),</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(prop, <span class="at">accuracy =</span> <span class="dv">1</span>))</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pie_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> prop, <span class="at">fill =</span> SINIF)) <span class="sc">+</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> label),</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sınıf Dağılımı (%)"</span>, <span class="at">fill =</span> <span class="st">"Sınıf"</span>) <span class="sc">+</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -610,81 +628,9 @@ Attaching package: 'sjlabelled'</code></pre>
 </div>
 </div>
 </div>
-<ul>
-<li>cinsiyete göre</li>
-</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(midiPISA, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">fill =</span> SINIF)) <span class="sc">+</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>CINSIYET) <span class="sc">+</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Cinsiyete Göre Sınıf Dağılımı"</span>, <span class="at">fill =</span> <span class="st">"Sınıf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ul>
-<li>oranları ekle</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pie_data <span class="ot">&lt;-</span> midiPISA <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(CINSIYET, SINIF) <span class="sc">%&gt;%</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CINSIYET) <span class="sc">%&gt;%</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n),</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(prop, <span class="at">accuracy =</span> <span class="dv">1</span>))</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pasta grafik + etiketler</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pie_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> prop, <span class="at">fill =</span> SINIF)) <span class="sc">+</span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>CINSIYET) <span class="sc">+</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> label),</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="co"># dilimin ortasına koy</span></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Cinsiyete Göre Sınıf Dağılımı"</span>,</span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Sınıf"</span>,</span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>pie_data <span class="ot">&lt;-</span> midiPISA <span class="sc">%&gt;%</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(SINIF) <span class="sc">%&gt;%</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n),</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(prop, <span class="at">accuracy =</span> <span class="dv">1</span>))</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pie_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> prop, <span class="at">fill =</span> SINIF)) <span class="sc">+</span></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> label),</span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sınıf Dağılımı (%)"</span>, <span class="at">fill =</span> <span class="st">"Sınıf"</span>) <span class="sc">+</span></span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'plotly'</code></pre>
@@ -704,21 +650,57 @@ Attaching package: 'plotly'</code></pre>
 
     layout</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veri: SINIF değişkenine göre sayılar</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>pie_data <span class="ot">&lt;-</span> midiPISA <span class="sc">%&gt;%</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(SINIF)</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Etkileşimli pie chart</span></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(pie_data,</span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">labels =</span> <span class="sc">~</span>SINIF,</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">values =</span> <span class="sc">~</span>n,</span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"pie"</span>,</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">textinfo =</span> <span class="st">"label+percent"</span>,   <span class="co"># etiket + yüzde</span></span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">insidetextorientation =</span> <span class="st">"radial"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"Sınıf Dağılımı (Pie Chart - Plotly)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veri: SINIF değişkenine göre sayılar</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>pie_data <span class="ot">&lt;-</span> midiPISA <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(SINIF)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Etkileşimli pie chart</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(pie_data,</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">labels =</span> <span class="sc">~</span>SINIF,</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">values =</span> <span class="sc">~</span>n,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"pie"</span>,</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">textinfo =</span> <span class="st">"label+percent"</span>,   <span class="co"># etiket + yüzde</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">insidetextorientation =</span> <span class="st">"radial"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"Sınıf Dağılımı (Pie Chart - Plotly)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-3ceb2bb1416b10bcd5e0" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-3ceb2bb1416b10bcd5e0">{"x":{"visdat":{"39ec44bf7245":["function () ","plotlyVisDat"]},"cur_data":"39ec44bf7245","attrs":{"39ec44bf7245":{"labels":{},"values":{},"textinfo":"label+percent","insidetextorientation":"radial","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Sınıf Dağılımı (Pie Chart - Plotly)","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["SINIF 7","SINIF 8","SINIF 9","SINIF 10","SINIF 11","SINIF 12"],"values":[3,19,1295,5360,207,6],"textinfo":"label+percent","insidetextorientation":"radial","type":"pie","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f31a9bce89afd18524ec" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-f31a9bce89afd18524ec">{"x":{"visdat":{"5d9c256ffb2":["function () ","plotlyVisDat"]},"cur_data":"5d9c256ffb2","attrs":{"5d9c256ffb2":{"labels":{},"values":{},"textinfo":"label+percent","insidetextorientation":"radial","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Sınıf Dağılımı (Pie Chart - Plotly)","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["SINIF 7","SINIF 8","SINIF 9","SINIF 10","SINIF 11","SINIF 12"],"values":[3,19,1295,5360,207,6],"textinfo":"label+percent","insidetextorientation":"radial","type":"pie","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>daha fazla bilgi</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Veri özetini hazırlayalım</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>data_pie <span class="ot">&lt;-</span> midiPISA <span class="sc">%&gt;%</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(SINIF) <span class="sc">%&gt;%</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">oran =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n),</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> <span class="fu">paste0</span>(SINIF, <span class="st">" ("</span>, <span class="fu">round</span>(oran <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">"%)"</span>))</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotly pie chart</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">plot_ly</span>(</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> data_pie,</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="sc">~</span>SINIF,</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="sc">~</span>n,</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">'pie'</span>,</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="sc">~</span>label,</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">textinfo =</span> <span class="st">'text+percent'</span>,</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">hoverinfo =</span> <span class="st">'label+percent+value'</span>,</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">insidetextorientation =</span> <span class="st">'radial'</span>,</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">marker =</span> <span class="fu">list</span>(</span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">line =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">'#FFFFFF'</span>, <span class="at">width =</span> <span class="dv">2</span>)  <span class="co"># Dilimler arası çizgiler</span></span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Sınıf Dağılımı (Pie Chart)"</span>, <span class="at">x =</span> <span class="fl">0.5</span>),</span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">showlegend =</span> <span class="cn">TRUE</span></span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-e24dc41276138af09b3f" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e24dc41276138af09b3f">{"x":{"visdat":{"5d9cc71233e":["function () ","plotlyVisDat"]},"cur_data":"5d9cc71233e","attrs":{"5d9cc71233e":{"labels":{},"values":{},"text":{},"textinfo":"text+percent","hoverinfo":"label+percent+value","insidetextorientation":"radial","marker":{"line":{"color":"#FFFFFF","width":2}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"Sınıf Dağılımı (Pie Chart)","x":0.5},"showlegend":true,"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["SINIF 7","SINIF 8","SINIF 9","SINIF 10","SINIF 11","SINIF 12"],"values":[3,19,1295,5360,207,6],"text":["SINIF 7 (0%)","SINIF 8 (0.3%)","SINIF 9 (18.8%)","SINIF 10 (77.8%)","SINIF 11 (3%)","SINIF 12 (0.1%)"],"textinfo":"text+percent","hoverinfo":["label+percent+value","label+percent+value","label+percent+value","label+percent+value","label+percent+value","label+percent+value"],"insidetextorientation":"radial","marker":{"color":"rgba(31,119,180,1)","line":{"color":"#FFFFFF","width":2}},"type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -727,10 +709,10 @@ Attaching package: 'plotly'</code></pre>
 <p>Sayısal verileri temsil etmenin en doğrudan yolu <strong>nokta grafiği (dotplot)</strong> kullanmaktır. Burada her bir gözlem, x-eksenindeki uygun değerine yerleştirilen bir nokta ile gösterilir. Benzer değerlere sahip gözlemler, diğerlerinin üstüne yığılır. Nokta grafiğini histogramın bir “kardeşi” gibi düşünebilirsiniz, ancak burada her sütunda kaç gözlem olduğunu tam olarak bilirsiniz, çünkü noktaları tek tek sayabilirsiniz. Önemli bir nokta ise, bu grafik histogramdan çok daha az bilgi kaybı içerir; hatta yalnızca bu grafik verilse bile veri setini neredeyse yeniden oluşturabilirsiniz. Tahmin edebileceğiniz gibi, gözlem sayısı çok arttığında bu grafikleri okumak zorlaşmaya başlar.</p>
 <p>Aşağıdaki kod, veri setindeki rasgele seçilmiş 100 kişinin okumaktan alığı zevk için nokta grafiği üretmektedir. Dikkat ederseniz, yalnızca tek bir sayısal değişkenle (ağırlık) ilgilendiğimiz için estetiklerde (aesthetics) yalnızca bu değişken belirtilmiştir. Ayrıca, bu değişken x-estetiği olarak tanımlanmıştır çünkü sayısal bir değişkeni x-ekseninde göstermek “standart”tır. Son olarak, grafiğe noktaları eklemek için <strong>geom_dotplot()</strong> fonksiyonunun kullanıldığını görüyoruz. Bu fonksiyonun <strong>dotsize</strong> adlı isteğe bağlı bir argümanı vardır; bu argüman noktaların ne kadar büyük olacağını belirler (0’a yakın değerler noktaları küçültür, 1’e yakın değerler büyütür).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>midiPISA_filtered <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> OKUMA_ZEVK  )) <span class="sc">+</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">dotsize =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>midiPISA_filtered <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> OKUMA_ZEVK  )) <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">dotsize =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Bin width defaults to 1/30 of the range of the data. Pick better value with
 `binwidth`.</code></pre>
@@ -738,7 +720,7 @@ Attaching package: 'plotly'</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -750,9 +732,9 @@ Attaching package: 'plotly'</code></pre>
 <p>En yaygın kullanılan grafik türlerinden biri <strong>histogramdır</strong>. Histogram, bu sorunu çözmek için noktaları x-ekseni boyunca kutulara (bin) toplar ve her sütunun yüksekliği, o kutuya düşen gözlem sayısını gösterir. Bu gruplama (binning) nedeniyle veri setini eksiksiz bir şekilde yeniden oluşturmak mümkün değildir; ancak bu yöntem, dağılımın genel şeklini daha net görmemizi sağlar.</p>
 <p>Dikkat ederseniz, kodda değişen tek şey <strong>geom_dotplot()</strong> fonksiyonunun <strong>geom_histogram()</strong> ile değiştirilmesidir.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> OKUMA_ZEVK  )) <span class="sc">+</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> OKUMA_ZEVK  )) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -763,7 +745,7 @@ Attaching package: 'plotly'</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -778,29 +760,37 @@ Attaching package: 'plotly'</code></pre>
 </ul>
 <p><strong>ggplot2</strong>, varsayılan olarak mantıklı bir <em>binwidth</em> seçmeye çalışır; ancak bu seçeneği kendiniz belirleyerek geçersiz kılabilirsiniz. <strong>geom_histogram()</strong> içindeki <em>bins</em> ve <em>binwidth</em> argümanları, <strong>geom_dotplot()</strong> fonksiyonundaki <em>dotsize</em> argümanına benzer şekilde isteğe bağlıdır ve histogramın bir yönünü kontrol eder. Örneğin, <em>binwidth = 5</em> seçersek histogram daha düzgün görünür. Alternatif olarak, <strong>geom_histogram()</strong>’ın varsayılanı olan 30 kutu yerine istediğimiz kutu sayısını belirtebiliriz.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<pre class="midipisa cell-code"><code>ggplot( aes(x = ODOKUMA1  )) +
-  geom_histogram(binwidth = 30)</code></pre>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -812,13 +802,13 @@ Attaching package: 'plotly'</code></pre>
 <p>Yoğunluk grafiği, histogramın şeklini <strong>düzgün (smooth) bir çizgiyle</strong> temsil eder. Bunu, histogramın üzerine yumuşatılmış bir çizgi çizmek gibi düşünebilirsiniz; böylece dağılımın genel şeklini daha pürüzsüz bir şekilde gösterir. Ancak yoğunluk grafiği, verideki ani sıçramalara karşı oldukça hassastır, bu yüzden yalnızca <strong>büyük örneklemlerle</strong> kullanılması önerilir.</p>
 <p>Kodumuzda değişen tek satır, fonksiyonun <strong>geom_density()</strong> olarak değiştirilmesidir.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -829,13 +819,13 @@ Attaching package: 'plotly'</code></pre>
 <p>Peki grafiklerimiz için “en iyi” binwidth veya bandwidth değerini nasıl belirleyeceğiz? Genellikle varsayılan ayarlar makuldür; ancak farklı ölçeklerdeki yapıları görebilmek için hem daha pürüzsüz hem de daha ayrıntılı versiyonlarla oynamak iyi bir uygulamadır. Histogramdaki <strong>bins</strong> argümanına benzer şekilde, bandwidth değeri de <strong>geom_density()</strong> fonksiyonunun grafiği oluştururken kullandığı kutu sayısını belirler. Daha büyük bandwidth değerleri daha az kutu üzerinden yumuşatma yapar, bu yüzden daha pürüzsüz bir yoğunluk grafiği elde etmek için <strong>daha büyük bw değerleri</strong> seçebilirsiniz.</p>
 <p>Aşağıdaki alıştırmada farklı <strong>bandwidth</strong> değerlerini deneyin.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">bw =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">bw =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -852,13 +842,13 @@ Attaching package: 'plotly'</code></pre>
 <p>çizer.</p>
 <p>Dikkat ederseniz, R kodumuzda değişen tek satır <strong>geom_boxplot()</strong> fonksiyonunun kullanılmasıdır.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -903,36 +893,29 @@ Attaching package: 'plotly'</code></pre>
 <section id="kutu-grafikleri-ile-aykırı-değer-tespiti" class="level3" data-number="13.2">
 <h3 data-number="13.2" class="anchored" data-anchor-id="kutu-grafikleri-ile-aykırı-değer-tespiti"><span class="header-section-number">13.2</span> Kutu grafikleri ile aykırı değer tespiti</h3>
 <p>Bir kutu grafiği, dağılımın merkezi ve yayılımını göstermenin yanı sıra, <strong>aykırı değerleri tespit etmenin görsel bir yolunu</strong> da sunar. Örneğin, <strong>msrp (üretici tarafından önerilen satış fiyatı)</strong> değişkenine bu yöntemi uygulayarak, olağanüstü pahalı veya ucuz arabaları tespit edebilirsiniz.</p>
-<p>Bunu yapmak için şu adımları izleyelim:</p>
-<ol type="1">
-<li><p><strong>msrp değişkeninin kutu grafiğini oluşturun.</strong></p></li>
-<li><p>En büyük 3–5 aykırı değeri hariç tutarak yeni bir veri seti oluşturun. Bunun için satırları filtreleyip yalnızca <strong>100.000 $’dan ucuz arabaları</strong> tutarak <strong>cars_no_out</strong> adlı yeni bir veri seti oluşturun.</p></li>
-<li><p>Bu azaltılmış veri setiyle <strong>msrp’nin yeni kutu grafiğini oluşturun.</strong></p></li>
-<li><p>İki grafiği karşılaştırın.</p></li>
-</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct boxplot</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kutu grafiği oluştur</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1  )) <span class="sc">+</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude outliers from data</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>midiPISA_no_out <span class="ot">&lt;-</span> midiPISA <span class="sc">|&gt;</span></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ODOKUMA1 <span class="sc">&lt;</span> <span class="dv">600</span>)</span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct boxplot of msrp using the reduced dataset</span></span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> midiPISA_no_out, <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1)) <span class="sc">+</span> </span>
-<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uç değerleri çıkar</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>midiPISA_no_out <span class="ot">&lt;-</span> midiPISA <span class="sc">|&gt;</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ODOKUMA1 <span class="sc">&lt;</span> <span class="dv">600</span>)</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> midiPISA_no_out, <span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1)) <span class="sc">+</span> </span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-32-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-31-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -940,50 +923,48 @@ Attaching package: 'plotly'</code></pre>
 </section>
 <section id="iki-değişkenin-görselleştirilmesi" class="level3" data-number="13.3">
 <h3 data-number="13.3" class="anchored" data-anchor-id="iki-değişkenin-görselleştirilmesi"><span class="header-section-number">13.3</span> İki değişkenin görselleştirilmesi</h3>
-<p>Eğer yalnızca <strong>tek bir sayısal değişkenin dağılımıyla</strong> ilgileniyorsanız, bunu üç şekilde görebilirsiniz. Birincisi, <strong>marjinal dağılıma</strong> bakmaktır; örneğin okuma puanlarının basit dağılımı gibi.</p>
-<p>Ancak, verinin farklı bir alt kümesi için dağılıma bakmak istersek — örneğin yalnızca kızlar için — grafiğe ikinci bir değişken ekleyebiliriz.</p>
 <p>İncelediğimiz grafiklere ikinci bir değişkeni dahil etmenin iki ana yolu vardır:</p>
 <ol type="1">
 <li><p><strong>Facet eklemek</strong> (grafiği alt panellere ayırmak),</p></li>
 <li><p><strong>Renk eklemek</strong> (değerleri renklerle ayırt etmek).</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram</span></span>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1)) <span class="sc">+</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Okuma Puanı"</span>, <span class="at">y =</span> <span class="st">"Frekans"</span>,</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Histogram - ODOKUMA1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Density Plot</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1)) <span class="sc">+</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"lightgreen"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Okuma Puanı"</span>, <span class="at">y =</span> <span class="st">"Yoğunluk"</span>,</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Density Plot - ODOKUMA1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-32-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1)) <span class="sc">+</span></span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Okuma Puanı"</span>, <span class="at">y =</span> <span class="st">"Frekans"</span>,</span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Histogram - ODOKUMA1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> ODOKUMA1)) <span class="sc">+</span>  <span class="co"># Boxplot'ta x yerine y kullanmak daha uygun</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Okuma Puanı"</span>,</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Boxplot - ODOKUMA1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Density Plot</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1)) <span class="sc">+</span></span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"lightgreen"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Okuma Puanı"</span>, <span class="at">y =</span> <span class="st">"Yoğunluk"</span>,</span>
-<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Density Plot - ODOKUMA1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-33-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span> </span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> ODOKUMA1)) <span class="sc">+</span>  <span class="co"># Boxplot'ta x yerine y kullanmak daha uygun</span></span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Okuma Puanı"</span>,</span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Boxplot - ODOKUMA1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-33-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-32-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -991,15 +972,43 @@ Attaching package: 'plotly'</code></pre>
 </section>
 <section id="facetlenmiş-histogramlar" class="level3" data-number="13.4">
 <h3 data-number="13.4" class="anchored" data-anchor-id="facetlenmiş-histogramlar"><span class="header-section-number">13.4</span> Facet’lenmiş histogramlar</h3>
-<p>Bir histogram kullanarak otoyol yakıt tüketiminin (highway mileage) dağılımına bakalım, fakat bu kez <strong>araçların pick-up kamyonet olup olmamasına göre ayrı grafikler</strong> çizelim.</p>
 <p>Bu ayrı grafikleri oluşturmak için <code>ggplot()</code> fonksiyonuna bir <strong>facet_wrap()</strong> katmanı ekleyebiliriz. Facet yapmak istediğimiz değişkeni <strong>facet_wrap()</strong> fonksiyonunun içine yazıyoruz.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>midiPISA<span class="sc">%&gt;%</span> </span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1)) <span class="sc">+</span></span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>  CINSIYET) <span class="sc">+</span></span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Okuma Puanı"</span>, <span class="at">y =</span> <span class="st">"Frekans"</span>,</span>
-<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"ODOKUMA1 Dağılımı - Cinsiyete Göre Facet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>midiPISA<span class="sc">%&gt;%</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1)) <span class="sc">+</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>  CINSIYET) <span class="sc">+</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Okuma Puanı"</span>, <span class="at">y =</span> <span class="st">"Frekans"</span>,</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"ODOKUMA1 Dağılımı - Cinsiyete Göre Facet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><code>facet_wrap(~ CINS)</code> ifadesi her cinsiyet için ayrı histogram çiziyor.</li>
+<li>İsterseniz <code>~ OKUL_TURU</code> veya başka kategorik değişkeni de koyabilirsiniz.</li>
+</ul>
+</section>
+<section id="renkli-yoğunluk-grafikleri-colored-density-plots" class="level3" data-number="13.5">
+<h3 data-number="13.5" class="anchored" data-anchor-id="renkli-yoğunluk-grafikleri-colored-density-plots"><span class="header-section-number">13.5</span> Renkli yoğunluk grafikleri (Colored density plots)</h3>
+<p>Değişkenliği karşılaştırmak, üst üste bindirilmiş <strong>yoğunluk grafikleri</strong> ile biraz daha kolaydır. Bu grafiğimizde iki yeni unsur var:</p>
+<ol type="1">
+<li><p><strong>fill estetiği</strong>,</p></li>
+<li><p><strong>alpha seçeneği</strong>.</p></li>
+</ol>
+<p><strong>Fill estetiği</strong>, verilen kategorik değişkene bir renk atar.</p>
+<p><strong>Alpha argümanı</strong> ise yoğunluk grafiklerinin saydamlığını ayarlar. Normalde bu grafiklerin çakıştığı alanları görmek mümkün olmayacaktır. Ancak saydamlığı artırarak (<strong>alpha 1’den küçük bir değer seçilerek</strong>) grafiklerin üst üste gelen bölgelerini görebiliriz.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">%&gt;%</span>   </span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1, <span class="at">fill =</span> CINSIYET)) <span class="sc">+</span>  </span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>   </span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Okuma Puanı"</span>, </span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Yoğunluk"</span>,      </span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Cinsiyete Göre ODOKUMA1 Yoğunluk Dağılımı"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1008,15 +1017,126 @@ Attaching package: 'plotly'</code></pre>
 </div>
 </div>
 </div>
-<ul>
-<li><code>facet_wrap(~ CINS)</code> ifadesi her cinsiyet için ayrı histogram çiziyor.</li>
-<li></li>
-<li>İsterseniz <code>~ OKUL_TURU</code> veya başka kategorik değişkeni de koyabilirsiniz.</li>
-</ul>
-<p>Grafiğe bakıldığında, <strong>pick-up olmayan araçların (FALSE değerleri) sayısının pick-up araçlardan (TRUE değerleri) çok daha fazla</strong> olduğu açıkça görülüyor. Grafik ayrıca, <strong>tipik bir pick-up aracın yakıt verimliliğinin (mileage) tipik bir pick-up olmayan araca göre çok daha düşük</strong> olduğunu gösteriyor. Bunun yanında, <strong>pick-up olmayan araçların değişkenliğinin pick-up araçlara göre daha fazla</strong> olduğu da dikkat çekiyor.</p>
 </section>
-<section id="section" class="level3" data-number="13.5">
-<h3 data-number="13.5" class="anchored" data-anchor-id="section"><span class="header-section-number">13.5</span> </h3>
+<section id="opsiyonel-ridge-plotlar" class="level3" data-number="13.6">
+<h3 data-number="13.6" class="anchored" data-anchor-id="opsiyonel-ridge-plotlar"><span class="header-section-number">13.6</span> (Opsiyonel) Ridge Plotlar</h3>
+<p><strong>Ridge plotlar</strong> (ridgeline plots), üst üste binen yoğunluk grafiklerini kademeli bir düzende göstermek için özellikle kullanışlıdır. Temelde, her yoğunluk grafiğini ayrı bir seviyeye ayırarak bir <strong>dağ silsilesi görünümü</strong> yaratır.</p>
+<p>Bir ridge plot oluşturmak için <strong>ggridges</strong> paketini ve <strong>geom_density_ridges()</strong> fonksiyonunu kullanırız:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggridges' was built under R version 4.4.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">|&gt;</span>   </span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1, <span class="at">y =</span> <span class="fu">as.factor</span>(CINSIYET), <span class="at">fill =</span> <span class="fu">as.factor</span>(CINSIYET))) <span class="sc">+</span>   <span class="fu">geom_density_ridges</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 15.3</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Burada kodun daha önceki örneklerle benzer olduğunu fark ediyoruz, ancak önemli bir fark var: <strong>y estetiğinin kullanılması</strong>.</p>
+<p><code>y</code> estetiği, hangi kategorik değişken temelinde kaç farklı “ridge” (sıra) çizileceğini belirtir.</p>
+</section>
+<section id="başlıkları-ve-legendı-düzenleme" class="level3" data-number="13.7">
+<h3 data-number="13.7" class="anchored" data-anchor-id="başlıkları-ve-legendı-düzenleme"><span class="header-section-number">13.7</span> Başlıkları ve Legend’ı Düzenleme</h3>
+<p>Grafiğin y-ekseninde görünen <strong>“as.factor(<strong>CINSIYET</strong>)”</strong> etiketi pek hoş görünmüyor, ama bunu değiştirmek mümkün!</p>
+<ul>
+<li><p><strong>labs()</strong> fonksiyonu grafik estetiklerinin (x, y, title, vb.) etiketlerini kontrol eder.</p></li>
+<li><p>Örneğin y-ekseni etiketini değiştirmek için yeni ismi tırnak içinde belirtiriz.</p></li>
+<li><p>Ayrıca fark ediyoruz ki, y-ekseni etiketi ile <strong>legend (açıklama kutusu)</strong> aynı şeyi gösteriyor. Bu durumda legend grafik için yeni bir bilgi sunmuyor ve kaldırılabilir.</p></li>
+</ul>
+<p>Legend’ı kaldırmak için grafiğe bir <strong>theme()</strong> ekleriz ve <code>legend.position = "hide"</code> olarak ayarlarız:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>midiPISA <span class="sc">|&gt;</span>   </span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1, <span class="at">y =</span> <span class="fu">as.factor</span>(CINSIYET), <span class="at">fill =</span> <span class="fu">as.factor</span>(CINSIYET))) <span class="sc">+</span>   <span class="fu">geom_density_ridges</span>() <span class="sc">+</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"CINSIYET"</span>,        <span class="at">x =</span> <span class="st">"OKUMA PUANI"</span>) <span class="sc">+</span>  </span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"hide"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 15.3</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="daha-yüksek-boyutlarda-görselleştirme" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="daha-yüksek-boyutlarda-görselleştirme"><span class="header-section-number">14</span> Daha yüksek boyutlarda görselleştirme</h2>
+<p>Bu derste size sürekli şu soruları düşünmenizi teşvik ettik:</p>
+<ul>
+<li><p>“Bu değişken ile şu değişken arasındaki ilişki nedir?”</p></li>
+<li><p>“Bu değişkenin belirli bir seviyesine koşullandırıldığında, diğer değişkenin dağılımı nasıl değişir?”</p></li>
+</ul>
+<p>Bu sorulara yanıt bulmak <strong>çok değişkenli düşünmeyi</strong> gerektirir ve gerçek verinin yapısını anlamak için temel bir beceridir. Peki neden yalnızca iki değişkende kalalım?</p>
+<section id="değişken-için-grafikler" class="level3" data-number="14.1">
+<h3 data-number="14.1" class="anchored" data-anchor-id="değişken-için-grafikler"><span class="header-section-number">14.1</span> 3 değişken için grafikler</h3>
+<p>Üç değişken arasındaki ilişkiyi görselleştirmenin basit yollarından biri <strong>facet_grid()</strong> fonksiyonudur.</p>
+<ul>
+<li><p><code>facet_wrap()</code> gibi çalışır, fakat birden fazla değişkeni aynı anda kullanabilir.</p></li>
+<li><p>Böylece bir <strong>matris yapısında alt grafikler (subplots)</strong> oluşturur.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>midiPISA<span class="sc">|&gt;</span>    </span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ODOKUMA1)) <span class="sc">+</span>   </span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span>     </span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(CINSIYET <span class="sc">~</span> SINIF) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Groups with fewer than two data points have been dropped.
+Groups with fewer than two data points have been dropped.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+-Inf
+Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
+-Inf</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_Gorsel_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p><code>facet_grid()</code> içinde ilk yazdığınız değişken satırlara (rows), ikinci yazdığınız değişken sütunlara (columns) yerleşir.</p></li>
+<li><p>Ancak grafik üzerinde hangi değişkenin satır, hangisinin sütun olduğunu görmek zor olabilir.</p></li>
+<li><p>Bunu çözmek için <code>labeller = label_both</code> seçeneğini ekleyebiliriz.</p></li>
+<li><div>
+<h3 id="section" data-number="14.2" class="anchored"><span class="header-section-number">14.2</span> </h3>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="daha-yüksek-boyutlu-grafikler" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="daha-yüksek-boyutlu-grafikler"><span class="header-section-number">15</span> Daha yüksek boyutlu grafikler</h2>
+<p>Bu, çok boyutlu veri görselleştirmesinin yalnızca başlangıcıdır. Görsel olarak algılanabilen her şey (şekil, boyut, renk, desen, hareket, konum) bir değişkene eşlenebilir ve birlikte görselleştirilebilir.</p>
+<ul>
+<li><p><strong>Şekil (Shape)</strong></p></li>
+<li><p><strong>Boyut (Size)</strong></p></li>
+<li><p><strong>Renk (Color)</strong></p></li>
+<li><p><strong>Desen (Pattern)</strong></p></li>
+<li><p><strong>Hareket (Movement)</strong></p></li>
+<li><p><strong>x-koordinatı</strong></p></li>
+<li><p><strong>y-koordinatı</strong></p></li>
+</ul>
+<section id="sıra-sizde" class="level3" data-number="15.1">
+<h3 data-number="15.1" class="anchored" data-anchor-id="sıra-sizde"><span class="header-section-number">15.1</span> Sıra sizde!</h3>
+<p><a href="https://kitap.epodder.org/veri-duzenleme-ve-gorsellestirme/" class="uri">https://kitap.epodder.org/veri-duzenleme-ve-gorsellestirme/</a> kitabı inceleyiniz</p>
+<p>Bu hafta <a href="https://openintrostat.github.io/ims-tutorials/02-explore/" class="uri">https://openintrostat.github.io/ims-tutorials/02-explore/</a> bu dört modülü ve lab egzersizlerini çalışmanızı istiyorum. Çalışmalarınızdan aldığınız notlerı rpubs sayfasında paylaşınız.</p>
+</section>
+<section id="section-1" class="level3" data-number="15.2">
+<h3 data-number="15.2" class="anchored" data-anchor-id="section-1"><span class="header-section-number">15.2</span> </h3>
 
 
 </section>
