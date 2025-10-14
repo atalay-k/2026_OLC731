@@ -6,3 +6,5 @@
 /.quarto/
 *.qmd
 _site/
+# exclude source files from being tracked
+*.qmd
