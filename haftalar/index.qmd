@@ -40,7 +40,7 @@ Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar 
 
 ## 🔹 [4-5. Hafta – Keşfedici Veri Analizi- I](03_Gorsel.qmd)
 
-Farklı grafik türlüeri ve grafik elemanlarını tanımak
+-   Farklı grafik türlüeri ve grafik elemanlarını tanımak
 
 ------------------------------------------------------------------------
 
