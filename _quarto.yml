@@ -14,12 +14,12 @@ website:
 
   sidebar:
     - id: haftalar
-      title: "Haftalık Modüller"
+      title: "Haftalık İçerik"
       style: docked
       contents:
-        - haftalar/01_Giris.qmd
-        - haftalar/02_Veri_duz.qmd
-        - haftalar/03_Gorsel.qmd
+        - haftalar/01_Giris.html
+        - haftalar/02_Veri_duz.html
+        - haftalar/03_Gorsel.html
 
 
 
