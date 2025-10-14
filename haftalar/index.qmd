@@ -36,13 +36,11 @@ Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar 
 
 -   Yanıltıcı özet istatistiklerin önüne geçmek için verileri farklı açılardan incelemenin önemini kavramak.
 
-------------------------------------------------------------------------
 
 ## 🔹 [4-5. Hafta – Keşfedici Veri Analizi- I](03_Gorsel.html)
 
 -   Farklı grafik türlüeri ve grafik elemanlarını tanımak
 
-------------------------------------------------------------------------
 
 ### 🔹 \[6-7. Hafta – Regresyon\]
 
