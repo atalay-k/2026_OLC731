@@ -12,7 +12,7 @@ format:
 
 Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar üzerine tıklayarak detaylara ulaşabilirsiniz.
 
-## 🔹 [1-2. Hafta – Temeller](01_Giris.qmd)
+## 🔹 [1-2. Hafta – Temeller](01_Giris.html)
 
 -   Paketlerden veri yüklemek
 
@@ -38,7 +38,7 @@ Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar 
 
 ------------------------------------------------------------------------
 
-## 🔹 [4-5. Hafta – Keşfedici Veri Analizi- I](03_Gorsel.qmd)
+## 🔹 [4-5. Hafta – Keşfedici Veri Analizi- I](03_Gorsel.html)
 
 -   Farklı grafik türlüeri ve grafik elemanlarını tanımak
 
