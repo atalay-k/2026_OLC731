@@ -12,7 +12,7 @@ format:
 
 Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar üzerine tıklayarak detaylara ulaşabilirsiniz.
 
-## 🔹 [1-2. Hafta – Temeller](01_Giris.html)
+## 🔹 [Hafta 1-2 – Temeller](01_Giris.html)
 
 -   Paketlerden veri yüklemek
 
@@ -30,30 +30,26 @@ Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar 
 
 -   İki mevcut değişkene dayalı yeni bir değişken oluşturmak
 
-## 🔹 [3. Hafta – Veri İnceleme](02_Veri_duz.html)
+## 🔹 [Hafta 3 – Veri İnceleme](02_Veri_duz.html)
 
 -   Verilerin düzenlenmesi, özetlenmesi ve görselleştirilmesi yoluyla farklı bakış açılarının nasıl elde edilebileceğini öğrenmek.
 
 -   Yanıltıcı özet istatistiklerin önüne geçmek için verileri farklı açılardan incelemenin önemini kavramak.
 
-
-## 🔹 [4-5. Hafta – Keşfedici Veri Analizi- I](03_Gorsel.html)
+## 🔹 [Hafta 4 5 – Keşfedici Veri Analizi](03_Gorsel.html)
 
 -   Farklı grafik türlüeri ve grafik elemanlarını tanımak
 
+## 🔹 6-7. Hafta – Regresyon\]
 
-### 🔹 \[6-7. Hafta – Regresyon\]
+## 🔹 [9. Hafta – Regresyon\]
 
-### 🔹 \[9. Hafta – Regresyon\]
+##🔹 [10. Hafta – Hipotez Testleri\]
 
-### 🔹 \[10. Hafta – Hipotez Testleri\]
 
-------------------------------------------------------------------------
+## 🔹 [11. Hafta – İstatistiksel çıkarım I\]
 
-### 🔹 \[11. Hafta – İstatistiksel çıkarım I\]
 
-------------------------------------------------------------------------
-
-### 🔹 \[12. Hafta – Çıkarımsal Modelleme I\]
+## 🔹 [12. Hafta – Çıkarımsal Modelleme I\]
 
 📌 **Not:** 9. hafta (Ara sınav) ve 16. hafta (Final sınavı) içerik sayfası olarak eklenmemiştir.

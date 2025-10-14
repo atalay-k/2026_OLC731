@@ -329,24 +329,52 @@
     "text": "Aşağıda her haftaya ait içeriğe bağlantılar yer almaktadır. Başlıklar üzerine tıklayarak detaylara ulaşabilirsiniz."
   },
   {
-    "objectID": "haftalar/index.html#hafta-temeller",
-    "href": "haftalar/index.html#hafta-temeller",
+    "objectID": "haftalar/index.html#hafta-1-2-temeller",
+    "href": "haftalar/index.html#hafta-1-2-temeller",
     "title": "📅 Haftalık İçerik",
-    "section": "🔹 1-2. Hafta – Temeller",
-    "text": "🔹 1-2. Hafta – Temeller\n\nPaketlerden veri yüklemek\nVeri setlerini (data frame) tanıtmak\nDeğişken türleri tanıtmak\nVeri setlerini değişken türlerini dönüştürmek için mutate() fonksiyonunu kullanmak\nSürekli değişkenleri kategorik değişkenlere dönüştürmek\nVerileri filtrelemek ve ardından gereksiz düzeyleri (levels) kaldırmak\nKategorik değişkenlerde bazı düzeyleri birleştirmek\nİki mevcut değişkene dayalı yeni bir değişken oluşturmak"
+    "section": "🔹 Hafta 1-2 – Temeller",
+    "text": "🔹 Hafta 1-2 – Temeller\n\nPaketlerden veri yüklemek\nVeri setlerini (data frame) tanıtmak\nDeğişken türleri tanıtmak\nVeri setlerini değişken türlerini dönüştürmek için mutate() fonksiyonunu kullanmak\nSürekli değişkenleri kategorik değişkenlere dönüştürmek\nVerileri filtrelemek ve ardından gereksiz düzeyleri (levels) kaldırmak\nKategorik değişkenlerde bazı düzeyleri birleştirmek\nİki mevcut değişkene dayalı yeni bir değişken oluşturmak"
   },
   {
-    "objectID": "haftalar/index.html#hafta-veri-inceleme",
-    "href": "haftalar/index.html#hafta-veri-inceleme",
+    "objectID": "haftalar/index.html#hafta-3-veri-inceleme",
+    "href": "haftalar/index.html#hafta-3-veri-inceleme",
     "title": "📅 Haftalık İçerik",
-    "section": "🔹 3. Hafta – Veri İnceleme",
-    "text": "🔹 3. Hafta – Veri İnceleme\n\nVerilerin düzenlenmesi, özetlenmesi ve görselleştirilmesi yoluyla farklı bakış açılarının nasıl elde edilebileceğini öğrenmek.\nYanıltıcı özet istatistiklerin önüne geçmek için verileri farklı açılardan incelemenin önemini kavramak."
+    "section": "🔹 Hafta 3 – Veri İnceleme",
+    "text": "🔹 Hafta 3 – Veri İnceleme\n\nVerilerin düzenlenmesi, özetlenmesi ve görselleştirilmesi yoluyla farklı bakış açılarının nasıl elde edilebileceğini öğrenmek.\nYanıltıcı özet istatistiklerin önüne geçmek için verileri farklı açılardan incelemenin önemini kavramak."
   },
   {
-    "objectID": "haftalar/index.html#hafta-keşfedici-veri-analizi--i",
-    "href": "haftalar/index.html#hafta-keşfedici-veri-analizi--i",
+    "objectID": "haftalar/index.html#hafta-4-5-keşfedici-veri-analizi",
+    "href": "haftalar/index.html#hafta-4-5-keşfedici-veri-analizi",
     "title": "📅 Haftalık İçerik",
-    "section": "🔹 4-5. Hafta – Keşfedici Veri Analizi- I",
-    "text": "🔹 4-5. Hafta – Keşfedici Veri Analizi- I\n\nFarklı grafik türlüeri ve grafik elemanlarını tanımak\n\n\n🔹 [6-7. Hafta – Regresyon]\n\n\n🔹 [9. Hafta – Regresyon]\n\n\n🔹 [10. Hafta – Hipotez Testleri]\n\n\n\n🔹 [11. Hafta – İstatistiksel çıkarım I]\n\n\n\n🔹 [12. Hafta – Çıkarımsal Modelleme I]\n📌 Not: 9. hafta (Ara sınav) ve 16. hafta (Final sınavı) içerik sayfası olarak eklenmemiştir."
+    "section": "🔹 Hafta 4 5 – Keşfedici Veri Analizi",
+    "text": "🔹 Hafta 4 5 – Keşfedici Veri Analizi\n\nFarklı grafik türlüeri ve grafik elemanlarını tanımak"
+  },
+  {
+    "objectID": "haftalar/index.html#hafta-regresyon",
+    "href": "haftalar/index.html#hafta-regresyon",
+    "title": "📅 Haftalık İçerik",
+    "section": "🔹 6-7. Hafta – Regresyon]",
+    "text": "🔹 6-7. Hafta – Regresyon]"
+  },
+  {
+    "objectID": "haftalar/index.html#hafta-regresyon-1",
+    "href": "haftalar/index.html#hafta-regresyon-1",
+    "title": "📅 Haftalık İçerik",
+    "section": "🔹 [9. Hafta – Regresyon]",
+    "text": "🔹 [9. Hafta – Regresyon]\n##🔹 [10. Hafta – Hipotez Testleri]"
+  },
+  {
+    "objectID": "haftalar/index.html#hafta-istatistiksel-çıkarım-i",
+    "href": "haftalar/index.html#hafta-istatistiksel-çıkarım-i",
+    "title": "📅 Haftalık İçerik",
+    "section": "🔹 [11. Hafta – İstatistiksel çıkarım I]",
+    "text": "🔹 [11. Hafta – İstatistiksel çıkarım I]"
+  },
+  {
+    "objectID": "haftalar/index.html#hafta-çıkarımsal-modelleme-i",
+    "href": "haftalar/index.html#hafta-çıkarımsal-modelleme-i",
+    "title": "📅 Haftalık İçerik",
+    "section": "🔹 [12. Hafta – Çıkarımsal Modelleme I]",
+    "text": "🔹 [12. Hafta – Çıkarımsal Modelleme I]\n📌 Not: 9. hafta (Ara sınav) ve 16. hafta (Final sınavı) içerik sayfası olarak eklenmemiştir."
   }
 ]
