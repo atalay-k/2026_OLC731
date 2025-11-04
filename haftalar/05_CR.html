@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Regresyon Modelleri – OLC731 – R Yazılımı ile Ölçme Uygulamaları</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bce83624dd429190d13db9bf62533269.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="../site_libs/rglWebGL-binding-1.3.18/rglWebGL.js"></script>
+
+<link href="../site_libs/rglwidgetClass-1.3.18/rgl.css" rel="stylesheet">
+
+<script src="../site_libs/rglwidgetClass-1.3.18/rglClass.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/utils.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/buffer.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/subscenes.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/shaders.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/shadersrc.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/textures.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/projection.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/mouse.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/init.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/pieces.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/draw.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/controls.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/selection.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/rglTimer.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/pretty.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/axes.src.js"></script>
+
+<script src="../site_libs/rglwidgetClass-1.3.18/animation.src.js"></script>
+
+<script src="../site_libs/CanvasMatrix4-1.3.18/CanvasMatrix.src.js"></script>
+
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">OLC731 – R Yazılımı ile Ölçme Uygulamaları</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">📘 Tanıtım &amp; İzlence</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../haftalar/index.html"> 
+<span class="menu-text">📅 Haftalık İçerik</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Regresyon Modelleri</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">haftalar/01_Giris.html</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">haftalar/02_Veri_duz.html</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">haftalar/03_Gorsel.html</span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#bağımsız-değişkenler-arasındaki-ilişki" id="toc-bağımsız-değişkenler-arasındaki-ilişki" class="nav-link active" data-scroll-target="#bağımsız-değişkenler-arasındaki-ilişki"><span class="header-section-number">1</span> Bağımsız değişkenler arasındaki ilişki</a></li>
+  <li><a href="#uygulama" id="toc-uygulama" class="nav-link" data-scroll-target="#uygulama"><span class="header-section-number">2</span> Uygulama</a></li>
+  <li><a href="#çoklu-korelasyon-katsayısı" id="toc-çoklu-korelasyon-katsayısı" class="nav-link" data-scroll-target="#çoklu-korelasyon-katsayısı"><span class="header-section-number">3</span> Çoklu korelasyon katsayısı</a></li>
+  <li><a href="#belirlilik-katsayısı" id="toc-belirlilik-katsayısı" class="nav-link" data-scroll-target="#belirlilik-katsayısı"><span class="header-section-number">4</span> Belirlilik Katsayısı</a></li>
+  <li><a href="#kestirimin-standart-hatası" id="toc-kestirimin-standart-hatası" class="nav-link" data-scroll-target="#kestirimin-standart-hatası"><span class="header-section-number">5</span> Kestirimin standart hatası</a></li>
+  <li><a href="#model-veri-uyumu" id="toc-model-veri-uyumu" class="nav-link" data-scroll-target="#model-veri-uyumu"><span class="header-section-number">6</span> Model veri uyumu</a></li>
+  <li><a href="#kaygının-sabit-tutulması" id="toc-kaygının-sabit-tutulması" class="nav-link" data-scroll-target="#kaygının-sabit-tutulması"><span class="header-section-number">7</span> Kaygının sabit tutulması</a></li>
+  <li><a href="#motivasyonun-sabit-tutulması" id="toc-motivasyonun-sabit-tutulması" class="nav-link" data-scroll-target="#motivasyonun-sabit-tutulması"><span class="header-section-number">8</span> Motivasyonun sabit tutulması</a></li>
+  <li><a href="#regresyon-sabiti" id="toc-regresyon-sabiti" class="nav-link" data-scroll-target="#regresyon-sabiti"><span class="header-section-number">9</span> Regresyon Sabiti</a></li>
+  <li><a href="#standart-puanlar-ile-regresyon" id="toc-standart-puanlar-ile-regresyon" class="nav-link" data-scroll-target="#standart-puanlar-ile-regresyon"><span class="header-section-number">10</span> Standart puanlar ile regresyon</a></li>
+  <li><a href="#yordanan-ve-artık-değerler" id="toc-yordanan-ve-artık-değerler" class="nav-link" data-scroll-target="#yordanan-ve-artık-değerler"><span class="header-section-number">11</span> Yordanan ve Artık Değerler</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Regresyon Modelleri</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<ul>
+<li>Çoklu regresyon her bir bağımsız değişkendeki değişikliklerin <strong>bağımlı değişkendeki değişikliklerle ne ölçüde</strong> ilişkili olduğunu kestirir. Ancak <strong>bağımsız değişkenler arasındaki korelasyon</strong> yordama sürecini zorlaştırır.</li>
+</ul>
+<section id="bağımsız-değişkenler-arasındaki-ilişki" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="bağımsız-değişkenler-arasındaki-ilişki"><span class="header-section-number">1</span> Bağımsız değişkenler arasındaki ilişki</h2>
+<p><strong>ceteris paribus</strong></p>
+<ul>
+<li>Örneğin, <span class="math inline">\(X_1\)</span> ve <span class="math inline">\(Y\)</span> arasındaki korelasyon katsayısı <strong>0.40</strong>, <span class="math inline">\(X_2\)</span> ve <span class="math inline">\(Y\)</span> arasındaki korelasyon katsayısı <strong>0.60</strong>, <span class="math inline">\(X_1\)</span> ve <span class="math inline">\(X_2\)</span> arasındaki korelasyon katsayısı sıfır ise, <span class="math inline">\(Y\)</span>’nin varyansının iki değişken tarafından açıklanan toplam oranı iki değişkenin <span class="math inline">\(Y\)</span> ile korelasyonlarının kareleri toplamından elde edilebilir:</li>
+</ul>
+<p><span class="math inline">\(0.40^2 + 0.50^2 = 0.16 + 0.25 = 0.41\)</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/CR_1.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Ancak, uygulamada çoğunlukla <span class="math inline">\(X_1\)</span> ve <span class="math inline">\(X_2\)</span> birlikte değişim gösterirler ve iki değişkenin <span class="math inline">\(Y\)</span> ile korelasyonlarının kareleri toplamı çok yüksek bir oran verir.</p></li>
+<li><p>Bunun nedeni, iki bağımsız değişkenin aralarındaki korelasyondan dolayı her bir bağımsız değişken tarafından açıklanan <span class="math inline">\(Y\)</span> varyansının bir kısmının üst üste gelmesidir.</p></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/CR_2.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Modeldeki bağımsız değişkenler arasındaki ilişkilerin kontrol altına alınması, modeldeki bir değişkenin bağımlı değişken üzerindeki etkisini incelerken, modeldeki diğer bütün değişkenlerin sabit tutulmasıdır (<strong>ceteris paribus</strong>)</li>
+</ul>
+</section>
+<section id="uygulama" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="uygulama"><span class="header-section-number">2</span> Uygulama</h2>
+<ul>
+<li><p>veri seti 🔗 <a href="import/Performans.sav">Performans.</a><a href="data/Performans.sav">sav</a></p></li>
+<li><p><strong>Performans:</strong> Öğrencilerin matematik performans düzeyleri olup eşit aralık ölçeğinde ölçülen sürekli bir değişkendir.</p></li>
+<li><p><strong>Motivasyon:</strong> Öğrencilerin motivasyon düzeyleri olup eşit aralık ölçeğinde ölçülen sürekli bir değişkendir.</p></li>
+<li><p><strong>Kaygı:</strong> Öğrencilerin kaygı düzeyleri olup eşit aralık ölçeğinde ölçülen sürekli bir değişkendir.</p></li>
+<li><p><strong>Güven:</strong> Öğrencilerin matematiğe karşı güven düzeyleri olup eşit aralık ölçeğinde ölçülen sürekli bir değişkendir.</p></li>
+<li><p>Analize başlamadan önce değişkenlerin betimsel istatistikleri ve değişkenler arası korelasyonlar incelenmelidir.</p></li>
+</ul>
+<p>Betimsel İstatistikler</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>performans <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"data/Performans.sav"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(performans) <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">vars</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">median</th>
+<th style="text-align: right;">trimmed</th>
+<th style="text-align: right;">mad</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">range</th>
+<th style="text-align: right;">skew</th>
+<th style="text-align: right;">kurtosis</th>
+<th style="text-align: right;">se</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Performans</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">18.176</td>
+<td style="text-align: right;">7.828</td>
+<td style="text-align: right;">18.041</td>
+<td style="text-align: right;">17.925</td>
+<td style="text-align: right;">9.215</td>
+<td style="text-align: right;">4.112</td>
+<td style="text-align: right;">35.501</td>
+<td style="text-align: right;">31.390</td>
+<td style="text-align: right;">0.283</td>
+<td style="text-align: right;">-0.384</td>
+<td style="text-align: right;">2.021</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Motivasyon</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">39.933</td>
+<td style="text-align: right;">10.025</td>
+<td style="text-align: right;">40.000</td>
+<td style="text-align: right;">40.154</td>
+<td style="text-align: right;">10.378</td>
+<td style="text-align: right;">22.000</td>
+<td style="text-align: right;">55.000</td>
+<td style="text-align: right;">33.000</td>
+<td style="text-align: right;">-0.178</td>
+<td style="text-align: right;">-1.173</td>
+<td style="text-align: right;">2.588</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kaygi</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">18.071</td>
+<td style="text-align: right;">4.769</td>
+<td style="text-align: right;">18.298</td>
+<td style="text-align: right;">17.860</td>
+<td style="text-align: right;">2.247</td>
+<td style="text-align: right;">10.720</td>
+<td style="text-align: right;">28.169</td>
+<td style="text-align: right;">17.449</td>
+<td style="text-align: right;">0.593</td>
+<td style="text-align: right;">-0.079</td>
+<td style="text-align: right;">1.231</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guven</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">21.630</td>
+<td style="text-align: right;">7.375</td>
+<td style="text-align: right;">22.000</td>
+<td style="text-align: right;">21.308</td>
+<td style="text-align: right;">5.708</td>
+<td style="text-align: right;">8.750</td>
+<td style="text-align: right;">38.700</td>
+<td style="text-align: right;">29.950</td>
+<td style="text-align: right;">0.300</td>
+<td style="text-align: right;">-0.101</td>
+<td style="text-align: right;">1.904</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>Korelasyon değerleri ve anlamlılığı</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'broom' was built under R version 4.4.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cor_1 <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="sc">~</span> Performans <span class="sc">+</span> Motivasyon , <span class="at">data =</span> performans)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(cor_1)  <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 35%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: right;">parameter</th>
+<th style="text-align: right;">conf.low</th>
+<th style="text-align: right;">conf.high</th>
+<th style="text-align: left;">method</th>
+<th style="text-align: left;">alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.824</td>
+<td style="text-align: right;">5.252</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: left;">Pearson’s product-moment correlation</td>
+<td style="text-align: left;">two.sided</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cor_2 <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="sc">~</span> Performans <span class="sc">+</span> Kaygi , <span class="at">data =</span> performans)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(cor_2)[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]  <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">-0.241</td>
+<td style="text-align: right;">0.388</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cor_3 <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="sc">~</span> Motivasyon <span class="sc">+</span> Kaygi , <span class="at">data =</span> performans)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(cor_3)[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)] <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.147</td>
+<td style="text-align: right;">0.601</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>İlişki Grafiği</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(performans[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_CR_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>3D grafik</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scatterplot3d)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplot3d</span>(performans[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">pch =</span> <span class="dv">16</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">color=</span><span class="st">"steelblue"</span>, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">angle=</span><span class="dv">75</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_CR_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>3D grafik</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplot3d</span>(performans[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">color=</span><span class="st">"steelblue"</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">angle=</span><span class="dv">75</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">box =</span> <span class="cn">FALSE</span>,<span class="at">type =</span> <span class="st">"h"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Unknown or uninitialised column: `color`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_CR_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>3D grafik</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgl)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot3d</span>(performans<span class="sc">$</span>Performans, performans<span class="sc">$</span>Motivasyon, performans<span class="sc">$</span>Kaygi,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">xlab =</span> <span class="st">"Performans"</span>, <span class="at">ylab =</span> <span class="st">"Motivasyon"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">zlab =</span> <span class="st">"Kaygi"</span>, </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="at">type =</span> <span class="st">"s"</span>,<span class="at">size =</span> <span class="fl">1.5</span>,<span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rglwidget</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display no-overflow-x">
+<div id="rgl9550" style="width:100%;height:464px;" class="rglWebGL html-widget" role="img" aria-labelledby="rgl9550-aria"></div>
+<script type="application/json" data-for="rgl9550">{"x":{"material":{"color":"#000000","alpha":1,"lit":true,"ambient":"#000000","specular":"#FFFFFF","emission":"#000000","shininess":50,"smooth":true,"front":"filled","back":"filled","size":3,"lwd":1,"fog":true,"point_antialias":false,"line_antialias":false,"texture":null,"textype":"rgb","texmode":"modulate","texmipmap":false,"texminfilter":"linear","texmagfilter":"linear","texenvmap":false,"depth_mask":true,"depth_test":"less","isTransparent":false,"polygon_offset":[0,0],"margin":"","floating":false,"tag":"","blend":["src_alpha","one_minus_src_alpha"]},"rootSubscene":6,"objects":{"13":{"id":13,"type":"spheres","material":{},"vertices":"0","colors":"1","radii":[[0.7039732933044434]],"centers":"2","ignoreExtent":false,"fastTransparency":true,"flags":32771},"15":{"id":15,"type":"text","material":{"lit":false,"margin":0,"floating":true,"edge":[0,1,1]},"vertices":"3","colors":"4","texts":[["Performans"]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"5","family":[["sans"]],"font":[[1]],"ignoreExtent":true,"flags":33808},"16":{"id":16,"type":"text","material":{"lit":false,"margin":1,"floating":true,"edge":[1,1,1]},"vertices":"6","colors":"7","texts":[["Motivasyon"]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"8","family":[["sans"]],"font":[[1]],"ignoreExtent":true,"flags":33808},"17":{"id":17,"type":"text","material":{"lit":false,"margin":2,"floating":true,"edge":[1,1,1]},"vertices":"9","colors":"10","texts":[["Kaygi"]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"11","family":[["sans"]],"font":[[1]],"ignoreExtent":true,"flags":33808},"10":{"id":10,"type":"light","vertices":[[0,0,1]],"colors":[[1,1,1,1],[1,1,1,1],[1,1,1,1]],"viewpoint":true,"finite":false},"12":{"id":12,"type":"background","material":{"lit":false,"back":"lines"},"colors":"12","centers":"13","sphere":false,"fogtype":"none","fogscale":1,"flags":32768},"14":{"id":14,"type":"bboxdeco","material":{"front":"lines","back":"lines"},"vertices":"14","colors":"15","axes":{"mode":["pretty","pretty","pretty"],"step":[5,5,5],"nticks":[5,5,5],"marklen":[15,15,15],"expand":[1.029999971389771,1.029999971389771,1.029999971389771]},"draw_front":true,"flags":32769},"6":{"id":6,"type":"subscene","par3d":{"antialias":8,"FOV":30,"ignoreExtent":false,"listeners":6,"mouseMode":{"none":"none","left":"trackball","right":"zoom","middle":"fov","wheel":"pull"},"observer":[0,0,125.3147583007812],"modelMatrix":[[0.8970806002616882,0,0,-17.76793670654297],[0,0.2918461263179779,1.51644504070282,-40.72311401367188],[0,-0.8018406629562378,0.5519408583641052,-105.1763000488281],[0,0,0,1]],"projMatrix":[[3.732050895690918,0,0,0],[0,3.732050895690918,0,0],[0,0,-3.863703727722168,-451.7452392578125],[0,0,-1,0]],"skipRedraw":false,"userMatrix":[[1,0,0,0],[0,0.3420201433256682,0.9396926207859085,0],[0,-0.9396926207859085,0.3420201433256682,0],[0,0,0,1]],"userProjection":[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]],"scale":[0.8970806002616882,0.8533009886741638,1.613767147064209],"viewport":{"x":0,"y":0,"width":1,"height":1},"zoom":1,"bbox":[3.32689905166626,36.2859001159668,21.17499923706055,55.82500076293945,10.28402137756348,28.60566902160645],"windowRect":[34,57,290,313],"family":"sans","font":1,"cex":1,"useFreeType":false,"fontname":"TT Arial","maxClipPlanes":8,"glVersion":4.6,"activeSubscene":0},"embeddings":{"viewport":"replace","projection":"replace","model":"replace","mouse":"replace"},"objects":[12,14,13,15,16,17,10],"subscenes":[],"flags":34067}},"crosstalk":{"key":[],"group":[],"id":[],"options":[]},"width":672,"height":480,"buffer":{"accessors":[{"bufferView":0,"componentType":5126,"count":15,"type":"VEC3"},{"bufferView":1,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":2,"componentType":5126,"count":15,"type":"VEC3"},{"bufferView":3,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":4,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":5,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":6,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":7,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":8,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":9,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":10,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":11,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":12,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":13,"componentType":5121,"count":1,"type":"VEC3"},{"bufferView":14,"componentType":5126,"count":17,"type":"VEC3"},{"bufferView":15,"componentType":5121,"count":1,"type":"VEC4"}],"bufferViews":[{"buffer":0,"byteLength":180,"byteOffset":0},{"buffer":0,"byteLength":4,"byteOffset":180},{"buffer":0,"byteLength":180,"byteOffset":184},{"buffer":0,"byteLength":12,"byteOffset":364},{"buffer":0,"byteLength":4,"byteOffset":376},{"buffer":0,"byteLength":12,"byteOffset":380},{"buffer":0,"byteLength":12,"byteOffset":392},{"buffer":0,"byteLength":4,"byteOffset":404},{"buffer":0,"byteLength":12,"byteOffset":408},{"buffer":0,"byteLength":12,"byteOffset":420},{"buffer":0,"byteLength":4,"byteOffset":432},{"buffer":0,"byteLength":12,"byteOffset":436},{"buffer":0,"byteLength":4,"byteOffset":448},{"buffer":0,"byteLength":3,"byteOffset":452},{"buffer":0,"byteLength":204,"byteOffset":456},{"buffer":0,"byteLength":4,"byteOffset":660}],"buffers":[{"byteLength":664,"bytes":"Ne5FQQAAsEG5LndBiJKDQAAAyEHygp5BXgOtQQAASEJj+pRB4F7HQQAAPEIUlZFB6rPQQQAA\nOEImhitBAJyNQQAAIEKqojJBgVkkQQAA+EEDT5NByy+XQQAAXEIDW+FBGpmZQQAAFEJdiZhB\nzgGOQQAAIEJTUpNBMQEOQgAAWEJuYpJB/lOQQQAAGEJKLGNBV7s1QQAAFEIVF9lBkAzCQQAA\nPEKHPHpBiq0oQQAA8EENGo5BAQAAATXuRUEAALBBuS53QYiSg0AAAMhB8oKeQV4DrUEAAEhC\nY/qUQeBex0EAADxCFJWRQeqz0EEAADhCJoYrQQCcjUEAACBCqqIyQYFZJEEAAPhBA0+TQcsv\nl0EAAFxCA1vhQRqZmUEAABRCXYmYQc4BjkEAACBCU1KTQTEBDkIAAFhCbmKSQf5TkEEAABhC\nSixjQVe7NUEAABRCFRfZQZAMwkEAADxChzx6QYqtKEEAAPBBDRqOQQAAwH8AAIBAAACAPwAA\nAAEAAMB/AACAQAAAgD8AAMB/AACAQAAAgD8AAAABAADAfwAAgEAAAIA/AADAfwAAgEAAAIA/\nAAAAAQAAwH8AAIBAAACAPwEBAQEAAAAAAACgQAAAwH8AAMB/AAAgQQAAwH8AAMB/AABwQQAA\nwH8AAMB/AACgQQAAwH8AAMB/AADIQQAAwH8AAMB/AADwQQAAwH8AAMB/AAAMQgAAwH8AAMB/\nAADAfwAAyEEAAMB/AADAfwAA8EEAAMB/AADAfwAADEIAAMB/AADAfwAAIEIAAMB/AADAfwAA\nNEIAAMB/AADAfwAASEIAAMB/AADAfwAAXEIAAMB/AADAfwAAwH8AAHBBAADAfwAAwH8AAKBB\nAADAfwAAwH8AAMhBAAAAAQ=="}]},"context":{"shiny":false,"rmarkdown":null},"vertexShader":"#line 2 1\n// File 1 is the vertex shader\n#ifdef GL_ES\n#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\n#endif\n\nattribute vec3 aPos;\nattribute vec4 aCol;\nuniform mat4 mvMatrix;\nuniform mat4 prMatrix;\nvarying vec4 vCol;\nvarying vec4 vPosition;\n\n#ifdef NEEDS_VNORMAL\nattribute vec3 aNorm;\nuniform mat4 normMatrix;\nvarying vec4 vNormal;\n#endif\n\n#if defined(HAS_TEXTURE) || defined (IS_TEXT)\nattribute vec2 aTexcoord;\nvarying vec2 vTexcoord;\n#endif\n\n#ifdef FIXED_SIZE\nuniform vec3 textScale;\n#endif\n\n#ifdef FIXED_QUADS\nattribute vec3 aOfs;\n#endif\n\n#ifdef IS_TWOSIDED\n#ifdef HAS_NORMALS\nvarying float normz;\nuniform mat4 invPrMatrix;\n#else\nattribute vec3 aPos1;\nattribute vec3 aPos2;\nvarying float normz;\n#endif\n#endif // IS_TWOSIDED\n\n#ifdef FAT_LINES\nattribute vec3 aNext;\nattribute vec2 aPoint;\nvarying vec2 vPoint;\nvarying float vLength;\nuniform float uAspect;\nuniform float uLwd;\n#endif\n\n#ifdef USE_ENVMAP\nvarying vec3 vReflection;\n#endif\n\nvoid main(void) {\n  \n#ifndef IS_BRUSH\n#if defined(NCLIPPLANES) || !defined(FIXED_QUADS) || defined(HAS_FOG) || defined(USE_ENVMAP)\n  vPosition = mvMatrix * vec4(aPos, 1.);\n#endif\n  \n#ifndef FIXED_QUADS\n  gl_Position = prMatrix * vPosition;\n#endif\n#endif // !IS_BRUSH\n  \n#ifdef IS_POINTS\n  gl_PointSize = POINTSIZE;\n#endif\n  \n  vCol = aCol;\n  \n// USE_ENVMAP implies NEEDS_VNORMAL\n\n#ifdef NEEDS_VNORMAL\n  vNormal = normMatrix * vec4(-aNorm, dot(aNorm, aPos));\n#endif\n\n#ifdef USE_ENVMAP\n  vReflection = normalize(reflect(vPosition.xyz/vPosition.w, \n                        normalize(vNormal.xyz/vNormal.w)));\n#endif\n  \n#ifdef IS_TWOSIDED\n#ifdef HAS_NORMALS\n  /* normz should be calculated *after* projection */\n  normz = (invPrMatrix*vNormal).z;\n#else\n  vec4 pos1 = prMatrix*(mvMatrix*vec4(aPos1, 1.));\n  pos1 = pos1/pos1.w - gl_Position/gl_Position.w;\n  vec4 pos2 = prMatrix*(mvMatrix*vec4(aPos2, 1.));\n  pos2 = pos2/pos2.w - gl_Position/gl_Position.w;\n  normz = pos1.x*pos2.y - pos1.y*pos2.x;\n#endif\n#endif // IS_TWOSIDED\n  \n#ifdef NEEDS_VNORMAL\n  vNormal = vec4(normalize(vNormal.xyz), 1);\n#endif\n  \n#if defined(HAS_TEXTURE) || defined(IS_TEXT)\n  vTexcoord = aTexcoord;\n#endif\n  \n#if defined(FIXED_SIZE) && !defined(ROTATING)\n  vec4 pos = prMatrix * mvMatrix * vec4(aPos, 1.);\n  pos = pos/pos.w;\n  gl_Position = pos + vec4(aOfs*textScale, 0.);\n#endif\n  \n#if defined(IS_SPRITES) && !defined(FIXED_SIZE)\n  vec4 pos = mvMatrix * vec4(aPos, 1.);\n  pos = pos/pos.w + vec4(aOfs,  0.);\n  gl_Position = prMatrix*pos;\n#endif\n  \n#ifdef FAT_LINES\n  /* This code was inspired by Matt Deslauriers' code in \n   https://mattdesl.svbtle.com/drawing-lines-is-hard */\n  vec2 aspectVec = vec2(uAspect, 1.0);\n  mat4 projViewModel = prMatrix * mvMatrix;\n  vec4 currentProjected = projViewModel * vec4(aPos, 1.0);\n  currentProjected = currentProjected/currentProjected.w;\n  vec4 nextProjected = projViewModel * vec4(aNext, 1.0);\n  vec2 currentScreen = currentProjected.xy * aspectVec;\n  vec2 nextScreen = (nextProjected.xy / nextProjected.w) * aspectVec;\n  float len = uLwd;\n  vec2 dir = vec2(1.0, 0.0);\n  vPoint = aPoint;\n  vLength = length(nextScreen - currentScreen)/2.0;\n  vLength = vLength/(vLength + len);\n  if (vLength > 0.0) {\n    dir = normalize(nextScreen - currentScreen);\n  }\n  vec2 normal = vec2(-dir.y, dir.x);\n  dir.x /= uAspect;\n  normal.x /= uAspect;\n  vec4 offset = vec4(len*(normal*aPoint.x*aPoint.y - dir), 0.0, 0.0);\n  gl_Position = currentProjected + offset;\n#endif\n  \n#ifdef IS_BRUSH\n  gl_Position = vec4(aPos, 1.);\n#endif\n}","fragmentShader":"#line 2 2\n// File 2 is the fragment shader\n#ifdef GL_ES\n#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\n#endif\nvarying vec4 vCol; // carries alpha\nvarying vec4 vPosition;\n#if defined(HAS_TEXTURE) || defined (IS_TEXT)\nvarying vec2 vTexcoord;\nuniform sampler2D uSampler;\n#endif\n\n#ifdef HAS_FOG\nuniform int uFogMode;\nuniform vec3 uFogColor;\nuniform vec4 uFogParms;\n#endif\n\n#if defined(IS_LIT) && !defined(FIXED_QUADS)\nvarying vec4 vNormal;\n#endif\n\n#if NCLIPPLANES > 0\nuniform vec4 vClipplane[NCLIPPLANES];\n#endif\n\n#if NLIGHTS > 0\nuniform mat4 mvMatrix;\n#endif\n\n#ifdef IS_LIT\nuniform vec3 emission;\nuniform float shininess;\n#if NLIGHTS > 0\nuniform vec3 ambient[NLIGHTS];\nuniform vec3 specular[NLIGHTS]; // light*material\nuniform vec3 diffuse[NLIGHTS];\nuniform vec3 lightDir[NLIGHTS];\nuniform bool viewpoint[NLIGHTS];\nuniform bool finite[NLIGHTS];\n#endif\n#endif // IS_LIT\n\n#ifdef IS_TWOSIDED\nuniform bool front;\nvarying float normz;\n#endif\n\n#ifdef FAT_LINES\nvarying vec2 vPoint;\nvarying float vLength;\n#endif\n\n#ifdef USE_ENVMAP\nvarying vec3 vReflection;\n#endif\n\nvoid main(void) {\n  vec4 fragColor;\n#ifdef FAT_LINES\n  vec2 point = vPoint;\n  bool neg = point.y < 0.0;\n  point.y = neg ? (point.y + vLength)/(1.0 - vLength) :\n                 -(point.y - vLength)/(1.0 - vLength);\n#if defined(IS_TRANSPARENT) && defined(IS_LINESTRIP)\n  if (neg && length(point) <= 1.0) discard;\n#endif\n  point.y = min(point.y, 0.0);\n  if (length(point) > 1.0) discard;\n#endif // FAT_LINES\n  \n#ifdef ROUND_POINTS\n  vec2 coord = gl_PointCoord - vec2(0.5);\n  if (length(coord) > 0.5) discard;\n#endif\n  \n#if NCLIPPLANES > 0\n  for (int i = 0; i < NCLIPPLANES; i++)\n    if (dot(vPosition, vClipplane[i]) < 0.0) discard;\n#endif\n    \n#ifdef FIXED_QUADS\n    vec3 n = vec3(0., 0., 1.);\n#elif defined(IS_LIT)\n    vec3 n = normalize(vNormal.xyz);\n#endif\n    \n#ifdef IS_TWOSIDED\n    if ((normz <= 0.) != front) discard;\n#endif\n\n#ifdef IS_LIT\n    vec3 eye = normalize(-vPosition.xyz/vPosition.w);\n    vec3 lightdir;\n    vec4 colDiff;\n    vec3 halfVec;\n    vec4 lighteffect = vec4(emission, 0.);\n    vec3 col;\n    float nDotL;\n#ifdef FIXED_QUADS\n    n = -faceforward(n, n, eye);\n#endif\n    \n#if NLIGHTS > 0\n    // Simulate two-sided lighting\n    if (n.z < 0.0)\n      n = -n;\n    for (int i=0;i<NLIGHTS;i++) {\n      colDiff = vec4(vCol.rgb * diffuse[i], vCol.a);\n      lightdir = lightDir[i];\n      if (!viewpoint[i]) {\n        if (finite[i]) {\n          lightdir = (mvMatrix * vec4(lightdir, 1.)).xyz;\n        } else {\n          lightdir = (mvMatrix * vec4(lightdir, 0.)).xyz;\n        }\n      }\n      if (!finite[i]) {\n        halfVec = normalize(lightdir + eye);\n      } else {\n        lightdir = normalize(lightdir - vPosition.xyz/vPosition.w);\n        halfVec = normalize(lightdir + eye);\n      }\n      col = ambient[i];\n      nDotL = dot(n, lightdir);\n      col = col + max(nDotL, 0.) * colDiff.rgb;\n      col = col + pow(max(dot(halfVec, n), 0.), shininess) * specular[i];\n      lighteffect = lighteffect + vec4(col, colDiff.a);\n    }\n#endif\n    \n#else // not IS_LIT\n    vec4 colDiff = vCol;\n    vec4 lighteffect = colDiff;\n#endif\n    \n#ifdef IS_TEXT\n    vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);\n#endif\n    \n#ifdef HAS_TEXTURE\n\n// These calculations use the definitions from \n// https://docs.gl/gl3/glTexEnv\n\n#ifdef USE_ENVMAP\n    float m = 2.0 * sqrt(dot(vReflection, vReflection) + 2.0*vReflection.z + 1.0);\n    vec4 textureColor = texture2D(uSampler, vReflection.xy / m + vec2(0.5, 0.5));\n#else\n    vec4 textureColor = texture2D(uSampler, vTexcoord);\n#endif\n\n#ifdef TEXTURE_rgb\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(textureColor.rgb, lighteffect.a);\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = lighteffect*vec4(textureColor.rgb, 1.);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - textureColor.rgb) * lighteffect.rgb, lighteffect.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(lighteffect.rgb + textureColor.rgb, lighteffect.a);\n#endif\n\n#endif //TEXTURE_rgb\n        \n#ifdef TEXTURE_rgba\n\n#ifdef TEXMODE_replace\n// already done\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = lighteffect*textureColor;\n#endif\n\n#ifdef TEXMODE_decal\n    textureColor = vec4((1. - textureColor.a)*lighteffect.rgb) +\n                     textureColor.a*textureColor.rgb, \n                     lighteffect.a);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - textureColor.rgb) * lighteffect.rgb,\n                    lighteffect.a*textureColor.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(lighteffect.rgb + textureColor.rgb,\n                    lighteffect.a*textureColor.a);\n#endif\n    \n#endif //TEXTURE_rgba\n    \n#ifdef TEXTURE_alpha\n    float luminance = dot(vec3(1.,1.,1.),textureColor.rgb)/3.;\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(lighteffect.rgb, luminance);\n#endif \n\n#if defined(TEXMODE_modulate) || defined(TEXMODE_blend) || defined(TEXMODE_add)\n    textureColor = vec4(lighteffect.rgb, lighteffect.a*luminance);\n#endif\n \n#endif // TEXTURE_alpha\n    \n// The TEXTURE_luminance values are not from that reference    \n#ifdef TEXTURE_luminance\n    float luminance = dot(vec3(1.,1.,1.),textureColor.rgb)/3.;\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(luminance, luminance, luminance, lighteffect.a);\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = vec4(luminance*lighteffect.rgb, lighteffect.a);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - luminance)*lighteffect.rgb,\n                        lighteffect.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(luminance + lighteffect.rgb, lighteffect.a);\n#endif\n\n#endif // TEXTURE_luminance\n \n    \n#ifdef TEXTURE_luminance_alpha\n    float luminance = dot(vec3(1.,1.,1.),textureColor.rgb)/3.;\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(luminance, luminance, luminance, textureColor.a);\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = vec4(luminance*lighteffect.rgb, \n                        textureColor.a*lighteffect.a);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - luminance)*lighteffect.rgb,\n                        textureColor.a*lighteffect.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(luminance + lighteffect.rgb, \n                        textureColor.a*lighteffect.a);\n\n#endif\n\n#endif // TEXTURE_luminance_alpha\n    \n    fragColor = textureColor;\n\n#elif defined(IS_TEXT)\n    if (textureColor.a < 0.1)\n      discard;\n    else\n      fragColor = textureColor;\n#else\n    fragColor = lighteffect;\n#endif // HAS_TEXTURE\n    \n#ifdef HAS_FOG\n    // uFogParms elements: x = near, y = far, z = fogscale, w = (1-sin(FOV/2))/(1+sin(FOV/2))\n    // In Exp and Exp2: use density = density/far\n    // fogF will be the proportion of fog\n    // Initialize it to the linear value\n    float fogF;\n    if (uFogMode > 0) {\n      fogF = (uFogParms.y - vPosition.z/vPosition.w)/(uFogParms.y - uFogParms.x);\n      if (uFogMode > 1)\n        fogF = mix(uFogParms.w, 1.0, fogF);\n      fogF = fogF*uFogParms.z;\n      if (uFogMode == 2)\n        fogF = 1.0 - exp(-fogF);\n      // Docs are wrong: use (density*c)^2, not density*c^2\n      // https://gitlab.freedesktop.org/mesa/mesa/-/blob/master/src/mesa/swrast/s_fog.c#L58\n      else if (uFogMode == 3)\n        fogF = 1.0 - exp(-fogF*fogF);\n      fogF = clamp(fogF, 0.0, 1.0);\n      gl_FragColor = vec4(mix(fragColor.rgb, uFogColor, fogF), fragColor.a);\n    } else gl_FragColor = fragColor;\n#else\n    gl_FragColor = fragColor;\n#endif // HAS_FOG\n    \n}","players":[],"webGLoptions":{"preserveDrawingBuffer":true},"fastTransparency":true},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="çoklu-korelasyon-katsayısı" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="çoklu-korelasyon-katsayısı"><span class="header-section-number">3</span> Çoklu korelasyon katsayısı</h2>
+<ul>
+<li><p><span class="math inline">\(R^2\)</span> değeri <em>çoklu korelasyon katsayısı</em> (multiple correlation coefficient) olup bağımlı değişkenin gözlenen değerleri ile bağımsız değişkenlerin <em>en iyi doğrusal kombinasyonu</em> arasındaki korelasyondur.</p></li>
+<li><p><strong>En iyi doğrusal kombinasyon</strong>, bağımlı değişkenin bağımsız değişkenlerden yordanmasında, daha iyi bir iş yapacak regresyon katsayıları kümesi olmadığı anlamına gelir.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Performans <span class="sc">~</span> Motivasyon <span class="sc">+</span> Kaygi,<span class="at">data=</span>performans)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">glance</span>(model)[,<span class="dv">1</span>]) <span class="co">#r.squared değerinin karekoku alınır</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.9019952"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<ul>
+<li><p>R değeri bağımlı değişkenin <strong>gözlenen</strong> ve <strong>yordanan</strong> değerleri arasındaki <strong>korelasyondur</strong>.</p></li>
+<li><p>Bağımlı değişkenin <strong>yordanan değerinin</strong> bağımlı değişkenin <strong>gözlenen değerine</strong> mümkün olduğunca yakın olmasını gerektiren <strong>en küçük kareler kriterinden</strong> dolayı bağımlı değişkenin <strong>gözlenen ve yordanan değerleri arasındaki korelasyon eksi değerler</strong> alamaz. Dolayısıyla çoklu korelasyon katsayısı 0 ile 1 arasında değişir</p></li>
+</ul>
+<p><strong>Çoklu Korelasyon Formulu</strong> <span class="math display">\[R_{Y_{12}}= \sqrt{\frac{r^2_{Y_1}+r^2_{Y_2}-2r^2_{Y_1}r^2_{Y_2}r_{12}}{1-r_{12}}}\]</span> <span class="math display">\[R_{Y_{12}}=\sqrt{\frac{(0.824)^2+(-0.241)^2-2*(0.824)(-0.241)(0.147)}{1-(0.147)^2}}) = 0.902\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>model_s <span class="ot">&lt;-</span> <span class="fu">augment</span>(model,<span class="at">data=</span>performans)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(model_s[,<span class="dv">1</span>], model_s[,<span class="dv">5</span>]) <span class="co"># Y ve Y' arası korelasyon</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             .fitted
+Performans 0.9019952</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(outliers)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>model_s<span class="sc">$</span>.resid <span class="sc">%&gt;%</span> <span class="fu">scores</span>(<span class="at">type =</span> <span class="st">"z"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1.45276239 -0.81583220 -0.92417187  0.58361096 -0.21178695 -1.39503047
+ [7] -0.46313334 -1.03126421  1.07754165 -0.07749693  2.31059738 -0.34324063
+[13]  0.20727527 -0.07285515 -0.29697589
+attr(,"format.spss")
+[1] "F8.2"
+attr(,"display_width")
+[1] 9</code></pre>
+</div>
+</div>
+<p>öğrencilerin <strong>gözlenen performans puanları</strong> ve <strong>yoradan performans puanları</strong> arasındaki korelasyon katsayısı nokta <strong>0.902</strong> eşittir</p>
+</section>
+<section id="belirlilik-katsayısı" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="belirlilik-katsayısı"><span class="header-section-number">4</span> Belirlilik Katsayısı</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Performans <span class="sc">~</span> Motivasyon <span class="sc">+</span> Kaygi,<span class="at">data=</span>performans)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)[,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.8135954"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><strong>Performans puanlarındaki varyansın yaklaşık %81’i öğrencilerin motivasyon ve kaygı puanları</strong> tarafından açıklanabilir.</p>
+<ul>
+<li><p>Modele yeni bir bağımsız değişken eklendiğinde, <span class="math inline">\(R^2\)</span> değeri artar, sadece <strong>şans eseri olsa bile</strong>. Böylece daha fazla bağımsız değişken içeren model sadece daha fazla bağımsız değişken içerdiği için veriye daha iyi uyum sağlıyor gibi gözükebilir.</p></li>
+<li><p><span class="math inline">\(\text{adj}{R^2}\)</span> değeri, <span class="math inline">\(R^2\)</span> değerinin modeldeki bağımsız değişken sayısı için modifiye edilmiş versiyonudur. <span class="math inline">\(\text{adj}{R^2}\)</span> değeri, yeni eklenen bağımsız değişken modeli şans eseri beklenenden daha fazla geliştirirse artar, daha az geliştirirse azalır.</p></li>
+<li><p><span class="math inline">\(\text{adj}{R^2}\)</span> değeri, eksi değerler alabilir ancak genellikle artı değerler alır. Her zaman <span class="math inline">\(R^2\)</span> değerinden daha düşüktür.</p></li>
+<li><p><span class="math inline">\(R^2\)</span> değeri, <span class="math inline">\(n\)</span> gözlemlerin sayısı, <span class="math inline">\(k\)</span> bağımsız değişkenlerin sayısı olmak üzere, aşağıdaki eşitlikle hesaplanabilir. <span class="math display">\[R^2_{adj}= R^2 - \frac{k-(1-R^2)}{n-k-1}\]</span> <span class="math display">\[R^2_{adj}= 0.814 - \frac{2-(1-0.814)}{15-2-1} =0.783\]</span></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)[,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["adj.r.squared"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.7825279"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(adj R^2\)</span> evrende gerçek korelasyonun karesinin daha az yanlı kestirimi olsa da, çoğunlukla <span class="math inline">\(R^2\)</span> değeri rapor edilir.</p>
+</section>
+<section id="kestirimin-standart-hatası" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="kestirimin-standart-hatası"><span class="header-section-number">5</span> Kestirimin standart hatası</h2>
+<ul>
+<li><strong>Kestirimin standart hatası</strong> (standard error of the estimation), modeldeki artıkların karelerinin toplamının, <span class="math inline">\(n-p\)</span> ( <span class="math inline">\(n\)</span> örneklem büyüklüğü ve <span class="math inline">\(p\)</span> modeldeki parametrelerin sayısı) ile bölünmesiyle elde edilen bölümün kareköküdür.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(outliers)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> model<span class="sc">$</span>residuals</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>model_s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Performans"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Motivasyon"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Kaygi"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Guven"],"name":[4],"type":["dbl"],"align":["right"]},{"label":[".fitted"],"name":[5],"type":["dbl"],"align":["right"]},{"label":[".resid"],"name":[6],"type":["dbl"],"align":["right"]},{"label":[".hat"],"name":[7],"type":["dbl"],"align":["right"]},{"label":[".sigma"],"name":[8],"type":["dbl"],"align":["right"]},{"label":[".cooksd"],"name":[9],"type":["dbl"],"align":["right"]},{"label":[".std.resid"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"12.370656","2":"22","3":"15.44891","4":"14.10","5":"7.460803","6":"4.9098531","7":"0.30124395","8":"3.376533","9":"0.3720388586","10":"1.60900874"},{"1":"4.111637","2":"25","3":"19.81394","4":"8.75","5":"6.868878","6":"-2.7572412","7":"0.25013643","8":"3.689934","9":"0.0845952725","10":"-0.87224065"},{"1":"21.626644","2":"50","3":"18.62226","4":"24.50","5":"24.750038","6":"-3.1233932","7":"0.13877029","8":"3.675256","9":"0.0456557983","10":"-0.92197650"},{"1":"24.921325","2":"47","3":"18.19779","4":"25.85","5":"22.948914","6":"1.9724107","7":"0.10259643","8":"3.760741","9":"0.0123975397","10":"0.57036931"},{"1":"26.087849","2":"46","3":"10.72025","4":"26.30","5":"26.803619","6":"-0.7157694","7":"0.28693305","8":"3.804203","9":"0.0072318650","10":"-0.23219917"},{"1":"17.701172","2":"40","3":"11.16471","4":"21.00","5":"22.415911","6":"-4.7147384","7":"0.22000567","8":"3.456371","9":"0.2010714079","10":"-1.46239460"},{"1":"10.271852","2":"31","3":"18.41358","4":"12.05","5":"11.837088","6":"-1.5652365","7":"0.12639756","8":"3.779197","9":"0.0101497437","10":"-0.45874964"},{"1":"18.898337","2":"55","3":"28.16944","4":"28.25","5":"22.383666","6":"-3.4853296","7":"0.49052869","8":"3.517058","9":"0.5742444279","10":"-1.33763210"},{"1":"19.199757","2":"37","3":"19.06707","4":"25.35","5":"15.558025","6":"3.6417319","7":"0.07741532","8":"3.637369","9":"0.0301727237","10":"1.03862208"},{"1":"17.750881","2":"40","3":"18.41520","4":"22.00","5":"18.012795","6":"-0.2619138","7":"0.06703942","8":"3.811902","9":"0.0001321614","10":"-0.07428129"},{"1":"35.501164","2":"54","3":"18.29806","4":"38.70","5":"27.692114","6":"7.8090497","7":"0.20915333","8":"2.743608","9":"0.5101063428","10":"2.40549655"},{"1":"18.041012","2":"38","3":"14.19831","4":"18.90","5":"19.201051","6":"-1.1600390","7":"0.11416684","8":"3.794625","9":"0.0048973985","10":"-0.33763646"},{"1":"11.358237","2":"37","3":"27.13627","4":"15.35","5":"10.657716","6":"0.7005214","7":"0.34867968","8":"3.803786","9":"0.0100893763","10":"0.23778080"},{"1":"24.256134","2":"47","3":"15.63978","4":"22.85","5":"24.502360","6":"-0.2462261","7":"0.12965315","8":"3.811948","9":"0.0002595678","10":"-0.07230040"},{"1":"10.542368","2":"30","3":"17.76272","4":"20.50","5":"11.546048","6":"-1.0036796","7":"0.13728018","8":"3.798833","9":"0.0046477487","10":"-0.29601445"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">sum</span>((res <span class="sc">-</span> <span class="fu">mean</span>(res)) <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> (<span class="fu">length</span>(res)<span class="sc">-</span><span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.650458</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)[,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["sigma"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"3.650458"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="model-veri-uyumu" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="model-veri-uyumu"><span class="header-section-number">6</span> Model veri uyumu</h2>
+<ul>
+<li>Modelin veriye iyi uyup uymadığının test edilmesinde kullanılacak <strong>F</strong> değeri varyans analizi sonucunda elde edilir.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)[,<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>] <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: right;">df</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">26.188</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li><p>F istatistiği 26.2 değerine eşittir ve istatistiğe ilişkin p &lt; 0.001. Bu olasılık 0.05’ten küçük olduğundan, sıfır hipotezi reddedilir.</p></li>
+<li><p>Bu sonuç <strong>motivasyon ve kaygı değişkenlerinin ikisi birlikte kullanıldığında, çoklu korelasyon katsayısının anlamlı olarak sıfırdan büyük olduğunu</strong> ifade etmektedir. Diğer bir ifadeyle, motivasyon ve kaygı değişkenleri performansı istatistiksel olarak anlamlı bir şekilde yordamaktadır.</p></li>
+<li><p><strong>Regresyon modeli veriye iyi uyum sağlamaktadır.</strong></p></li>
+<li><p>Model sonuçları</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model) <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">1.744</td>
+<td style="text-align: right;">5.096</td>
+<td style="text-align: right;">0.342</td>
+<td style="text-align: right;">0.738</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Motivasyon</td>
+<td style="text-align: right;">0.686</td>
+<td style="text-align: right;">0.098</td>
+<td style="text-align: right;">6.975</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kaygi</td>
+<td style="text-align: right;">-0.607</td>
+<td style="text-align: right;">0.207</td>
+<td style="text-align: right;">-2.936</td>
+<td style="text-align: right;">0.012</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Performans puanlarındaki farklılıkların <strong>bir kısmı motivasyon puanlarındaki farklılıklardan</strong>, <strong>bir kısmı ise kaygı puanlarındaki farklılıklardan</strong> kaynaklanmaktadır</p>
+</section>
+<section id="kaygının-sabit-tutulması" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="kaygının-sabit-tutulması"><span class="header-section-number">7</span> Kaygının sabit tutulması</h2>
+<ul>
+<li><strong>Performansın</strong> sadece <strong>kaygıdan yordandığı basit regresyon analizi</strong> gerçekleştirilirse, yordanan puanlar ve gözlenen puanlar arasındaki fark <strong>(artıkPER1)</strong>, <strong>performansın kaygıdan yordanamayan kısmı</strong> olacaktır.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>artıkPER1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Performans <span class="sc">~</span>  Kaygi,<span class="at">data=</span>performans)<span class="sc">$</span>residuals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong>Motivasyonun</strong> sadece <strong>kaygıdan yordandığı basit regresyon analizi</strong> gerçekleştirilirse, yordanan puanlar ve gözlenen puanlar arasındaki fark <strong>(artıkMOT)</strong>, <strong>motivasyonun kaygıdan yordanamayan kısmı</strong> olacaktır.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>artıkMOT <span class="ot">&lt;-</span> <span class="fu">lm</span>(Motivasyon  <span class="sc">~</span>  Kaygi,<span class="at">data=</span>performans)<span class="sc">$</span>residuals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Böylece <strong>artıkPER1</strong> ve <strong>artıkMOT</strong> olarak adlandırılan artık puanlar kaygıdan bağımsız olacaktır.</p></li>
+<li><p>Diğer bir ifadeyle, <strong>kaygı ilişkilerinde</strong> herhangi bir rol oynamayacaktır. <strong>artıkPER1</strong> puanları <strong>artıkMOT</strong> puanlarından yordanırsa, <strong>artıkMOT</strong> puanlarına ilişkin eğim katsayısı <strong>0.686</strong> olarak kestirilecektir. Bu değer, <strong>öğrencilerin kaygı düzeyleri kontrol altına</strong> alındıktan sonra, <strong>motivasyon düzeylerindeki bir birimlik</strong> artışın matematikteki <strong>performans düzeylerini 0.686</strong> birim artırmaya eğilimli olduğunu önermektedir</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(artıkPER1  <span class="sc">~</span>  artıkMOT,</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">data=</span><span class="fu">data.frame</span>(artıkPER1,artıkMOT))<span class="sc">$</span>coefficients <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">artıkMOT</td>
+<td style="text-align: right;">0.686</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li><p><span class="math display">\[B_{Y_{12}} = \frac{r_{Y1}-r_{Y2}r_{12}}{1-r^2_{12}}\frac{sd_Y}{sd_1}\]</span></p></li>
+<li><p><span class="math display">\[B_{Y_{12}} = \frac{(0.824)-(-0.241)(0.147)}{1-(0.022)}\frac{7.827}{10.025} = 0.879 * 0.780 =0.686\]</span></p></li>
+<li><p>Bu değer, <strong>kaygı puanı kontrol altına alındıktan sonra</strong>, <strong>motivasyon</strong> puanlarındaki <strong>bir birimlik artışın</strong> öğrencilerin <strong>matematik performansından 0.686</strong> birim artmaya eğilimi olduğunu önermektedir.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>((<span class="fu">cor</span>(performans)[<span class="dv">2</span>,<span class="dv">1</span>] <span class="sc">-</span> <span class="fu">cor</span>(performans)[<span class="dv">3</span>,<span class="dv">1</span>]<span class="sc">*</span><span class="fu">cor</span>(performans)[<span class="dv">2</span>,<span class="dv">3</span>])<span class="sc">/</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>   (<span class="dv">1</span><span class="sc">-</span><span class="fu">cor</span>(performans)[<span class="dv">2</span>,<span class="dv">3</span>]<span class="sc">^</span><span class="dv">2</span>))<span class="sc">*</span>(<span class="fu">sd</span>(performans<span class="sc">$</span>Performans)<span class="sc">/</span><span class="fu">sd</span>(performans<span class="sc">$</span>Motivasyon))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6862988</code></pre>
+</div>
+</div>
+</section>
+<section id="motivasyonun-sabit-tutulması" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="motivasyonun-sabit-tutulması"><span class="header-section-number">8</span> Motivasyonun sabit tutulması</h2>
+<ul>
+<li><strong>Performansın</strong> sadece <strong>motivasyondan</strong> yordandığı basit regresyon analizi gerçekleştirilirse, yordanan puanlar ve gözlenen puanlar arasındaki fark <strong>(artıkPER2)</strong>, <strong>performansın motivasyondan</strong> yordanamayan kısmı olacaktır.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>artıkPER2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Performans <span class="sc">~</span>  Motivasyon ,<span class="at">data=</span>performans)<span class="sc">$</span>residuals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong>Kaygının</strong> sadece <strong>motivasyondan</strong> yordandığı basit regresyon analizi<br>
+gerçekleştirilirse, yordanan puanlar ve gözlenen puanlar arasındaki fark <strong>(artıkKAY)</strong>, <strong>kaygının motivasyondan</strong> yordanamayan kısmı olacaktır.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>artıkKAY <span class="ot">&lt;-</span> <span class="fu">lm</span>(Kaygi <span class="sc">~</span>  Motivasyon ,<span class="at">data=</span>performans)<span class="sc">$</span>residuals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Böylece <strong>artıkPER2</strong> ve <strong>artıkKAY</strong> olarak adlandırılan artık puanlar motivasyondan bağımsız olacaktır. Diğer bir ifadeyle, <strong>motivasyon ilişkilerinde herhangi bir rol</strong> oynamayacaktır.</p></li>
+<li><p><strong>artıkPER2</strong> puanları <strong>artıkKAY</strong> puanlarından yordanırsa, <strong>artıkKAY</strong> puanlarına ilişkin eğim katsayısı <strong>-0.607</strong> olarak kestirilecektir. Bu değer, <strong>öğrencilerin motivasyon düzeyleri kontrol altına alındıktan sonra</strong>, kaygı düzeylerindeki <strong>bir birimlik</strong> artışın matematikteki performans düzeylerini <strong>0.607</strong> birim azaltmaya eğilimli olduğunu önermektedir</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(artıkPER2  <span class="sc">~</span>  artıkKAY,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">data=</span><span class="fu">data.frame</span>(artıkPER2,artıkKAY))<span class="sc">$</span>coefficients <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">artıkKAY</td>
+<td style="text-align: right;">-0.607</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span class="math display">\[
+B_{Y_{21}} = \frac{r_{Y2}-r_{Y1}r_{12}}{1-r^2_{12}}\frac{sd_Y}{sd_2}
+\]</span></p>
+<p><span class="math display">\[B_{Y_{12}} = \frac{(-0.241)-(0.824)(0.147)}{1-(0.022)}\frac{7.827}{4.769}=(-0.370)*(1.641) =-0.607\]</span></p>
+<p>Bu değer, <strong>motivasyon puanı kontrol altına alındıktan sonra</strong>, kaygı puanlarındaki <strong>bir birimlik</strong> artışın öğrencilerin matematik performansından <strong>0.607</strong> birim azaltmaya eğilimli olduğunu önermektedir.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>((<span class="fu">cor</span>(performans)[<span class="dv">3</span>,<span class="dv">1</span>] <span class="sc">-</span> <span class="fu">cor</span>(performans)[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">*</span><span class="fu">cor</span>(performans)[<span class="dv">2</span>,<span class="dv">3</span>])<span class="sc">/</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>   (<span class="dv">1</span><span class="sc">-</span><span class="fu">cor</span>(performans)[<span class="dv">2</span>,<span class="dv">3</span>]<span class="sc">^</span><span class="dv">2</span>))<span class="sc">*</span>(<span class="fu">sd</span>(performans<span class="sc">$</span>Performans)<span class="sc">/</span><span class="fu">sd</span>(performans<span class="sc">$</span>Kaygi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.6072857</code></pre>
+</div>
+</div>
+</section>
+<section id="regresyon-sabiti" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="regresyon-sabiti"><span class="header-section-number">9</span> Regresyon Sabiti</h2>
+<p><span class="math display">\[
+B_0 = M_Y - B_{Y12}*M_1 -B_{Y21}*M_2
+\]</span> <span class="math display">\[B_0 = 18.176  - (0.686)*(39.933) -(-0.607)*(18.701) = 1.744\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(performans<span class="sc">$</span>Performans)<span class="sc">-</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>coefficients[<span class="dv">2</span>]<span class="sc">*</span><span class="fu">mean</span>(performans<span class="sc">$</span>Motivasyon)<span class="sc">-</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>coefficients[<span class="dv">3</span>]<span class="sc">*</span><span class="fu">mean</span>(performans<span class="sc">$</span>Kaygi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Motivasyon 
+  1.744129 </code></pre>
+</div>
+</div>
+<p>Bu değer hem motivasyon puanı hem de kaygı puanı 0’a eşit olduğunda yordanan performans puanıdır.</p>
+<ul>
+<li>Böylece yordanan performans puanı</li>
+</ul>
+<p><span class="math display">\[Y_{\text{performans}_i} = 1.744 + 0.686 X_{\text{motivasyon}_i} -  0.607 X_{\text{kaygi}_i}\]</span></p>
+</section>
+<section id="standart-puanlar-ile-regresyon" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="standart-puanlar-ile-regresyon"><span class="header-section-number">10</span> Standart puanlar ile regresyon</h2>
+<ul>
+<li>Çoklu regresyon eşitliğini elde etmeden önce değişkenlerin her biri <strong>standartlaştırılırsa</strong> (değişkenlerin her birinin ortalaması 0, standart sapması 1 olacak şekilde ayarlanırsa), sonuçlar <strong>standart sapma</strong> birimlerince ifade edilir.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(QuantPsyc)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm.beta</span>(model) <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Motivasyon</td>
+<td style="text-align: right;">0.879</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kaygi</td>
+<td style="text-align: right;">-0.370</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>Böylece örnekte standartlaştırılmış değişkenler kullanıldığında, yordanan standartlaştırılmış performans düzeyleri aşağıdaki eşitlikle hesaplanabilir:</li>
+</ul>
+<p><span class="math display">\[Y_\text{Zperformans_i} = 0.879 X_\text{Zmotivasyon_i} + -0.370 X_\text{Zkaygi_i}\]</span></p>
+<ul>
+<li>Motivasyonun standartlaştırılmış eğim katsayısının mutlak değeri, kaygının standartlaştırılmış eğim katsayının mutlak değerinden daha büyük olduğundan, motivasyonun öğrencilerin matematikteki performanslarını yordamada kaygıya göre daha önemli bir yordayıcı olduğu söylenebilir.</li>
+</ul>
+<p><strong>|0.879| &gt; |-0.307|</strong></p>
+<ul>
+<li><p>Ancak bağımsız değişkenlerin <strong>standartlaştırılmamış eğim katsayılarını karşılaştırmak uygun değildir.</strong></p></li>
+<li><p>NOT: Bağımsız değişkenler arasında korelasyon olduğunda, <strong>standartlaştırılmış eğim katsayısı</strong> bağımlı değişken ile bağımsız değişken arasındaki <strong>korelasyon katsayısı değildir.</strong></p></li>
+</ul>
+</section>
+<section id="yordanan-ve-artık-değerler" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="yordanan-ve-artık-değerler"><span class="header-section-number">11</span> Yordanan ve Artık Değerler</h2>
+<ul>
+<li>Öğrencilerin <strong>standratlaştırılmamış yordanan matematik performans düzeyleri</strong> ve <strong>standartlaştırılmamış artıkları</strong> modelden çekilebilir.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">gercek =</span> performans<span class="sc">$</span>Performans,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">yordanan =</span> model<span class="sc">$</span>fitted.values,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">artik =</span> model<span class="sc">$</span>residuals) <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">gercek</th>
+<th style="text-align: right;">yordanan</th>
+<th style="text-align: right;">artik</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">12.371</td>
+<td style="text-align: right;">7.461</td>
+<td style="text-align: right;">4.910</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.112</td>
+<td style="text-align: right;">6.869</td>
+<td style="text-align: right;">-2.757</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">21.627</td>
+<td style="text-align: right;">24.750</td>
+<td style="text-align: right;">-3.123</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">24.921</td>
+<td style="text-align: right;">22.949</td>
+<td style="text-align: right;">1.972</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">26.088</td>
+<td style="text-align: right;">26.804</td>
+<td style="text-align: right;">-0.716</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">17.701</td>
+<td style="text-align: right;">22.416</td>
+<td style="text-align: right;">-4.715</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10.272</td>
+<td style="text-align: right;">11.837</td>
+<td style="text-align: right;">-1.565</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">18.898</td>
+<td style="text-align: right;">22.384</td>
+<td style="text-align: right;">-3.485</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">19.200</td>
+<td style="text-align: right;">15.558</td>
+<td style="text-align: right;">3.642</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">17.751</td>
+<td style="text-align: right;">18.013</td>
+<td style="text-align: right;">-0.262</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.501</td>
+<td style="text-align: right;">27.692</td>
+<td style="text-align: right;">7.809</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">18.041</td>
+<td style="text-align: right;">19.201</td>
+<td style="text-align: right;">-1.160</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.358</td>
+<td style="text-align: right;">10.658</td>
+<td style="text-align: right;">0.701</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">24.256</td>
+<td style="text-align: right;">24.502</td>
+<td style="text-align: right;">-0.246</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10.542</td>
+<td style="text-align: right;">11.546</td>
+<td style="text-align: right;">-1.004</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>Örneğin, ilk öğrenci için standratlaştırılmamış yordanan değer yaklaşık <strong>7.46</strong>, artık ise yaklaşık <strong>4.910</strong>’tir.</li>
+</ul>
+<section id="yordanan-ve-artık-değerlerin-standart-puanları" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="yordanan-ve-artık-değerlerin-standart-puanları"><span class="header-section-number">11.1</span> Yordanan ve Artık Değerlerin Standart Puanları</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(outliers)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>yordanan_s <span class="ot">&lt;-</span> model<span class="sc">$</span>fitted.values <span class="sc">%&gt;%</span> <span class="fu">scores</span>(<span class="at">type =</span> <span class="st">"z"</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>artik_s <span class="ot">&lt;-</span> model<span class="sc">$</span>residuals <span class="sc">%&gt;%</span> <span class="fu">scores</span>(<span class="at">type =</span> <span class="st">"z"</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(yordanan_s,artik_s)  <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digit=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">yordanan_s</th>
+<th style="text-align: right;">artik_s</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">-1.518</td>
+<td style="text-align: right;">1.453</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">-1.601</td>
+<td style="text-align: right;">-0.816</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.931</td>
+<td style="text-align: right;">-0.924</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.676</td>
+<td style="text-align: right;">0.584</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1.222</td>
+<td style="text-align: right;">-0.212</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.601</td>
+<td style="text-align: right;">-1.395</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">-0.898</td>
+<td style="text-align: right;">-0.463</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.596</td>
+<td style="text-align: right;">-1.031</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">-0.371</td>
+<td style="text-align: right;">1.078</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">-0.023</td>
+<td style="text-align: right;">-0.077</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1.348</td>
+<td style="text-align: right;">2.311</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.145</td>
+<td style="text-align: right;">-0.343</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">-1.065</td>
+<td style="text-align: right;">0.207</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.896</td>
+<td style="text-align: right;">-0.073</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">-0.939</td>
+<td style="text-align: right;">-0.297</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>Öğrencilerin <strong>standratlaştırılmış yordanan matematik performans düzeyleri</strong> ve <strong>standartlaştırılmış artıkları</strong> modelden çekilebilir.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'car'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    some</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:boot':
+
+    logit</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    recode</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">avPlots</span>(model) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_CR_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/atalay-k\.github\.io\/2026_OLC731\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
