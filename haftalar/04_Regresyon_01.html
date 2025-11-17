@@ -295,7 +295,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Netlik sağlamak için, eksenlerine okunabilir etiketler vermek önemlidir. Bunu <code>labs()</code> işleviyle yapabiliriz. Eksen etiketlerine gerekli birimleri dahil etmek iyi bir veri görselleştirme uygulamasıdır!</p>
+<p>Netlik sağlamak için, eksenlerine okunabilir etiketler vermek önemlidir. Bunu <code>labs()</code> fonksiyonu ile yapabiliriz. Eksen etiketlerine gerekli birimleri dahil etmek önemlidir.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> possum, <span class="fu">aes</span>(<span class="at">y =</span> total_l, <span class="at">x =</span> tail_l)) <span class="sc">+</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
@@ -316,7 +316,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Bu grafiğe regresyon eğrisinin denklemini yazarak devam edelim. ggpubr paketini kullanabiliriz</p>
+<p>Bu grafiğe regresyon eğrisinin denklemini yazarak devam edelim. <code>ggpubr</code> paketini kullanabiliriz</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr) </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -348,7 +348,7 @@ unreliable</code></pre>
 </div>
 </div>
 </div>
-<p>ggscatter fonksiyonu ile saçılım grafiği oluşturabiliriz. Bu fonksiyon, regresyon çizgisi, güven aralığı ve korelasyon katsayısı gibi ek özellikleri kolayca eklememizi sağlar.</p>
+<p><code>ggscatter</code> fonksiyonu ile saçılım grafiği oluşturabiliriz. Bu fonksiyon, regresyon çizgisi, güven aralığı ve korelasyon katsayısı gibi ek özellikleri kolayca eklememizi sağlar.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(possum, <span class="at">x =</span> <span class="st">"tail_l"</span>, <span class="at">y =</span> <span class="st">"total_l"</span>,</span>
@@ -369,7 +369,7 @@ unreliable</code></pre>
 <section id="kutu-grafikleriyle-bağlantı" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="kutu-grafikleriyle-bağlantı"><span class="header-section-number">1.2</span> Kutu Grafikleriyle Bağlantı</h2>
 <p>Bir saçılım grafiğini yan yana kutu grafiklerinin sürekli bir genellemesi olarak düşünülebilir.</p>
-<p>Burada, orijinal <code>taill</code> değişkeni üzerinde <code>cut()</code> işlevini kullanarak <code>tail_cut</code> adında yeni bir değişken oluşturuyoruz. Daha sonra bu yeni değişkeni orijinal <code>possum</code> veri kümesine geri kaydediyoruz.</p>
+<p>Burada, orijinal <code>tail_l</code> değişkeni üzerinde <code>cut()</code> fonsiyonunu kullanarak <code>tail_cut</code> adında yeni bir değişken oluşturuyoruz. Daha sonra bu yeni değişkeni orijinal <code>possum</code> veri kümesine geri kaydediyoruz.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>possum <span class="ot">&lt;-</span> possum <span class="sc">%&gt;%</span>    </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tail_cut =</span> <span class="fu">cut</span>(tail_l, <span class="at">breaks =</span> <span class="dv">5</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -399,7 +399,7 @@ unreliable</code></pre>
 </div>
 </div>
 <p>Bir saçılım grafiğinin kayda değer bir özelliği, ham verilerle olan bağlantısıdır. Bir kutu grafiği ise, yalnızca verilerin özetlerini çizerek ham verilerden tamamen kopuktur. Bu bağlantıyı yeniden kurmak için, orijinal veri noktalarını kutu grafiklerinin üzerine katmanlayabiliriz, sadece <code>ggplot()</code>’ımıza bir katman daha ekleyerek!</p>
-<p>Aşağıdaki kodun birkaç bölümünü inceleyelim. İlk olarak, kutu grafiklerine <code>outlier.alpha = 0</code> ekledik, böylece “aykırı” noktalar çizilmez (bunları iki kez çizmek istemiyoruz). <code>geom_point()</code> işlevi yerine <strong><code>geom_jitter()</code></strong> işlevini kullandık, çünkü noktalar üst üste çiziliyor. Jittering’i, üst üste çizilmiş grafiği (noktaların çakıştığı yer) alıp ona küçük bir sallama vermek olarak düşünebilirsin. Jittering, noktaları biraz yanlara ve yukarı-aşağı hareket ettirecek, ancak orijinal grafikteki konumları önemli ölçüde değişmeyecektir.</p>
+<p>Aşağıdaki kodun birkaç bölümünü inceleyelim. İlk olarak, kutu grafiklerine <code>outlier.alpha = 0</code> ekledik, böylece “aykırı” noktalar çizilmez (bunları iki kez çizmek istemiyoruz). <code>geom_point()</code> fonksiyonu yerine <strong><code>geom_jitter()</code></strong> fonksiyonunu kullandık, çünkü noktalar üst üste çiziliyor. Jittering’i, üst üste çizilmiş grafiği (noktaların çakıştığı yer) alıp ona küçük bir sallama vermek olarak düşünebilirsin. Jittering, noktaları biraz yanlara ve yukarı-aşağı hareket ettirecek, ancak orijinal grafikteki konumları önemli ölçüde değişmeyecektir.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> possum, <span class="fu">aes</span>(<span class="at">y =</span> total_l, <span class="at">x =</span> tail_cut)) <span class="sc">+</span>  </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.alpha =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
@@ -434,13 +434,13 @@ unreliable</code></pre>
 </div>
 </div>
 <p>Yardımcı olursa, kutu grafiklerini, x-eksenindeki değişkenin ayrıklaştırıldığı saçılım grafikleri olarak düşünebilirsin.</p>
-<p><code>cut()</code> işlevi iki argüman alır: ayrıklaştırmak istediğin sürekli değişken ve bu sürekli değişkeni ayrıklaştırmak için yapmak istediğin <code>breaks</code> sayısı.</p>
-<p>Öncelikle, orijinal <code>weeks</code> değişkenini ayrıklaştıran <code>weeks_cut</code> adında yeni bir değişken oluşturacağız. Dört kesme noktası belirterek <code>cut()</code> işlevini kullanacağız.</p>
+<p><code>cut()</code> fonksiyonun iki argümanı vardır: ayrıklaştırmak istediğin sürekli değişken ve bu sürekli değişkeni ayrıklaştırmak için yapmak istediğin <code>breaks</code> sayısı.</p>
+<p>Öncelikle, orijinal <code>weeks</code> değişkenini ayrıklaştıran <code>weeks_cut</code> adında yeni bir değişken oluşturacağız. Dört kesme noktası belirterek <code>cut()</code> fonksiyonunu kullanacağız.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ncbirths <span class="ot">&lt;-</span> ncbirths <span class="sc">%&gt;%</span> </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weeks_cut =</span> <span class="fu">cut</span>(weeks, <span class="at">breaks =</span> <span class="dv">4</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Şimdi, yeni <code>weeks_cut</code> değişkenini kullanarak, bu bebeklerin doğum ağırlığının gebelik haftası sayısına göre nasıl değiştiğini gösteren yan yana kutu grafikleri yap.</p>
+<p>Şimdi, yeni <code>weeks_cut</code> değişkenini kullanarak, bu bebeklerin doğum ağırlığının gebelik haftasına göre nasıl değiştiğini gösteren yan yana kutu grafikleri yap.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ncbirths,       </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> weeks_cut, <span class="at">y =</span> weight)) <span class="sc">+</span>  </span>
@@ -609,7 +609,7 @@ Attaching package: 'dplyr'</code></pre>
 <p>Önceki saçılım grafiğimizi hem vücut ağırlığının (<code>body_wt</code>) hem de beyin ağırlığının (<code>brain_wt</code>) logaritmasını (taban-10) alarak dönüştürmek için her iki yöntemi de kullanma pratiği yapalım.</p>
 <section id="coord_trans-kullanarak-dönüşüm" class="level3" data-number="1.4.1">
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="coord_trans-kullanarak-dönüşüm"><span class="header-section-number">1.4.1</span> <code>coord_trans()</code> Kullanarak Dönüşüm</h3>
-<p>İlk olarak, orijinal saçılım grafiğimizi hem x hem de y ekseninin <code>"log10"</code> ölçeğinde olması için değiştirmek üzere <code>coord_trans()</code> işlevini kullanalım.</p>
+<p>İlk olarak, orijinal saçılım grafiğimizi hem x hem de y ekseninin <code>"log10"</code> ölçeğinde olması için değiştirmek üzere <code>coord_trans()</code> fonksiyonunu kullanalım.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mammals, </span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> body_wt, <span class="at">y =</span> brain_wt)) <span class="sc">+</span> </span>
@@ -680,7 +680,7 @@ Removed 2 rows containing missing values or values outside the scale range
 </section>
 <section id="korelasyon" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Korelasyon</h1>
-<p><strong>Korelasyon</strong>, bu doğrusal ilişkinin gücünü sayısal olarak ifade etmenin bir yoludur.</p>
+<p><strong>Korelasyon</strong>, doğrusal ilişkinin gücünü sayısal olarak ifade etmenin bir yoludur.</p>
 <p><strong>Korelasyon katsayısı</strong>, doğrusal bir ilişkinin gücünü gösteren, -1 ile 1 arasında bir sayıdır. Korelasyon katsayısının <strong>işareti</strong> ilişkinin yönüne—pozitif veya negatif—karşılık gelir. Korelasyonun <strong>büyüklüğü</strong> ise gücüne karşılık gelir—0’a yakın değerler daha zayıf, 1 veya -1’e yakın değerler ise daha güçlüdür.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerekli paketler</span></span>
